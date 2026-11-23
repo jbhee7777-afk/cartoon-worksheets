@@ -1,0 +1,1481 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="우당탕탕 아이쿠·은하안전단·호기심딱지 공식 영상 110편의 학년별 수업 활동지. PDF 저장과 인쇄 지원."><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>만화 수업 활동지</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap">
+<style>
+/* Layout: 왼쪽은 유튜브식 영상 목록(썸네일 + 제목 + 학년 버튼), 오른쪽은 종이 활동지(넓은 화면에서 고정). 좁은 화면에서는 위아래로 쌓임 */
+:root{
+  --bg:#eef1f4;--paper:#ffffff;--ink:#1f2a37;--muted:#5d6b7a;--line:#cfd6de;
+  --accent:#ffd84d;--accent-ink:#5a4600;
+  --aiku:#e8702a;--galaxy:#4f5bd5;--curio:#2e9b6a;--pen:#c0392b;--chip:#e3e8ee;--on-sc:#ffffff;
+  --f-display:"Jua","Gowun Dodum",system-ui,sans-serif;
+  --f-body:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-pen:"Nanum Pen Script","Gowun Dodum",cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a21;--paper:#1d252e;--ink:#e6ebf0;--muted:#9aa8b6;--line:#34414e;
+  --accent:#ffd84d;--accent-ink:#2b2200;--aiku:#ff9150;--galaxy:#8d95ff;--curio:#4cc792;
+  --pen:#ff7a6b;--chip:#2a3541;--on-sc:#141a21;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a21;--paper:#1d252e;--ink:#e6ebf0;--muted:#9aa8b6;--line:#34414e;
+  --accent:#ffd84d;--accent-ink:#2b2200;--aiku:#ff9150;--galaxy:#8d95ff;--curio:#4cc792;
+  --pen:#ff7a6b;--chip:#2a3541;--on-sc:#141a21;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6}
+.wrap{max-width:1400px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.sr{position:absolute;left:-9999px}
+button{font:inherit}
+
+/* 머리말 */
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:52px;height:52px;border-radius:14px;background:var(--ink);display:grid;place-items:center;flex:none;position:relative;overflow:hidden}
+.logo i{position:absolute;width:22px;height:30px;border-radius:3px;background:var(--paper);transform:rotate(-8deg);left:10px;top:11px}
+.logo b{position:absolute;width:22px;height:30px;border-radius:3px;background:var(--accent);transform:rotate(7deg);left:20px;top:10px}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,4vw,36px);margin:0;line-height:1.15;text-wrap:balance}
+.sub{color:var(--muted);margin:2px 0 0;font-size:14px}
+.stats{display:flex;gap:8px;flex-wrap:wrap}
+.stat{display:flex;align-items:baseline;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:6px 12px;font-size:13px;color:var(--muted)}
+.stat b{font-family:var(--f-display);font-weight:400;font-size:20px;color:var(--sc,var(--ink));font-variant-numeric:tabular-nums}
+
+/* 검색 */
+.searchbar{display:grid;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:18px;box-shadow:0 1px 0 var(--line)}
+.sfield{position:relative}
+.sfield svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--muted)}
+.searchbar input{width:100%;font:inherit;font-size:16px;padding:12px 14px 12px 44px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+.searchbar input:focus{outline:none;border-color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip .dot{width:9px;height:9px;border-radius:50%;background:var(--sc,var(--ink))}
+.chip[aria-pressed="true"]{background:var(--sc,var(--ink));border-color:var(--sc,var(--ink));color:var(--on-sc)}
+.chip:not([class*="s-"])[aria-pressed="true"]{color:var(--paper)}
+.chip[aria-pressed="true"] .dot{background:var(--on-sc)}
+.hint{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 2px;align-items:center}
+.hint button{color:var(--ink);background:var(--chip);border:none;border-radius:6px;cursor:pointer;padding:1px 8px;margin-left:4px}
+.hint button:hover{background:var(--accent);color:var(--accent-ink)}
+
+main.grid{display:grid;grid-template-columns:minmax(0,500px) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:1000px){main.grid{grid-template-columns:minmax(0,1fr)}}
+@media (min-width:1001px){.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);max-height:calc(100vh - 24px);overflow-y:auto;padding:0 6px 12px 0}}
+
+/* 영상 목록 */
+.s-aiku{--sc:var(--aiku)}.s-galaxy{--sc:var(--galaxy)}.s-curio{--sc:var(--curio)}
+.list{display:flex;flex-direction:column;gap:8px}
+.count{font-size:13px;color:var(--muted);margin:0 0 2px}
+.item{display:grid;grid-template-columns:168px minmax(0,1fr);gap:14px;padding:10px;border-radius:14px;background:var(--paper);border:1px solid var(--line)}
+.item:hover{border-color:var(--sc)}
+.item.sel{border-color:var(--sc);box-shadow:inset 0 0 0 1px var(--sc)}
+@media (max-width:480px){.item{grid-template-columns:124px minmax(0,1fr);gap:10px}}
+.thumb{position:relative;display:block;border-radius:10px;overflow:hidden;aspect-ratio:16/9;max-width:100%;background:var(--chip);align-self:start}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .dur{position:absolute;right:5px;bottom:5px;background:rgba(0,0,0,.8);color:#fff;font-size:11px;padding:1px 5px;border-radius:4px;font-variant-numeric:tabular-nums}
+.thumb .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;background:rgba(0,0,0,.4);color:#fff;font-size:13px;font-weight:700}
+.thumb:hover .play,.thumb:focus-visible .play{opacity:1}
+.info{min-width:0;display:flex;flex-direction:column;gap:3px}
+.info h3{font-family:var(--f-display);font-weight:400;font-size:17px;margin:0;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.meta{font-size:12px;color:var(--muted)}
+.meta b{font-weight:700;color:var(--sc)}
+.topic{display:inline-block;font-size:12px;background:var(--chip);color:var(--ink);border-radius:5px;padding:0 6px;margin-right:4px}
+.grades{display:inline-flex;margin-top:6px;border:1.5px solid var(--ink);border-radius:9px;overflow:hidden;align-self:flex-start}
+.grade{font-size:12px;padding:4px 10px;border:none;background:transparent;color:var(--ink);cursor:pointer}
+.grade+.grade{border-left:1.5px solid var(--ink)}
+.grade:hover{background:var(--chip)}
+.grade[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.empty{background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:24px;text-align:center;color:var(--muted)}
+
+/* 도구 막대 */
+.side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px}
+.btn{font-size:14px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1.2}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:700}
+.btn.primary:hover{opacity:.9}
+.btn[disabled]{opacity:.55;cursor:progress}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:none;background:transparent;color:var(--muted);padding:8px 12px;font-size:14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--pen);color:var(--on-sc)}
+.tb-spacer{flex:1}
+.toast{font-size:13px;color:var(--muted);width:100%;padding:0 4px}
+.toast:empty{display:none}
+.toast.ok{color:var(--curio)}.toast.err{color:var(--pen)}
+.btn:focus-visible,.grade:focus-visible,.chip:focus-visible,input:focus-visible,.thumb:focus-visible,.seg button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* 활동지 */
+.sheet{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 18px 40px -26px rgba(15,25,40,.45)}
+.sheet .inner{padding:clamp(18px,3.4vw,34px);padding-top:18px}
+.band{background:var(--sc);color:var(--on-sc);padding:18px clamp(18px,3.4vw,34px) 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:end}
+.band .kick{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;font-weight:700}
+.band .kick span{background:rgba(255,255,255,.22);border-radius:6px;padding:2px 8px}
+.band .kick span.gr{background:var(--accent);color:var(--accent-ink)}
+.band h2{font-family:var(--f-display);font-weight:400;font-size:clamp(24px,3.4vw,32px);margin:6px 0 0;line-height:1.2;text-wrap:balance}
+.namebox{display:grid;grid-template-columns:auto 96px;gap:5px 8px;font-size:12px;background:#fff;color:#1f2a37;border-radius:8px;padding:8px 10px;align-self:end}
+.namebox span:nth-child(even){border-bottom:1px solid #1f2a37;min-height:20px}
+@media (max-width:560px){.band{grid-template-columns:minmax(0,1fr)}.namebox{grid-template-columns:auto minmax(0,1fr)}}
+.goalrow{display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;padding-bottom:16px;margin-bottom:18px;border-bottom:2px dashed var(--line)}
+.goalrow img{width:100%;border-radius:8px;display:block;aspect-ratio:16/9;object-fit:cover}
+.goalrow .gl{font-size:14px}
+.goalrow .gl b{display:inline-block;font-size:11px;letter-spacing:.04em;color:var(--sc);border:1.5px solid var(--sc);border-radius:5px;padding:0 6px;margin-right:6px}
+.goalrow .gl p{margin:0 0 4px}
+.goalrow .gl small{color:var(--muted);word-break:break-all}
+.goalrow .gl small a{color:var(--muted)}
+@media (max-width:460px){.goalrow{grid-template-columns:minmax(0,1fr)}.goalrow img{max-width:200px}}
+section.q{margin-bottom:24px}
+.q h4{font-family:var(--f-display);font-weight:400;font-size:20px;margin:0 0 10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.q h4 .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--sc);color:var(--on-sc);font-size:16px;flex:none}
+.q h4 small{font-family:var(--f-body);font-size:12px;color:var(--muted);flex-basis:100%;padding-left:40px;margin-top:-6px}
+.bank{display:flex;flex-wrap:wrap;gap:6px;align-items:center;border:1.5px solid var(--sc);border-radius:10px;padding:8px 10px;margin-bottom:12px;font-size:15px}
+.bank b{font-family:var(--f-display);font-weight:400;color:var(--sc);margin-right:4px}
+.bank span{background:var(--chip);border-radius:6px;padding:1px 9px}
+ol.fill{margin:0;padding-left:24px;display:flex;flex-direction:column;gap:12px;font-size:16px}
+ol.fill li::marker{color:var(--sc);font-weight:700}
+.blank{display:inline-block;border-bottom:2px solid var(--ink);min-width:5em;text-align:center;line-height:1.3;margin:0 3px}
+.ans{font-family:var(--f-pen);color:var(--pen);font-size:22px;line-height:1}
+.choose{white-space:nowrap}
+.choose span{padding:0 5px;border-radius:999px}
+.choose .pick{border:2px solid var(--pen);color:var(--pen)}
+table.ox{width:100%;border-collapse:collapse;font-size:15px}
+table.ox td{border-bottom:1px dashed var(--line);padding:9px 4px;vertical-align:middle}
+table.ox td.mark{width:110px;text-align:center;white-space:nowrap;color:var(--muted)}
+table.ox td.mark .box{display:inline-flex;gap:6px}
+table.ox td.mark .box i{display:inline-grid;place-items:center;width:28px;height:28px;border:1.5px solid var(--line);border-radius:7px;font-style:normal}
+table.ox td.mark .ans{font-size:26px}
+.prompt{margin:0 0 8px;font-size:16px}
+.lines{display:flex;flex-direction:column}
+.lines i{display:block;height:36px;border-bottom:1px solid var(--line)}
+.drawbox{border:2px dashed var(--sc);border-radius:14px;min-height:340px;margin-top:6px;position:relative}
+.drawbox::after{content:"✎ 그림 그리는 곳";position:absolute;right:12px;bottom:8px;font-size:12px;color:var(--muted);background:var(--paper);padding:0 4px}
+.drawbox.small{min-height:280px}
+.promise{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;align-items:end}
+.promise b{font-family:var(--f-display);font-weight:400;font-size:17px;color:var(--sc)}
+.promise i{display:block;height:34px;border-bottom:1px solid var(--line)}
+.case{margin-bottom:12px}
+.case q{font-weight:700}
+.hintline{font-size:13px;color:var(--pen);margin:0 0 4px}
+.self{display:grid;grid-template-columns:auto repeat(2,minmax(0,1fr));gap:8px 14px;align-items:center;font-size:14px;border-top:2px solid var(--ink);padding-top:12px}
+.self b{font-family:var(--f-display);font-weight:400;font-size:16px}
+.self span{display:flex;justify-content:space-between;gap:8px;background:var(--bg);border-radius:8px;padding:6px 10px}
+.self em{font-style:normal;letter-spacing:2px;color:var(--sc)}
+@media (max-width:560px){.self{grid-template-columns:minmax(0,1fr)}}
+
+/* 교사용 */
+.teacher{border:2px solid var(--pen);border-radius:12px;padding:18px 20px;background:var(--paper)}
+.teacher h3{font-family:var(--f-display);font-weight:400;color:var(--pen);font-size:21px;margin:0 0 12px}
+.std{display:grid;gap:10px;margin-bottom:14px}
+.std div{border-left:4px solid var(--pen);padding:2px 0 2px 12px}
+.std .subj{font-size:12px;font-weight:700;color:var(--muted)}
+.std p{margin:2px 0 0}
+.teacher dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;margin:0;font-size:14px}
+.teacher dt{font-weight:700;white-space:nowrap}
+.teacher dd{margin:0}
+.note{font-size:12px;color:var(--muted);margin:12px 0 0}
+
+/* PDF 만들기용(화면 밖) */
+.pdf-root{position:fixed;left:-20000px;top:0;
+  --bg:#f1f3f6;--paper:#fff;--ink:#1f2a37;--muted:#5d6b7a;--line:#cfd6de;--chip:#e6eaef;--pen:#c0392b;
+  --aiku:#e8702a;--galaxy:#4f5bd5;--curio:#2e9b6a;--accent:#ffd84d;--accent-ink:#5a4600;--on-sc:#fff;color:var(--ink)}
+.pdf-page{width:794px;height:1123px;background:#fff;position:relative;overflow:hidden;font-size:15px}
+.pdf-page .sheet{border:none;border-radius:0;box-shadow:none;overflow:visible}
+.pdf-page .inner{padding:22px 46px 0}
+.pdf-page .band{padding:22px 46px 18px}
+.pdf-page .cont{padding:28px 46px 0}
+.pdf-foot{position:absolute;left:46px;right:46px;bottom:22px;display:flex;justify-content:space-between;font-size:11px;color:#8a96a3;border-top:1px solid #dfe4ea;padding-top:6px}
+.pdf-page .teacher{margin:0}
+
+/* 진행 표시 */
+.busy{position:fixed;inset:0;background:rgba(15,20,28,.45);display:grid;place-items:center;z-index:50;padding:16px}
+.busy div{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px 22px;font-size:15px;max-width:340px;text-align:center}
+.busy progress{width:100%;margin-top:10px;accent-color:var(--ink)}
+
+@media (prefers-reduced-motion:no-preference){.item,.grade,.chip,.thumb .play,.btn{transition:background .15s,border-color .15s,opacity .15s}}
+@page{size:A4;margin:10mm}
+@media print{
+  :root,:root[data-theme="dark"]{--bg:#f1f3f6;--paper:#fff;--ink:#1f2a37;--muted:#5d6b7a;--line:#cfd6de;--chip:#e6eaef;--pen:#c0392b;--aiku:#e8702a;--galaxy:#4f5bd5;--curio:#2e9b6a;--accent:#ffd84d;--accent-ink:#5a4600;--on-sc:#fff;color-scheme:light}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff;font-size:14px}
+  .wrap{padding:0;max-width:none}
+  .searchbar,.list,.toolbar,header.top,.busy{display:none!important}
+  main.grid{display:block}
+  .side{position:static!important;max-height:none!important;overflow:visible!important;padding:0!important}
+  .sheet{border:none;box-shadow:none;border-radius:0}
+  section.q,.goalrow,.self,.case,ol.fill li,table.ox tr{break-inside:avoid}
+  .q h4{break-after:avoid}
+  .teacher{break-before:page;border-width:1.5px}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="logo" aria-hidden="true"><i></i><b></b></div>
+      <div><h1>만화 수업 활동지</h1><p class="sub">공식 영상 <span id="total"></span>편 · 썸네일을 누르면 영상, 학년을 누르면 활동지가 열려요</p></div></div>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <div class="searchbar">
+    <label for="q" class="sr">키워드 검색</label>
+    <div class="sfield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+    <input id="q" type="search" placeholder="키워드로 찾기 (예: 겨울안전, 여름방학, 횡단보도, 심장)" autocomplete="off"></div>
+    <div class="chips" id="seriesChips" role="group" aria-label="시리즈 고르기"></div>
+    <div class="hint" id="suggest"></div>
+  </div>
+
+  <main class="grid">
+    <div class="list" id="list" aria-live="polite"></div>
+    <div class="side" id="side"></div>
+  </main>
+</div>
+
+<script>
+/* 회차별 활동지 데이터. 빈칸은 [정답]. v=유튜브 영상 ID, ep=회차, w=계절·시기 */
+const T = [
+/* ───────── 우당탕탕 아이쿠 ───────── */
+{v:"aFJ9wRFqCoU",s:"aiku",ep:"1기 1화",t:"지구에 오신 걸 환영해요 왕자님!",topic:"교차로 안전",c:"traffic",d:"6:52",w:"봄 새학기 체험학습",kw:"교차로 신호등 자동차 우회전 건널목",
+ goal:"교차로에서 차가 오는 방향을 살피고 신호를 지켜 안전하게 건널 수 있다.",
+ f:["교차로는 여러 방향의 [길]이 만나는 곳이에요.","교차로에서는 자동차가 [여러 방향]에서 와요.","신호등이 초록불이어도 [돌아 나오는 차]가 있는지 살펴요.","건널 때는 차가 [멈춘] 것을 확인하고 건너요.","길을 건널 때는 [뛰지] 말고 걸어요."],
+ ox:[["교차로에서는 앞만 보고 건너면 된다.",0],["초록불에도 좌회전·우회전하는 차가 있을 수 있다.",1],["운전자와 눈을 맞추면 더 안전하다.",1]],
+ th:["교차로가 다른 길보다 위험한 까닭은 무엇일까요?","교차로를 건널 때 살펴야 할 방향을 모두 써 보세요.","우리 학교 근처 교차로를 떠올려 보고, 어린이에게 위험한 점과 바꿀 점을 제안해 보세요."],
+ ap:["교차로에서 좌우를 살피는 내 모습을 그려 보세요.","교차로 건너기 약속 3가지를 정해 보세요.","등굣길 교차로 지도를 그리고 위험한 곳에 표시해 보세요."],
+ tip:"1기 첫 회라서 등장인물 소개가 함께 나옵니다. 아이쿠 왕자가 지구에서 처음 겪는 일에 주목하게 하세요."},
+{v:"lXH7xL90wkA",s:"aiku",ep:"1기 2화",t:"어디로 건너지?",topic:"횡단보도 안전",c:"traffic",d:"6:52",w:"봄 새학기 체험학습",kw:"횡단보도 신호등 초록불 손들기 길건너기",
+ goal:"횡단보도에서 신호를 지키고 좌우를 살피며 건널 수 있다.",
+ f:["길은 [횡단보도]로 건너요.","신호등이 [초록불]일 때 건너요.","초록불이 켜져도 [좌우]를 살핀 뒤 건너요.","건널 때는 손을 들어 [운전자]에게 나를 알려요.","초록불이 깜빡이면 [다음 신호]를 기다려요."],
+ ox:[["초록불이 깜빡이면 뛰어서 건넌다.",0],["횡단보도에서는 오른쪽으로 걸으면 더 안전하다.",1],["길을 건널 때 스마트폰을 보지 않는다.",1]],
+ th:["길을 건너기 전에 꼭 해야 할 일은 무엇일까요?","운전자가 어린이를 잘 보지 못하는 까닭을 써 보세요.","무단횡단 사고가 일어나는 까닭을 분석하고 예방 방법을 제안해 보세요."],
+ ap:["횡단보도를 안전하게 건너는 내 모습을 그려 보세요.","등굣길 횡단보도 약속 3가지를 정해 보세요.","동생들에게 알려 줄 '횡단보도 안전 수칙' 포스터 문구를 만들어 보세요."],
+ tip:"교실 바닥에 횡단보도를 만들어 '서다-보다-걷다'를 몸으로 연습하면 좋습니다."},
+{v:"fpa2EC6ttoA",s:"aiku",ep:"1기 3화",t:"여기가 어디야?",topic:"실종 대처",c:"personal",d:"6:56",w:"여름 방학 체험학습 명절",kw:"실종 미아 길잃음 보호자 연락처",
+ goal:"길을 잃었을 때 침착하게 도움을 요청하는 방법을 말할 수 있다.",
+ f:["길을 잃으면 [그 자리]에 멈춰 기다려요.","놀란 마음을 가라앉히고 [침착하게] 주위를 살펴요.","도움이 필요하면 [경찰관]이나 가게 직원에게 말해요.","보호자의 [전화번호]를 외워 두어요.","모르는 사람이 데려다준다고 하면 [따라가지] 않아요."],
+ ox:[["길을 잃으면 보호자를 찾아 여기저기 뛰어다닌다.",0],["사람이 많은 곳에서는 보호자 손을 꼭 잡는다.",1],["내 이름과 보호자 연락처를 말할 수 있어야 한다.",1]],
+ th:["길을 잃었을 때 그 자리에서 기다리는 것이 왜 좋을까요?","길을 잃었을 때 도움을 청할 수 있는 사람을 써 보세요.","놀이공원이나 마트에서 길을 잃지 않으려면 출발 전에 무엇을 약속해야 할지 정리해 보세요."],
+ ap:["보호자의 손을 잡고 다니는 내 모습을 그려 보세요.","보호자 전화번호를 외우고, 길 잃었을 때 할 일 3가지를 정해 보세요.","가족 나들이 전에 정할 '만날 장소와 행동 약속'을 만들어 보세요."],
+ tip:"보호자 전화번호 외우기를 가정 과제로 내면 실제 대처 능력이 높아집니다."},
+{v:"uIv3TuquJd0",s:"aiku",ep:"1기 8화",t:"꼭꼭 숨어 아이쿠!",topic:"가전제품 안전",c:"life",d:"6:54",w:"실내 방학 겨울",kw:"가전제품 세탁기 냉장고 숨바꼭질 끼임",
+ goal:"가전제품 안에 들어가거나 함부로 만지면 위험하다는 것을 알고 안전하게 놀 수 있다.",
+ f:["세탁기나 냉장고 안에 [숨으면] 위험해요.","가전제품 안에 들어가면 문이 닫혀 [나올 수] 없을 수 있어요.","가전제품 안은 [공기]가 부족해 숨쉬기 어려워요.","젖은 손으로 [전기 제품]을 만지지 않아요.","가전제품은 [어른]과 함께 사용해요."],
+ ox:[["숨바꼭질할 때 세탁기 안은 좋은 숨을 곳이다.",0],["작동 중인 가전제품에 손을 넣지 않는다.",1],["선풍기 날개 사이로 손가락을 넣어도 된다.",0]],
+ th:["숨바꼭질할 때 숨으면 안 되는 곳은 어디일까요?","가전제품 안에 들어가면 왜 위험한지 까닭을 두 가지 써 보세요.","우리 집 가전제품 중 어린이에게 위험한 것을 고르고, 사고를 막는 방법을 제안해 보세요."],
+ ap:["안전한 곳에 숨어서 숨바꼭질하는 모습을 그려 보세요.","가전제품 안전 약속 3가지를 정해 보세요.","우리 집 가전제품 안전 점검표를 만들어 보세요."],
+ tip:"'숨으면 안 되는 곳' 목록을 함께 만들면 저학년이 쉽게 기억합니다."},
+{v:"OpfL7JwnhPg",s:"aiku",ep:"1기 9화",t:"아이쿠렐라",topic:"유괴 예방(낯선 사람 방문)",c:"personal",d:"6:54",w:"방학 실내",kw:"유괴 낯선사람 방문 초인종 문열기 택배",
+ goal:"혼자 있을 때 낯선 사람이 찾아오면 문을 열지 않고 보호자에게 알릴 수 있다.",
+ f:["혼자 있을 때 누가 찾아와도 [문]을 열지 않아요.","택배 기사나 수리 기사라고 해도 [보호자]에게 먼저 연락해요.","\"엄마가 보냈어\"라는 말에도 [확인]하기 전에는 열지 않아요.","집에 혼자 있다는 것을 [알리지] 않아요.","무서운 일이 생기면 [112]에 신고해요."],
+ ox:[["친절하게 말하는 사람이면 문을 열어 준다.",0],["문밖의 사람에게 \"지금 엄마가 바빠요\"라고 말할 수 있다.",1],["낯선 사람이 찾아온 일을 보호자에게 꼭 알린다.",1]],
+ th:["혼자 있을 때 초인종이 울리면 어떻게 할까요?","낯선 사람이 \"엄마 친구야\"라고 하면 어떻게 확인할 수 있을까요?","유괴범이 어린이를 속이는 말을 생각해 보고, 각각 어떻게 대처할지 정리해 보세요."],
+ ap:["문을 열지 않고 보호자에게 전화하는 모습을 그려 보세요.","혼자 있을 때의 안전 약속 3가지를 정해 보세요.","'낯선 사람 방문' 상황 대처 순서도를 만들어 보세요."],
+ tip:"역할극에서는 교사가 방문자 역할을 맡고 '열지 않기-알리기'에 초점을 두세요."},
+{v:"cJdWQ4kWSbs",s:"aiku",ep:"1기 18화",t:"아이쿠가 줄었어요!",topic:"주방 안전",c:"life",d:"6:57",w:"실내 명절 방학",kw:"주방 부엌 칼 가스레인지 뜨거운물 화상",
+ goal:"주방에 있는 위험한 물건을 알고 주방에서 안전하게 행동할 수 있다.",
+ f:["주방에는 [칼]처럼 날카로운 물건이 있어요.","가스레인지와 냄비는 [뜨거워서] 화상을 입을 수 있어요.","요리하는 어른 옆에서 [뛰거나] 장난치지 않아요.","냄비 손잡이는 [안쪽]으로 돌려 두어요.","전자레인지에 [금속] 그릇을 넣지 않아요."],
+ ox:[["주방에서 칼을 가지고 놀아도 된다.",0],["뜨거운 음식을 나를 때는 주변 사람에게 알린다.",1],["가스 냄새가 나면 바로 어른에게 알린다.",1]],
+ th:["주방에서 조심해야 할 물건 세 가지를 써 보세요.","냄비 손잡이를 안쪽으로 두는 까닭은 무엇일까요?","주방 사고를 '날카로운 것, 뜨거운 것, 전기·가스'로 나누어 예방법을 정리해 보세요."],
+ ap:["주방에서 조심해야 할 물건에 ×표를 그려 보세요.","주방 안전 약속 3가지를 정해 보세요.","어린이가 안전하게 요리를 돕는 방법을 안내문으로 만들어 보세요."],
+ tip:"실과 조리 실습 전에 보여 주면 안전 교육 도입으로 좋습니다."},
+{v:"H-wFXo8gmsE",s:"aiku",ep:"1기 20화",t:"아이쿠 기사님의 인터넷 모험",topic:"인터넷 안전",c:"drug",d:"5:33",w:"방학 실내 겨울",kw:"인터넷 개인정보 비밀번호 링크 사이버",
+ goal:"인터넷에서 개인 정보를 지키고 위험한 내용을 피할 수 있다.",
+ f:["이름, 주소, 전화번호는 소중한 [개인 정보]예요.","[비밀번호]는 친구에게도 알려 주지 않아요.","모르는 사람이 보낸 [링크]는 누르지 않아요.","무섭거나 이상한 화면이 나오면 바로 [어른]에게 알려요.","인터넷은 정해진 [시간]만큼 사용해요."],
+ ox:[["게임에서 만난 사람에게 내 사진을 보내도 된다.",0],["인터넷에 올린 글은 쉽게 지워지지 않을 수 있다.",1],["공짜 선물을 준다는 창은 눌러도 괜찮다.",0]],
+ th:["인터넷에서 알려 주면 안 되는 정보를 써 보세요.","인터넷에서 모르는 사람이 친구 하자고 하면 어떻게 할까요?","개인 정보가 새어 나가면 어떤 일이 생길 수 있는지 조사하고 예방법을 정리해 보세요."],
+ ap:["인터넷을 안전하게 사용하는 내 모습을 그려 보세요.","인터넷 안전 약속 3가지를 정해 보세요.","우리 반 '인터넷 안전 수칙' 5가지를 만들어 보세요."],
+ tip:"정보 교육이나 디지털 시민성 수업과 연계하기 좋습니다."},
+{v:"IH8UU0K-tbY",s:"aiku",ep:"1기 23화",t:"왕자의 길은 멀고도 험해",topic:"게임 중독 예방",c:"drug",d:"6:57",w:"방학 실내 겨울",kw:"게임 중독 시간 조절 스마트폰 건강하게",
+ goal:"게임을 오래 하면 생기는 문제를 알고 게임 시간을 스스로 조절할 수 있다.",
+ f:["게임을 너무 오래 하면 [눈]이 아프고 피곤해요.","게임은 [정해진 시간]만큼만 해요.","게임을 하다가도 [약속한 시간]이 되면 멈춰요.","게임보다 [바깥 놀이]나 운동도 즐겨요.","게임을 그만두기 힘들면 [어른]에게 도움을 받아요."],
+ ox:[["게임을 하면 밥을 거르고 계속해도 된다.",0],["게임 시간을 가족과 함께 정하면 좋다.",1],["게임 속 행동을 현실에서 따라 해도 된다.",0]],
+ th:["게임을 오래 했을 때 내 몸과 마음은 어땠나요?","게임을 멈추기 힘든 까닭은 무엇일까요?","나의 일주일 게임 시간을 돌아보고, 건강하게 게임하는 계획을 세워 보세요."],
+ ap:["게임 대신 즐겁게 할 수 있는 놀이를 그려 보세요.","게임 시간 약속 3가지를 정해 보세요.","가족과 함께 지킬 '게임 사용 규칙표'를 만들어 보세요."],
+ tip:"가정 연계로 게임 시간 기록표를 일주일 동안 써 오게 하면 효과적입니다."},
+{v:"TtSCS_O6RFs",s:"aiku",ep:"시즌2 1화",t:"바다의 왕자 아이쿠",topic:"물놀이 안전",c:"life",d:"7:44",w:"여름 방학 야외",kw:"물놀이 바다 수영 구명조끼 준비운동",
+ goal:"물놀이 전과 물놀이 중에 지켜야 할 안전 수칙을 실천할 수 있다.",
+ f:["물에 들어가기 전에 [준비운동]을 해요.","물놀이할 때는 [구명조끼]를 바르게 입어요.","다리부터 천천히 물에 [적셔요].","물에 빠진 친구를 보면 직접 뛰어들지 말고 [어른]에게 알려요.","입술이 파래지고 몸이 떨리면 물에서 [나와요]."],
+ ox:[["밥을 먹자마자 바로 물에 들어간다.",0],["수영을 잘하면 혼자 깊은 곳에 가도 된다.",0],["안전 요원이 있는 곳에서 물놀이한다.",1]],
+ th:["물놀이 전에 준비운동을 하는 까닭은 무엇일까요?","친구가 물에 빠졌을 때 직접 들어가면 안 되는 까닭을 써 보세요.","바다, 계곡, 수영장의 위험 요소를 비교하고 장소별 안전 수칙을 정리해 보세요."],
+ ap:["구명조끼를 입고 노는 내 모습을 그려 보세요.","여름 물놀이 안전 약속 3가지를 정해 보세요.","가족 바닷가 여행을 위한 안전 준비물과 행동 계획을 세워 보세요."],
+ tip:"방학 직전 차시로 배치하고 생존수영 수업과 연계하세요."},
+{v:"TKA4TUNSDTw",s:"aiku",ep:"시즌2 2화",t:"빨간 모자가 된 아이쿠",topic:"야외 식물 안전",c:"life",d:"5:36",w:"봄 여름 가을 야외 체험학습",kw:"식물 독버섯 열매 숲 옷차림 소풍",
+ goal:"야외에서 모르는 식물을 함부로 만지거나 먹지 않고 알맞은 옷차림을 할 수 있다.",
+ f:["숲에서 본 모르는 [열매]는 먹지 않아요.","[버섯] 중에는 독이 있는 것이 많아요.","옻나무 같은 식물을 만지면 피부가 [가려울] 수 있어요.","숲에 갈 때는 [긴 옷]을 입어요.","식물을 만진 뒤에는 [손]을 씻어요."],
+ ox:[["예쁜 버섯은 먹어도 안전하다.",0],["모르는 식물을 만지고 눈을 비비면 위험할 수 있다.",1],["산에 갈 때는 반바지가 가장 좋다.",0]],
+ th:["모르는 열매를 먹으면 왜 위험할까요?","숲에 갈 때 어떤 옷을 입어야 할까요? 까닭도 써 보세요.","독이 있는 식물과 먹을 수 있는 식물을 겉모습만으로 구별하기 어려운 까닭을 설명해 보세요."],
+ ap:["숲에 갈 때 알맞은 옷차림을 그려 보세요.","야외 체험학습 식물 안전 약속 3가지를 정해 보세요.","현장체험학습 전 '야외 안전 체크리스트'를 만들어 보세요."],
+ tip:"과학 식물 단원이나 현장체험학습 사전 교육과 연계하세요."},
+{v:"a2wA9NS8cZ0",s:"aiku",ep:"2기 4화",t:"아이쿠는 목욕을 싫어해!",topic:"욕실 안전",c:"life",d:"6:53",w:"실내 겨울",kw:"욕실 목욕 미끄럼 욕조 뜨거운물",
+ goal:"욕실에서 미끄러지거나 데지 않도록 안전하게 행동할 수 있다.",
+ f:["욕실 바닥은 물이 묻어 [미끄러워요].","욕실에서는 [뛰지] 않아요.","목욕물은 [손]으로 먼저 온도를 확인해요.","욕조에 물을 받을 때는 [어른]과 함께해요.","젖은 손으로 [헤어드라이어]를 만지지 않아요."],
+ ox:[["욕실에서 장난치며 뛰어도 된다.",0],["미끄럼 방지 매트를 깔면 더 안전하다.",1],["뜨거운 물을 먼저 틀고 바로 들어간다.",0]],
+ th:["욕실에서 넘어지지 않으려면 어떻게 해야 할까요?","욕실에서 일어날 수 있는 사고를 두 가지 써 보세요.","몸을 깨끗이 하는 일과 욕실 안전을 함께 지키는 방법을 정리해 보세요."],
+ ap:["욕실에서 조심조심 걷는 내 모습을 그려 보세요.","욕실 안전 약속 3가지를 정해 보세요.","우리 집 욕실 안전 점검표를 만들어 보세요."],
+ tip:"위생 습관(목욕)과 안전을 함께 다루기 좋은 회차입니다."},
+{v:"9ex7Ah5YYkQ",s:"aiku",ep:"시즌2 11화",t:"아이쿠의 탈출작전",topic:"안전한 대피로 찾기",c:"disaster",d:"5:35",w:"새학기 실내",kw:"대피로 비상구 화재 대피 비상계단",
+ goal:"건물에서 비상구 표시를 찾고 안전한 대피로를 따라 대피할 수 있다.",
+ f:["초록색 [비상구] 표시는 밖으로 나가는 길을 알려 줘요.","대피할 때는 [엘리베이터] 대신 계단을 이용해요.","대피할 때는 밀지 말고 [차례차례] 나가요.","처음 가는 건물에서는 [비상구] 위치를 먼저 살펴요.","대피로에 [물건]을 쌓아 두면 위험해요."],
+ ox:[["비상구 표시는 초록색이다.",1],["불이 나면 엘리베이터를 타고 빨리 내려간다.",0],["대피할 때 친구를 밀면 사고가 날 수 있다.",1]],
+ th:["비상구 표시를 미리 알아 두면 좋은 까닭은 무엇일까요?","우리 교실에서 가장 가까운 비상구는 어디인가요?","우리 학교 대피로에 문제가 있는 곳을 찾아보고 개선 방법을 제안해 보세요."],
+ ap:["비상구 표시를 따라 대피하는 모습을 그려 보세요.","우리 교실 대피 약속 3가지를 정해 보세요.","우리 학교 층별 대피 지도를 그려 보세요."],
+ tip:"시청 후 학교 비상구 표시 찾기 탐험을 하면 바로 적용할 수 있습니다."},
+{v:"ckYOUT7TSh8",s:"aiku",ep:"시즌2 18화",t:"아이쿠가 아이쿠를 만났다고?",topic:"올바른 TV 시청",c:"drug",d:"5:36",w:"방학 실내 겨울",kw:"TV 텔레비전 시청 거리 시간 눈건강",
+ goal:"바른 자세와 알맞은 거리, 정해진 시간을 지켜 TV를 볼 수 있다.",
+ f:["TV는 화면에서 [멀리] 떨어져서 봐요.","TV를 볼 때는 [바른 자세]로 앉아요.","TV는 정해진 [시간]만큼만 봐요.","어두운 방에서 TV를 보면 [눈]이 쉽게 피로해요.","TV 속 위험한 장면을 [따라 하지] 않아요."],
+ ox:[["TV는 가까이서 볼수록 좋다.",0],["밥을 먹으면서 TV를 오래 보면 좋다.",0],["어린이에게 맞는 프로그램을 골라 본다.",1]],
+ th:["TV를 너무 오래 보면 어떤 일이 생길까요?","TV 속 장면을 따라 하면 위험한 까닭은 무엇일까요?","나의 미디어 사용 습관을 돌아보고 바꾸고 싶은 점과 방법을 정리해 보세요."],
+ ap:["바른 자세로 TV를 보는 내 모습을 그려 보세요.","TV 시청 약속 3가지를 정해 보세요.","가족 미디어 사용 계획표를 만들어 보세요."],
+ tip:"미디어 리터러시 수업 도입으로 활용할 수 있습니다."},
+{v:"D9I-ys75uDM",s:"aiku",ep:"시즌2 20화",t:"지구를 지켜라, 아이쿠!",topic:"환경 오염 예방",c:"env",d:"5:36",w:"봄 가을",kw:"환경 오염 분리수거 쓰레기 지구 재활용",
+ goal:"환경 오염이 우리 건강과 안전에 주는 영향을 알고 환경을 지키는 일을 실천할 수 있다.",
+ f:["쓰레기를 아무 데나 버리면 [환경]이 오염돼요.","쓰레기는 종류별로 [분리]해서 버려요.","오염된 물과 공기는 우리 [건강]을 해쳐요.","쓰지 않는 전등은 [꺼서] 에너지를 아껴요.","일회용품 대신 [다시 쓸 수 있는] 물건을 써요."],
+ ox:[["플라스틱 병은 종이와 함께 버린다.",0],["환경 오염은 동물과 사람 모두에게 해롭다.",1],["물을 아껴 쓰는 것도 환경을 지키는 일이다.",1]],
+ th:["우리 주변에서 볼 수 있는 환경 오염을 써 보세요.","환경 오염이 우리 몸에 어떤 영향을 줄까요?","우리 학교에서 쓰레기를 줄이는 방법을 조사하고 실천 계획을 세워 보세요."],
+ ap:["깨끗한 지구를 지키는 내 모습을 그려 보세요.","환경 지킴이 약속 3가지를 정해 보세요.","우리 반 환경 캠페인 포스터 문구를 만들어 보세요."],
+ tip:"환경의 날(6월 5일)이나 지구의 날(4월 22일) 수업과 연계하세요."},
+{v:"Omf1gpZc85A",s:"aiku",ep:"2화 이어보기 #25",t:"펑펑 눈이 옵니다! 겨울 안전",topic:"눈 오는 날 안전 · 화상 예방",c:"life",d:"10:22",w:"겨울 방학 야외",kw:"눈 빙판길 겨울 화상 난로 미끄럼",
+ goal:"눈 오는 날 미끄럼 사고와 겨울철 화상을 예방할 수 있다.",
+ f:["눈이 온 뒤 길이 얼면 [미끄러워요].","주머니에 [손]을 넣고 걸으면 넘어질 때 크게 다쳐요.","빙판길에서는 [천천히] 걸어요.","난로나 전기장판 가까이에서 [화상]을 입을 수 있어요.","화상을 입으면 [흐르는 찬물]로 식혀요."],
+ ox:[["빙판길에서는 뛰어가면 더 안전하다.",0],["눈썰매는 정해진 장소에서 탄다.",1],["화상 부위에 얼음을 바로 대는 것이 좋다.",0]],
+ th:["눈 오는 날 길을 걸을 때 조심해야 할 점은 무엇일까요?","겨울철에 화상 사고가 많은 까닭은 무엇일까요?","겨울철 사고를 '밖(눈, 얼음)'과 '안(난방기구)'으로 나누어 예방법을 정리해 보세요."],
+ ap:["눈길을 조심조심 걷는 내 모습을 그려 보세요.","겨울 안전 약속 3가지를 정해 보세요.","겨울방학 안전 수칙 안내문을 만들어 보세요."],
+ tip:"두 편을 이어 붙인 영상(약 10분)입니다. 겨울방학 직전 안전 교육으로 쓰기 좋습니다."},
+
+/* ───────── 우당탕탕 은하안전단 ───────── */
+{v:"wnR3l_xDkt0",s:"galaxy",ep:"1화",t:"도와줘! 은하안전단!",topic:"횡단보도 안전",c:"traffic",d:"11:57",w:"봄 새학기",kw:"횡단보도 신호등 보행 길건너기",
+ goal:"횡단보도를 건널 때 지켜야 할 규칙을 알고 실천할 수 있다.",
+ f:["횡단보도 앞에서는 먼저 [멈춰요].","신호등이 [초록불]로 바뀌면 건너요.","건너기 전에 [왼쪽]과 오른쪽을 살펴요.","건널 때는 [손]을 들어 운전자에게 알려요.","길을 건널 때는 [뛰지] 않아요."],
+ ox:[["빨간불이어도 차가 없으면 건넌다.",0],["횡단보도를 건너는 동안에도 차를 살핀다.",1],["친구와 장난치며 건너도 된다.",0]],
+ th:["횡단보도 앞에서 바로 건너지 않고 멈추는 까닭은 무엇일까요?","길을 건널 때 운전자에게 나를 알리는 방법을 써 보세요.","우리 동네 횡단보도 중 위험한 곳을 찾아보고 까닭과 해결 방법을 제안해 보세요."],
+ ap:["'멈추고-살피고-건너는' 모습을 세 칸 그림으로 그려 보세요.","횡단보도 안전 약속 3가지를 정해 보세요.","어린이 보호구역 안전 캠페인 문구를 만들어 보세요."],
+ tip:"첫 회라서 은하안전단 등장인물이 소개됩니다."},
+{v:"mzUdcwgx_u0",s:"galaxy",ep:"2화",t:"심심해! 놀고 싶다고!",topic:"놀이터 안전",c:"life",d:"11:57",w:"봄 가을 새학기 야외",kw:"놀이터 미끄럼틀 그네 정글짐 순서",
+ goal:"놀이기구를 바르게 사용하고 순서를 지켜 안전하게 놀 수 있다.",
+ f:["미끄럼틀은 [앉아서] 앞을 보고 내려와요.","그네 타는 친구 [앞뒤]로 지나가지 않아요.","놀이기구는 [순서]를 지켜 타요.","끈이 달린 옷은 놀이기구에 [걸릴] 수 있어요.","다쳤을 때는 바로 [어른]에게 알려요."],
+ ox:[["미끄럼틀을 거꾸로 올라가도 된다.",0],["비 온 뒤 젖은 놀이기구는 미끄럽다.",1],["그네는 서서 타는 것이 더 안전하다.",0]],
+ th:["놀이터에서 친구와 부딪히지 않으려면 어떻게 해야 할까요?","놀이터 사고가 일어나는 까닭을 '사람'과 '장소'로 나누어 써 보세요.","우리 학교 놀이터를 더 안전하게 만들기 위해 바꾸고 싶은 점을 제안해 보세요."],
+ ap:["놀이기구를 안전하게 타는 내 모습을 그려 보세요.","놀이터 안전 약속 3가지를 정해 보세요.","놀이터 안전 점검표(5가지 항목)를 만들어 보세요."],
+ tip:"학교 놀이터를 직접 돌아보며 위험한 곳 찾기 활동과 연결하세요."},
+{v:"BL4-ie5Y8BU",s:"galaxy",ep:"27화",t:"위험해! 두 얼굴의 식물!",topic:"식물 안전",c:"life",d:"11:11",w:"봄 여름 가을 야외 체험학습",kw:"식물 독 열매 버섯 숲 체험학습",
+ goal:"독이 있는 식물을 함부로 만지거나 먹지 않도록 조심할 수 있다.",
+ f:["겉으로 예뻐 보여도 [독]이 있는 식물이 있어요.","모르는 [열매]나 잎은 입에 넣지 않아요.","식물을 만진 뒤에는 [손]을 깨끗이 씻어요.","피부가 가렵거나 붓으면 [어른]에게 알려요.","야생 [버섯]은 절대 먹지 않아요."],
+ ox:[["예쁜 꽃은 모두 안전하다.",0],["모르는 식물은 눈으로만 관찰한다.",1],["야생 버섯은 익혀 먹으면 괜찮다.",0]],
+ th:["왜 이 영상의 제목이 '두 얼굴의 식물'일까요?","모르는 식물을 만났을 때 어떻게 해야 할까요?","독이 있는 식물을 조사하고, 체험학습 때 지킬 식물 안전 수칙을 정리해 보세요."],
+ ap:["식물을 눈으로만 관찰하는 내 모습을 그려 보세요.","식물 안전 약속 3가지를 정해 보세요.","체험학습용 '조심해야 할 식물 카드'를 만들어 보세요."],
+ tip:"과학 식물 단원이나 숲 체험학습 사전 교육에 좋습니다."},
+{v:"vhDARYK7CvU",s:"galaxy",ep:"29화",t:"불러봐! 박살 래퍼!",topic:"언어폭력 예방",c:"violence",d:"11:11",w:"새학기",kw:"언어폭력 욕설 놀림 고운말 친구관계",
+ goal:"언어폭력이 마음을 다치게 한다는 것을 알고 고운 말을 쓸 수 있다.",
+ f:["욕이나 놀리는 말은 친구의 [마음]을 다치게 해요.","장난으로 한 말도 [언어폭력]이 될 수 있어요.","기분이 나쁠 때는 욕 대신 내 [기분]을 말해요.","언어폭력을 당하거나 보면 [어른]에게 알려요.","친구에게 [고운 말]을 써요."],
+ ox:[["장난으로 한 욕은 괜찮다.",0],["별명을 싫어하는 친구에게는 부르지 않는다.",1],["채팅방에서 놀리는 것도 언어폭력이다.",1]],
+ th:["친구에게 들으면 기분이 좋은 말을 써 보세요.","장난으로 한 말이 왜 폭력이 될 수 있을까요?","언어폭력을 본 사람(방관자)이 할 수 있는 일을 정리해 보세요."],
+ ap:["친구에게 고운 말을 하는 모습을 그려 보세요.","우리 반 고운 말 약속 3가지를 정해 보세요.","'나 전달법'으로 속상한 마음을 말하는 예시 문장을 3개 만들어 보세요."],
+ tip:"학교폭력 예방 교육 주간에 활용하고, 특정 학생이 지목되지 않도록 유의하세요."},
+{v:"c15BxH3IOkk",s:"galaxy",ep:"30화",t:"신난다! 캠핑을 가요!",topic:"캠핑 안전",c:"life",d:"11:11",w:"여름 가을 방학 야외",kw:"캠핑 텐트 모닥불 벌레 일산화탄소",
+ goal:"캠핑할 때 생길 수 있는 위험을 알고 안전 수칙을 지킬 수 있다.",
+ f:["캠핑장에서는 [불] 가까이에서 뛰지 않아요.","텐트 안에서는 [불]을 피우거나 난로를 켜 두지 않아요.","산이나 숲에서는 [벌레]에 물리지 않게 긴 옷을 입어요.","혼자 [멀리] 가지 않고 보호자와 함께 있어요.","캠핑장 [안전 수칙]을 미리 확인해요."],
+ ox:[["텐트 안에서 숯불을 피우면 따뜻하고 안전하다.",0],["모닥불 근처에서 장난치면 위험하다.",1],["캠핑장에서 혼자 숲에 들어가도 된다.",0]],
+ th:["캠핑장에서 조심해야 할 것을 두 가지 써 보세요.","텐트 안에서 불을 피우면 왜 위험할까요?","캠핑을 가기 전, 하는 동안, 다녀온 뒤에 할 일을 나누어 안전 계획을 세워 보세요."],
+ ap:["안전하게 캠핑하는 우리 가족을 그려 보세요.","캠핑 안전 약속 3가지를 정해 보세요.","가족 캠핑 안전 준비물 목록과 규칙을 만들어 보세요."],
+ tip:"텐트 안 일산화탄소 중독 위험은 고학년에게 꼭 짚어 주세요."},
+{v:"MNheYh_6uAY",s:"galaxy",ep:"31화",t:"내려라! 비야!",topic:"홍수·태풍 안전",c:"disaster",d:"11:11",w:"여름 장마",kw:"홍수 태풍 폭우 장마 침수 하천",
+ goal:"홍수와 태풍이 올 때의 행동 요령을 알고 대비할 수 있다.",
+ f:["태풍이 오면 되도록 [밖에] 나가지 않아요.","물이 불어난 [하천]이나 계곡에 가까이 가지 않아요.","창문에서 떨어져 있고 [날아갈] 물건은 치워요.","[지하] 공간은 물이 차오를 수 있어 빨리 나와요.","[재난 문자]와 뉴스로 날씨를 확인해요."],
+ ox:[["불어난 하천을 구경하러 간다.",0],["끊어진 전선에 다가가지 않는다.",1],["태풍이 지나간 뒤에도 조심해야 한다.",1]],
+ th:["비가 많이 올 때 하천에 가면 왜 위험할까요?","재난 문자를 받았을 때 할 일을 순서대로 써 보세요.","우리 지역에서 홍수가 났을 때 위험한 장소를 찾아보고 대비 방법을 제안해 보세요."],
+ ap:["비가 많이 오는 날 집에서 안전하게 지내는 모습을 그려 보세요.","태풍·홍수 대비 약속 3가지를 정해 보세요.","우리 가족 재난 대비 비상 연락망과 준비물 목록을 만들어 보세요."],
+ tip:"장마철 이전에 배치하고 실제 재난 문자 예시를 보여 주세요."},
+{v:"QA8JBvMTSjQ",s:"galaxy",ep:"33화",t:"내려요! 흰 눈이 펑펑!",topic:"한파 안전",c:"disaster",d:"11:11",w:"겨울 방학 야외",kw:"한파 눈 추위 동상 빙판 저체온",
+ goal:"한파와 눈 오는 날 생길 수 있는 사고를 알고 몸을 보호할 수 있다.",
+ f:["추운 날에는 [모자]와 장갑으로 몸을 따뜻하게 해요.","옷은 얇은 옷을 [여러 겹] 입으면 따뜻해요.","손발이 차갑고 아프면 [동상]을 조심해요.","빙판길에서는 [천천히] 걸어요.","얼어붙은 저수지나 강 [위]에서 놀지 않아요."],
+ ox:[["두꺼운 옷 한 벌이 여러 겹 옷보다 늘 따뜻하다.",0],["추운 날 오래 밖에서 놀면 몸이 위험할 수 있다.",1],["얼음판은 두꺼워 보이면 들어가도 된다.",0]],
+ th:["추운 날 밖에 나갈 때 챙겨야 할 것을 써 보세요.","얇은 옷을 여러 겹 입으면 왜 더 따뜻할까요?","한파가 사람들 생활에 주는 영향을 조사하고, 우리 가족 한파 대비 방법을 정리해 보세요."],
+ ap:["따뜻하게 입고 눈놀이하는 내 모습을 그려 보세요.","한파 안전 약속 3가지를 정해 보세요.","'겨울철 한파 행동 요령' 안내 카드를 만들어 보세요."],
+ tip:"겨울방학 직전 안전 교육으로 활용하세요."},
+{v:"LYFOuH6RHCI",s:"galaxy",ep:"34화",t:"꾸르륵! 함부로 먹지 마!",topic:"식중독 예방",c:"health",d:"11:11",w:"여름 방학 체험학습 명절",kw:"식중독 배탈 세균 음식 유통기한 손씻기",
+ goal:"식중독의 원인을 알고 음식을 안전하게 먹는 습관을 실천할 수 있다.",
+ f:["음식을 먹기 전에는 [손]을 깨끗이 씻어요.","음식은 [익혀서] 먹고 물은 끓여 마셔요.","냄새가 이상한 음식은 [먹지] 않아요.","음식을 사기 전에 [유통기한]을 확인해요.","날씨가 더우면 [세균]이 빨리 늘어나요."],
+ ox:[["떨어진 음식도 금방 주우면 괜찮다.",0],["남은 음식은 냉장고에 보관한다.",1],["식중독은 여름에만 생긴다.",0]],
+ th:["왜 제목이 '함부로 먹지 마!'일까요?","식중독에 걸리면 나타나는 증상과 해야 할 일을 써 보세요.","식중독 예방 3대 원칙(손 씻기·익혀 먹기·끓여 먹기)이 각각 왜 필요한지 설명해 보세요."],
+ ap:["손을 씻고 밥을 먹는 내 모습을 그려 보세요.","식중독 예방 약속 3가지를 정해 보세요.","급식실 앞에 붙일 식중독 예방 포스터를 만들어 보세요."],
+ tip:"급식 전 손 씻기 지도와 연계하고, 영양교사 인터뷰를 덧붙이면 좋습니다."},
+{v:"cR1OyQl1k20",s:"galaxy",ep:"35화",t:"축하해! 푸딩공주!",topic:"또래 괴롭힘 예방",c:"violence",d:"11:11",w:"새학기",kw:"괴롭힘 따돌림 학교폭력 친구 도움요청",
+ goal:"또래 괴롭힘의 여러 모습을 알고 괴롭힘을 당하거나 볼 때 도움을 요청할 수 있다.",
+ f:["친구를 따돌리거나 놀리는 것은 [괴롭힘]이에요.","괴롭힘을 당하면 혼자 참지 말고 [어른]에게 알려요.","괴롭힘을 보면 모른 척하지 말고 [도와줘요].","친구가 싫다고 하면 [멈춰요].","서로 다른 점을 [존중]해요."],
+ ox:[["친구 물건을 몰래 숨기는 것도 괴롭힘이다.",1],["괴롭힘을 보면 모른 척하는 것이 좋다.",0],["괴롭힘을 알리는 것은 고자질이 아니다.",1]],
+ th:["친구가 혼자 있을 때 내가 할 수 있는 일은 무엇일까요?","괴롭힘을 당하는 친구의 마음은 어떨지 써 보세요.","괴롭힘을 막기 위해 당하는 사람, 보는 사람, 학급 전체가 할 수 있는 일을 정리해 보세요."],
+ ap:["친구와 사이좋게 지내는 모습을 그려 보세요.","우리 반 친구 사랑 약속 3가지를 정해 보세요.","우리 반 '괴롭힘 없는 교실' 규칙을 만들어 보세요."],
+ tip:"학급 상황을 살펴 특정 학생이 지목되지 않도록 지도하세요."},
+{v:"rIxkqyviUSo",s:"galaxy",ep:"36화",t:"오싹해! 황금 잔의 저주!",topic:"지진 안전",c:"disaster",d:"11:11",w:"새학기 실내",kw:"지진 대피 책상아래 흔들림 운동장",
+ goal:"지진이 났을 때 몸을 보호하고 안전한 곳으로 대피할 수 있다.",
+ f:["땅이 흔들리면 [책상 아래]로 들어가 몸을 보호해요.","책상 다리를 꼭 잡고 [머리]를 보호해요.","흔들림이 멈추면 [계단]으로 밖에 나가요.","밖에서는 건물에서 떨어진 [넓은 곳]으로 가요.","대피할 때는 [엘리베이터]를 타지 않아요."],
+ ox:[["흔들릴 때 바로 밖으로 뛰어나간다.",0],["가방이나 방석으로 머리를 보호할 수 있다.",1],["유리창 가까이는 위험하다.",1]],
+ th:["지진이 나면 왜 머리를 먼저 보호해야 할까요?","교실에서 지진이 났을 때 대피 순서를 써 보세요.","우리 학교에서 지진이 났을 때 위험한 곳과 대피 경로를 분석해 보세요."],
+ ap:["책상 아래에서 몸을 보호하는 모습을 그려 보세요.","지진 대피 약속 3가지를 정해 보세요.","우리 집 지진 대비 비상 가방 목록을 만들어 보세요."],
+ tip:"영상 시청 후 실제 대피 훈련(숙이고-가리고-잡고)을 이어서 하세요."},
+{v:"zmmr2ANtQZo",s:"galaxy",ep:"37화",t:"신기해! 방송국에 가다!",topic:"TV 안전",c:"drug",d:"11:11",w:"방학 실내",kw:"TV 미디어 시청 시간 거리 따라하기",
+ goal:"TV를 바르게 시청하고 위험한 장면을 따라 하지 않을 수 있다.",
+ f:["TV는 화면에서 [멀리] 떨어져서 봐요.","TV는 정해진 [시간]만큼만 봐요.","TV 속 위험한 행동을 [따라 하지] 않아요.","TV 속 장면은 [진짜]가 아닐 수도 있어요.","TV를 본 뒤에는 [눈]을 쉬게 해요."],
+ ox:[["TV 속 묘기는 집에서 따라 해 봐도 된다.",0],["TV를 볼 때 바른 자세로 앉는다.",1],["TV 광고는 모두 사실이다.",0]],
+ th:["TV 속 장면을 따라 하면 위험한 까닭은 무엇일까요?","TV를 볼 때 지켜야 할 것을 써 보세요.","TV나 영상 속 정보가 진짜인지 확인하는 방법을 정리해 보세요."],
+ ap:["바른 자세로 TV를 보는 모습을 그려 보세요.","TV 시청 약속 3가지를 정해 보세요.","광고 하나를 골라 사실과 과장을 구분해 보세요."],
+ tip:"미디어 리터러시 수업과 연계하기 좋습니다."},
+{v:"FbR-vhkE3sk",s:"galaxy",ep:"39화",t:"출동해! 안전단 쿠왕팀!",topic:"자동차 탑승 안전",c:"traffic",d:"11:11",w:"명절 방학 체험학습",kw:"자동차 안전띠 카시트 뒷좌석 차문",
+ goal:"자동차를 탈 때 안전띠를 매고 바르게 행동할 수 있다.",
+ f:["자동차에 타면 먼저 [안전띠]를 매요.","어린이는 [뒷좌석]에 앉아요.","몸이 작은 어린이는 [카시트]에 앉아요.","달리는 차 안에서는 [창문] 밖으로 손이나 머리를 내밀지 않아요.","차에서 내릴 때는 [인도] 쪽 문으로 내려요."],
+ ox:[["가까운 곳에 갈 때는 안전띠를 안 매도 된다.",0],["달리는 차 안에서 일어서면 위험하다.",1],["차 문을 열기 전에 뒤에서 오는 차나 자전거를 살핀다.",1]],
+ th:["안전띠를 매야 하는 까닭은 무엇일까요?","차에서 내릴 때 조심해야 할 점을 써 보세요.","명절에 먼 길을 갈 때 차 안에서 지킬 안전 수칙을 정리해 보세요."],
+ ap:["안전띠를 매고 앉은 내 모습을 그려 보세요.","자동차 탑승 약속 3가지를 정해 보세요.","가족 차량 이용 '안전 체크리스트'를 만들어 보세요."],
+ tip:"명절 연휴 직전에 보여 주면 가정 실천으로 이어집니다."},
+{v:"n_CeRl7FU_g",s:"galaxy",ep:"40화",t:"찾아라! 소원램프!",topic:"야외 물놀이 안전",c:"life",d:"11:11",w:"여름 방학 야외",kw:"물놀이 계곡 바다 구명조끼 준비운동",
+ goal:"야외 물놀이 장소에서 위험을 알고 안전 수칙을 지킬 수 있다.",
+ f:["물놀이 전에는 [준비운동]을 해요.","계곡과 바다에서는 [구명조끼]를 입어요.","계곡물은 비가 오면 갑자기 [불어날] 수 있어요.","물에 빠진 사람을 보면 [119]에 알리고 물건을 던져 줘요.","[안전 요원]이 있는 곳에서 놀아요."],
+ ox:[["튜브만 있으면 깊은 곳도 안전하다.",0],["물놀이 중 몸이 떨리면 물에서 나와 쉰다.",1],["물이 얕아 보여도 갑자기 깊어질 수 있다.",1]],
+ th:["물놀이할 때 구명조끼를 입어야 하는 까닭은 무엇일까요?","물에 빠진 친구를 도울 수 있는 안전한 방법을 써 보세요.","계곡, 바다, 강의 물놀이 위험 요소를 비교해 정리해 보세요."],
+ ap:["구명조끼를 입고 노는 모습을 그려 보세요.","여름 물놀이 약속 3가지를 정해 보세요.","여름방학 물놀이 안전 홍보 카드를 만들어 보세요."],
+ tip:"'던지고, 알리고, 기다리기' 구조 원칙을 강조하세요."},
+{v:"duHeGxoecHU",s:"galaxy",ep:"41화",t:"귀여워~ 햄찌의 변신!",topic:"동물 안전",c:"life",d:"11:11",w:"봄 여름 야외 체험학습",kw:"동물 반려동물 개 물림 햄스터 손씻기",
+ goal:"동물을 만날 때 조심해야 할 점을 알고 안전하게 대할 수 있다.",
+ f:["모르는 동물은 [함부로] 만지지 않아요.","반려동물을 만지기 전에 [주인]에게 먼저 물어봐요.","동물이 먹거나 잘 때는 [건드리지] 않아요.","동물을 만진 뒤에는 [손]을 씻어요.","동물에게 물리면 바로 [어른]에게 알려요."],
+ ox:[["귀여운 강아지는 언제든 안아도 된다.",0],["개를 보고 소리 지르며 뛰면 개가 놀랄 수 있다.",1],["동물을 만진 손으로 음식을 먹어도 된다.",0]],
+ th:["처음 보는 강아지를 만나면 어떻게 해야 할까요?","동물이 사람을 무는 까닭은 무엇일까요?","반려동물을 키울 때 동물과 사람 모두가 안전하려면 무엇이 필요한지 정리해 보세요."],
+ ap:["동물을 안전하게 대하는 모습을 그려 보세요.","동물 안전 약속 3가지를 정해 보세요.","'반려동물 만날 때 예절' 안내문을 만들어 보세요."],
+ tip:"동물을 무서워하는 학생도 있으니 '존중하기'에 초점을 두세요."},
+{v:"Y6XdXOBpIY8",s:"galaxy",ep:"42화",t:"누구야? 독사과의 범인은!",topic:"생명 존중",c:"mind",d:"11:11",w:"새학기",kw:"생명존중 마음건강 감정 도움요청 친구",
+ goal:"나와 다른 사람의 생명을 소중히 여기고, 힘들 때 도움을 요청할 수 있다.",
+ f:["나의 생명과 친구의 생명은 모두 [소중해요].","속상하고 힘든 마음은 [말]로 표현해요.","힘들 때는 혼자 참지 말고 [믿을 수 있는 어른]에게 이야기해요.","친구가 힘들어 보이면 [관심]을 가지고 들어 줘요.","힘든 마음을 이야기하는 것은 [용기] 있는 일이에요."],
+ ox:[["힘든 마음은 아무에게도 말하지 않는 것이 좋다.",0],["친구의 이야기를 끝까지 들어 주는 것도 돕는 일이다.",1],["도움을 요청하는 것은 부끄러운 일이 아니다.",1]],
+ th:["내 마음이 힘들 때 이야기할 수 있는 사람은 누구인가요?","친구가 힘들어 보일 때 내가 해 줄 수 있는 말을 써 보세요.","생명을 소중히 여긴다는 것은 생활에서 어떤 모습일지 예를 들어 설명해 보세요."],
+ ap:["나를 응원해 주는 사람들을 그려 보세요.","내 마음을 돌보는 방법 3가지를 정해 보세요.","친구를 응원하는 따뜻한 말 카드를 만들어 보세요."],
+ tip:"민감한 주제이므로 사전에 영상을 확인하세요. 학생 반응을 살피고 필요하면 상담교사와 연계하세요. 청소년 상담 전화 1388을 안내할 수 있습니다."},
+{v:"xR9PiheTZuY",s:"galaxy",ep:"46화",t:"알아줘! 카리스마 리더!",topic:"보행 안전",c:"traffic",d:"11:11",w:"봄 새학기 체험학습",kw:"보행 인도 골목길 스마트폰 차도",
+ goal:"길을 걸을 때 지켜야 할 보행 안전 수칙을 실천할 수 있다.",
+ f:["길을 걸을 때는 [인도]로 걸어요.","인도가 없는 길에서는 [길 가장자리]로 걸어요.","걸으면서 [스마트폰]을 보지 않아요.","골목길에서는 갑자기 [뛰어나가지] 않아요.","주차된 차 [사이]에서 놀지 않아요."],
+ ox:[["친구와 여럿이 차도에 퍼져 걸어도 된다.",0],["골목길에서 나갈 때는 멈춰서 양쪽을 살핀다.",1],["이어폰을 끼고 걸으면 차 소리를 듣기 어렵다.",1]],
+ th:["길을 걸을 때 스마트폰을 보면 왜 위험할까요?","골목길에서 조심해야 할 점을 써 보세요.","친구들과 함께 걸을 때 리더가 할 수 있는 안전한 행동을 정리해 보세요."],
+ ap:["인도로 안전하게 걷는 모습을 그려 보세요.","보행 안전 약속 3가지를 정해 보세요.","우리 동네 '안전한 등굣길 지도'를 만들어 보세요."],
+ tip:"체험학습 전 단체 보행 수칙 교육으로 활용하세요."},
+{v:"-riHfs5AlTQ",s:"galaxy",ep:"47화",t:"힘들어! 100층 표류기!",topic:"승강기·에스컬레이터 안전",c:"life",d:"11:11",w:"실내 체험학습 명절",kw:"엘리베이터 에스컬레이터 승강기 손잡이 비상벨",
+ goal:"엘리베이터와 에스컬레이터를 안전하게 이용할 수 있다.",
+ f:["에스컬레이터에서는 [손잡이]를 잡아요.","에스컬레이터에서 걷거나 [뛰지] 않아요.","옷이나 신발 끈이 [틈]에 끼지 않게 조심해요.","엘리베이터 문이 닫힐 때 [손]을 넣지 않아요.","엘리베이터가 멈추면 [비상벨]을 눌러요."],
+ ox:[["엘리베이터 안에서 뛰면 위험하다.",1],["에스컬레이터 손잡이에 올라타고 논다.",0],["엘리베이터에 갇히면 문을 억지로 연다.",0]],
+ th:["에스컬레이터에서 손잡이를 잡아야 하는 까닭은 무엇일까요?","엘리베이터에 갇혔을 때 할 일을 순서대로 써 보세요.","높은 건물에서 불이 났을 때 엘리베이터를 타면 안 되는 까닭을 설명해 보세요."],
+ ap:["에스컬레이터를 바르게 타는 모습을 그려 보세요.","승강기 안전 약속 3가지를 정해 보세요.","아파트 엘리베이터에 붙일 안전 안내문을 만들어 보세요."],
+ tip:"학교나 아파트 엘리베이터 비상벨 사진을 함께 보여 주세요."},
+{v:"jIk6x-sm8rE",s:"galaxy",ep:"51화",t:"위험해! 반짝이 가루!",topic:"감염병 예방",c:"health",d:"11:11",w:"겨울 봄 새학기",kw:"감염병 바이러스 손씻기 마스크 기침예절",
+ goal:"감염병이 퍼지는 과정을 알고 예방 수칙을 실천할 수 있다.",
+ f:["감염병은 [세균]이나 바이러스가 옮아서 생겨요.","손을 [비누]로 30초 이상 씻어요.","기침할 때는 [옷소매]로 입과 코를 가려요.","아플 때는 [마스크]를 써요.","손으로 [눈, 코, 입]을 만지지 않아요."],
+ ox:[["손을 물로만 살짝 헹궈도 충분하다.",0],["아플 때는 집에서 쉬는 것이 좋다.",1],["예방 접종은 감염병을 막는 데 도움이 된다.",1]],
+ th:["영상 속 '반짝이 가루'는 무엇을 뜻할까요?","감염병이 사람에게서 사람에게 옮는 길을 써 보세요.","감염병 예방 수칙이 나뿐 아니라 공동체를 지키는 까닭을 설명해 보세요."],
+ ap:["비누로 손을 씻는 모습을 그려 보세요.","감염병 예방 약속 3가지를 정해 보세요.","교실에 붙일 감염병 예방 포스터를 만들어 보세요."],
+ tip:"반짝이 가루(글리터)로 세균이 퍼지는 모습을 실험해 보면 효과적입니다."},
+
+/* ───────── 최고다! 호기심딱지 ───────── */
+{v:"WjH4f1qHxcA",s:"curio",ep:"Why 시리즈",t:"고마워요! 호르몬 반장님!",topic:"호르몬",c:"body",d:"",w:"",kw:"호르몬 성장 잠 키 몸의신호",
+ goal:"호르몬이 우리 몸에서 하는 일을 알고 건강한 생활 습관과 연결할 수 있다.",
+ f:["호르몬은 몸 곳곳에 [신호]를 전하는 물질이에요.","호르몬은 [피]를 타고 온몸으로 이동해요.","[성장 호르몬]은 키가 자라는 데 도움을 줘요.","성장 호르몬은 [잠]을 잘 때 많이 나와요.","호르몬이 잘 나오려면 골고루 먹고 [운동]해요."],
+ ox:[["호르몬은 우리 몸에서 만들어진다.",1],["늦게 자도 성장에는 아무 상관이 없다.",0],["호르몬은 몸의 여러 기관이 함께 일하도록 돕는다.",1]],
+ th:["왜 영상에서 호르몬을 '반장님'이라고 불렀을까요?","키가 쑥쑥 크려면 어떤 생활 습관이 필요할까요?","호르몬과 신경이 몸에 신호를 전하는 방법을 비교해 설명해 보세요."],
+ ap:["호르몬 반장님을 상상해서 그려 보세요.","성장을 돕는 생활 약속 3가지를 정해 보세요.","나의 하루 생활(잠, 식사, 운동)을 기록하고 바꿀 점을 정리해 보세요."],
+ tip:"6학년 과학 '우리 몸의 구조와 기능'과 연결할 때 신경계와 비교하는 보조 자료로 쓰세요."},
+{v:"EVoRY-_s5YQ",s:"curio",ep:"시즌4",t:"뼈는 무슨 일을 해요?",topic:"뼈",c:"body",d:"13:11",w:"",kw:"뼈 골격 칼슘 관절 근육 자세",
+ goal:"뼈가 하는 일을 알고 뼈를 튼튼하게 하는 습관을 실천할 수 있다.",
+ f:["뼈는 우리 몸의 [모양]을 만들고 몸을 받쳐 줘요.","머리뼈는 [뇌]를 보호해요.","갈비뼈는 [심장]과 폐를 보호해요.","뼈와 [근육]이 함께 몸을 움직여요.","뼈를 튼튼하게 하려면 [칼슘]이 든 음식을 먹어요."],
+ ox:[["어른의 뼈는 약 206개이다.",1],["뼈는 몸을 움직이는 데 아무 역할도 하지 않는다.",0],["우유, 멸치는 뼈 건강에 도움이 된다.",1]],
+ th:["우리 몸에 뼈가 없다면 어떻게 될까요?","뼈가 보호하는 몸속 기관을 써 보세요.","뼈, 관절, 근육이 함께 몸을 움직이는 과정을 팔 굽히기를 예로 설명해 보세요."],
+ ap:["내 몸속 뼈를 상상해서 그려 보세요.","뼈를 튼튼하게 하는 약속 3가지를 정해 보세요.","뼈 건강을 위한 일주일 식단과 운동 계획을 세워 보세요."],
+ tip:"6학년 과학 '뼈와 근육' 차시 도입으로 좋습니다."},
+{v:"ZBv9vGonk4Q",s:"curio",ep:"시즌4",t:"심장의 상태를 알려 주는 맥박!",topic:"심장과 맥박",c:"body",d:"14:20",w:"",kw:"심장 맥박 혈액 순환 운동",
+ goal:"맥박이 심장의 움직임을 나타낸다는 것을 알고 맥박을 재어 볼 수 있다.",
+ f:["심장은 [피]를 온몸으로 보내는 펌프예요.","심장이 뛸 때마다 혈관이 뛰는 것을 [맥박]이라고 해요.","맥박은 [손목]이나 목에서 느낄 수 있어요.","운동을 하면 맥박이 [빨라져요].","쉬고 나면 맥박이 다시 [느려져요]."],
+ ox:[["심장은 잠잘 때 멈춘다.",0],["달리기를 하면 맥박이 빨라진다.",1],["맥박을 재면 심장이 얼마나 빨리 뛰는지 알 수 있다.",1]],
+ th:["손목에 손가락을 대 보세요. 어떤 느낌이 드나요?","운동하면 맥박이 빨라지는 까닭은 무엇일까요?","운동 전·후 1분 맥박을 재어 비교하고, 그 결과를 심장이 하는 일과 연결해 설명해 보세요."],
+ ap:["쿵쿵 뛰는 내 심장을 그려 보세요.","심장을 튼튼하게 하는 약속 3가지를 정해 보세요.","운동 전·후 맥박 재기 실험을 계획하고 결과 표를 만들어 보세요."],
+ tip:"시청 후 짝과 함께 맥박 재기 활동을 바로 해 보세요."},
+{v:"0_yTeJJ464w",s:"curio",ep:"Why 시리즈",t:"달리면 왜 숨이 찰까요?",topic:"호흡",c:"body",d:"14:46",w:"",kw:"호흡 폐 산소 숨 운동 이산화탄소",
+ goal:"운동할 때 숨이 차는 까닭을 산소와 연결해 설명할 수 있다.",
+ f:["우리는 숨을 쉬어 [산소]를 몸에 들여보내요.","숨을 쉬는 공기는 [폐]로 들어가요.","달리면 [근육]이 더 많은 산소를 필요로 해요.","그래서 달리면 숨을 [빨리] 쉬게 돼요.","숨을 내쉴 때는 [이산화탄소]를 내보내요."],
+ ox:[["달리면 숨이 차는 것은 몸이 산소를 더 원하기 때문이다.",1],["숨을 쉴 때 공기는 위로 들어간다.",0],["꾸준히 운동하면 숨이 덜 차게 될 수 있다.",1]],
+ th:["달리기를 한 뒤 내 몸은 어떻게 달라지나요?","달리면 숨이 차는 까닭을 써 보세요.","운동할 때 호흡과 맥박이 함께 빨라지는 까닭을 호흡 기관과 순환 기관을 연결해 설명해 보세요."],
+ ap:["숨을 크게 쉬는 내 폐를 그려 보세요.","폐를 튼튼하게 하는 약속 3가지를 정해 보세요.","운동 전·후 1분 동안 숨 쉬는 횟수를 재는 실험을 계획해 보세요."],
+ tip:"체육 시간 달리기 직후 호흡 수 세기와 연결해 보세요."},
+{v:"rTBjPGfatyQ",s:"curio",ep:"Why 시리즈",t:"손톱! 왜 잘라야 할까요?",topic:"손톱 위생",c:"health",d:"14:03",w:"",kw:"손톱 위생 세균 손톱깎이 물어뜯기",
+ goal:"손톱을 깨끗이 관리해야 하는 까닭을 알고 실천할 수 있다.",
+ f:["손톱은 계속 [자라요].","긴 손톱 밑에는 [세균]이 숨어 있기 쉬워요.","손톱은 [손톱깎이]로 알맞게 잘라요.","손톱을 [물어뜯지] 않아요.","손을 씻을 때 [손톱 밑]까지 씻어요."],
+ ox:[["손톱을 물어뜯으면 세균이 입으로 들어갈 수 있다.",1],["손톱은 한 번 자르면 다시 자라지 않는다.",0],["손톱은 너무 짧게 자르지 않는다.",1]],
+ th:["손톱이 길면 왜 좋지 않을까요?","손톱을 물어뜯는 습관을 고치는 방법을 써 보세요.","손톱이 하는 일과 손톱 위생이 건강에 주는 영향을 정리해 보세요."],
+ ap:["깨끗하게 손톱을 정리한 내 손을 그려 보세요.","손톱 위생 약속 3가지를 정해 보세요.","일주일 손톱 관리 점검표를 만들어 보세요."],
+ tip:"손 씻기 교육과 묶어서 지도하면 좋습니다."},
+{v:"ewO8H6PR6Aw",s:"curio",ep:"시즌4",t:"짜게 먹으면 안 돼요",topic:"나트륨 줄이기",c:"health",d:"11:32",w:"명절",kw:"소금 나트륨 짠음식 식습관 국물",
+ goal:"짠 음식을 많이 먹으면 생기는 문제를 알고 싱겁게 먹는 습관을 실천할 수 있다.",
+ f:["소금에는 [나트륨]이 들어 있어요.","짜게 먹으면 [물]이 자꾸 먹고 싶어요.","짠 음식을 많이 먹으면 [혈압]이 높아질 수 있어요.","국이나 라면의 [국물]은 적게 먹어요.","과자를 살 때는 [영양 성분표]를 확인해요."],
+ ox:[["나트륨은 많이 먹을수록 좋다.",0],["채소와 과일은 나트륨을 몸 밖으로 내보내는 데 도움이 된다.",1],["라면 국물을 다 먹으면 나트륨을 많이 먹게 된다.",1]],
+ th:["내가 좋아하는 음식 중 짠 음식은 무엇인가요?","짜게 먹으면 몸에 어떤 일이 생길까요?","과자 두 가지의 영양 성분표를 비교하고 나트륨을 줄이는 방법을 제안해 보세요."],
+ ap:["싱겁고 건강한 밥상을 그려 보세요.","싱겁게 먹기 약속 3가지를 정해 보세요.","나트륨을 줄인 우리 가족 하루 식단을 짜 보세요."],
+ tip:"실과 식생활 단원과 연결하고, 실제 과자 포장지로 영양 성분표를 읽어 보세요."},
+{v:"lPzvhZmrb5s",s:"curio",ep:"시즌4",t:"너무 맵게 먹으면 안 돼요!",topic:"매운 음식",c:"health",d:"13:18",w:"",kw:"매운맛 고추 통증 위 식습관 우유",
+ goal:"매운맛이 몸에 주는 영향을 알고 알맞게 먹는 습관을 기를 수 있다.",
+ f:["매운맛은 혀가 느끼는 맛이 아니라 [통증]에 가까워요.","너무 매운 음식은 [위]를 아프게 할 수 있어요.","매울 때는 물보다 [우유]가 매운맛을 덜어 줘요.","매운 음식은 [조금씩] 먹어요.","친구에게 매운 음식을 [억지로] 먹이지 않아요."],
+ ox:[["매운 음식을 많이 먹을수록 건강해진다.",0],["매운 과자 먹기 시합은 위험할 수 있다.",1],["매운맛은 짠맛, 단맛처럼 혀의 맛이다.",0]],
+ th:["매운 음식을 먹으면 내 몸은 어떻게 반응하나요?","매운맛을 '맛'이 아니라 '통증'이라고 하는 까닭을 써 보세요.","매운 음식 챌린지가 위험한 까닭을 정리하고 친구들에게 줄 조언을 써 보세요."],
+ ap:["매운 음식을 먹고 깜짝 놀란 모습을 그려 보세요.","매운 음식 먹기 약속 3가지를 정해 보세요.","'매운 음식 챌린지' 대신 할 건강 챌린지를 만들어 보세요."],
+ tip:"맛을 느끼는 혀(오감) 수업과 연결할 수 있습니다."},
+{v:"AqjEQeE3VLs",s:"curio",ep:"Why 시리즈",t:"유산균! 장 속 꽃밭을 지켜 줘!",topic:"유산균과 장 건강",c:"body",d:"14:57",w:"",kw:"유산균 장 소화 요구르트 김치 변비",
+ goal:"장 속 유산균이 하는 일을 알고 장 건강을 지키는 식습관을 실천할 수 있다.",
+ f:["우리 장 속에는 아주 많은 [균]이 살아요.","[유산균]은 장을 건강하게 돕는 좋은 균이에요.","유산균은 [요구르트]나 김치 같은 음식에 들어 있어요.","채소와 과일의 [식이 섬유]는 장 운동을 도와요.","장이 건강하면 [똥]도 잘 나와요."],
+ ox:[["장 속의 균은 모두 나쁜 균이다.",0],["김치는 유산균이 들어 있는 음식이다.",1],["단 음식만 먹으면 장 건강에 좋다.",0]],
+ th:["왜 영상에서 장 속을 '꽃밭'이라고 했을까요?","장을 건강하게 하는 음식을 써 보세요.","소화 기관 중 큰창자가 하는 일과 유산균의 역할을 연결해 설명해 보세요."],
+ ap:["장 속 꽃밭과 유산균을 상상해서 그려 보세요.","장 건강 약속 3가지를 정해 보세요.","장 건강을 위한 일주일 간식 계획표를 만들어 보세요."],
+ tip:"6학년 과학 소화 기관 차시의 확장 자료로 쓰기 좋습니다."},
+{v:"WJVpwU_LCvA",s:"curio",ep:"시즌4",t:"과호흡! 숨쉬기 힘들어요",topic:"과호흡",c:"firstaid",d:"12:55",w:"",kw:"과호흡 호흡 긴장 불안 천천히숨쉬기",
+ goal:"과호흡이 생기는 까닭을 알고 천천히 숨 쉬는 방법을 익힐 수 있다.",
+ f:["너무 놀라거나 긴장하면 숨을 [빨리] 쉴 수 있어요.","숨을 너무 빨리 쉬면 [어지럽고] 손발이 저릴 수 있어요.","이럴 때는 [천천히] 숨을 내쉬어요.","편안한 자세로 앉아 [마음]을 가라앉혀요.","증상이 계속되면 [어른]에게 알리고 도움을 받아요."],
+ ox:[["과호흡이 오면 더 빨리 숨을 쉬어야 한다.",0],["긴장될 때 천천히 숨 쉬기가 도움이 된다.",1],["친구가 숨쉬기 힘들어하면 어른에게 알린다.",1]],
+ th:["긴장될 때 내 몸은 어떻게 달라지나요?","숨쉬기 힘든 친구를 보면 어떻게 도와줄 수 있을까요?","마음(긴장, 불안)과 몸(호흡)이 서로 영향을 주는 예를 찾아 설명해 보세요."],
+ ap:["천천히 숨 쉬며 마음을 가라앉히는 모습을 그려 보세요.","긴장될 때 쓸 나만의 방법 3가지를 정해 보세요.","'4초 들이쉬고 6초 내쉬기' 같은 마음 안정 호흡법 안내 카드를 만들어 보세요."],
+ tip:"발표나 시험 전 긴장 다스리기 활동과 연결할 수 있습니다."},
+{v:"rwv8_ZZO1Ro",s:"curio",ep:"시즌4",t:"몸에 들어오면 위험한 프탈레이트!",topic:"환경 호르몬",c:"env",d:"13:28",w:"실내",kw:"프탈레이트 환경호르몬 플라스틱 장난감 전자레인지",
+ goal:"생활용품 속 해로운 물질을 알고 몸에 들어오지 않도록 조심할 수 있다.",
+ f:["프탈레이트는 플라스틱을 [말랑하게] 만드는 물질이에요.","프탈레이트는 몸속 [호르몬]을 어지럽힐 수 있어요.","말랑한 장난감을 [입]에 넣지 않아요.","플라스틱 그릇을 [전자레인지]에 데우지 않아요.","놀고 난 뒤에는 [손]을 깨끗이 씻어요."],
+ ox:[["말랑한 장난감은 깨물어도 괜찮다.",0],["어린이용 제품은 KC 인증 표시를 확인하면 좋다.",1],["플라스틱 그릇에 뜨거운 음식을 담아 데워도 된다.",0]],
+ th:["장난감을 입에 넣으면 왜 위험할까요?","우리 집에서 플라스틱으로 된 물건을 찾아 써 보세요.","환경 호르몬을 줄이기 위해 가정과 학교에서 할 수 있는 일을 정리해 보세요."],
+ ap:["장난감을 가지고 논 뒤 손을 씻는 모습을 그려 보세요.","환경 호르몬 줄이기 약속 3가지를 정해 보세요.","우리 집 플라스틱 사용 점검표를 만들어 보세요."],
+ tip:"제품의 KC 인증 마크를 실물로 찾아보는 활동을 덧붙이세요."},
+{v:"qnT8AOUEwe8",s:"curio",ep:"호떡이 이야기",t:"열 잡으러 왔다! 해열제",topic:"열과 해열제",c:"drug",d:"13:05",w:"겨울",kw:"열 해열제 감기 약 체온 바이러스",
+ goal:"열이 나는 까닭을 알고 해열제를 바르게 사용하는 방법을 말할 수 있다.",
+ f:["열은 몸이 [세균]이나 바이러스와 싸우고 있다는 신호예요.","열이 나면 [체온계]로 체온을 재요.","해열제는 [어른]과 함께 정해진 양만 먹어요.","해열제를 먹고 나서 [시간 간격]을 지켜요.","열이 날 때는 푹 쉬고 [물]을 자주 마셔요."],
+ ox:[["해열제를 많이 먹으면 열이 더 빨리 내린다.",0],["열이 나면 어른에게 알린다.",1],["다른 사람의 약을 함부로 먹지 않는다.",1]],
+ th:["감기에 걸려 열이 났을 때 어땠나요?","열이 나는 것은 우리 몸에 어떤 뜻일까요?","약 봉투나 설명서에서 꼭 확인해야 할 내용을 정리하고 그 까닭을 써 보세요."],
+ ap:["열이 날 때 푹 쉬는 내 모습을 그려 보세요.","약 바르게 먹기 약속 3가지를 정해 보세요.","해열제 설명서를 읽고 복용 방법을 표로 정리해 보세요."],
+ tip:"빈 약 상자를 준비해 복용법을 읽어 보는 활동을 하세요. 약물 오남용 예방 교육으로 연결할 수 있습니다."},
+{v:"0zVwX_9t8ac",s:"curio",ep:"호떡이 이야기",t:"위험한 헬리코박터 파일로리",topic:"세균과 위 건강",c:"health",d:"14:12",w:"",kw:"헬리코박터 세균 위 손씻기 화장실 위생",
+ goal:"세균이 손을 통해 입으로 들어오는 과정을 알고 위생 습관을 실천할 수 있다.",
+ f:["헬리코박터 파일로리는 [위]에 사는 세균이에요.","세균은 변기 손잡이 같은 곳에서 [손]으로 옮을 수 있어요.","씻지 않은 손으로 음식을 먹으면 세균이 [입]으로 들어가요.","화장실을 다녀온 뒤에는 꼭 [손]을 씻어요.","찌개는 [개인 그릇]에 덜어 먹어요."],
+ ox:[["화장실에 다녀온 뒤 손을 씻지 않아도 된다.",0],["세균은 눈에 보이지 않아도 손에 묻어 있을 수 있다.",1],["한 숟가락으로 같은 찌개를 함께 떠먹으면 세균이 옮을 수 있다.",1]],
+ th:["세균이 내 입속으로 들어오는 길을 그림처럼 순서대로 말해 보세요.","손을 꼭 씻어야 하는 때를 써 보세요.","위생 습관이 소화 기관 건강을 지키는 까닭을 설명해 보세요."],
+ ap:["화장실 다녀온 뒤 손을 씻는 모습을 그려 보세요.","손 씻기와 식사 위생 약속 3가지를 정해 보세요.","급식 시간 위생 수칙 안내문을 만들어 보세요."],
+ tip:"형광 로션으로 '세균 묻히기 실험'을 하면 씻지 않은 곳이 눈에 보입니다."},
+{v:"ZS7U0Sy7bPk",s:"curio",ep:"호떡이 이야기",t:"호딱아! 너도 수두 이길 수 있어",topic:"수두",c:"health",d:"13:27",w:"겨울 봄",kw:"수두 물집 가려움 예방접종 감염병",
+ goal:"수두가 옮는 까닭을 알고 감염병에 걸렸을 때 바르게 행동할 수 있다.",
+ f:["수두는 [바이러스]로 생기는 병이에요.","수두에 걸리면 몸에 가려운 [물집]이 생겨요.","가려워도 물집을 [긁지] 않아요.","수두는 다른 사람에게 [옮기] 쉬워요.","수두는 [예방 접종]으로 막을 수 있어요."],
+ ox:[["수두에 걸리면 물집을 긁어서 터뜨린다.",0],["수두에 걸리면 다 나을 때까지 집에서 쉰다.",1],["예방 접종은 감염병을 막는 데 도움이 된다.",1]],
+ th:["수두에 걸린 친구의 마음은 어떨까요?","수두에 걸리면 왜 학교에 오지 않고 쉬어야 할까요?","감염병에 걸린 사람을 놀리지 않고 배려해야 하는 까닭을 설명해 보세요."],
+ ap:["아픈 친구에게 주는 응원 카드를 그려 보세요.","감염병 예방 약속 3가지를 정해 보세요.","우리 반 감염병 예방 수칙을 만들어 보세요."],
+ tip:"실제 수두에 걸렸던 학생이 있으면 놀림받지 않도록 배려하세요."},
+{v:"9RT17VKi_Yc",s:"curio",ep:"호떡이 이야기",t:"거스러미는 떼지 마세요",topic:"피부와 손 관리",c:"health",d:"",w:"겨울",kw:"거스러미 손톱 피부 상처 보습 겨울",
+ goal:"거스러미를 함부로 뜯으면 위험한 까닭을 알고 바르게 관리할 수 있다.",
+ f:["거스러미는 손톱 옆 [피부]가 일어난 거예요.","거스러미를 손으로 뜯으면 [상처]가 나요.","상처로 [세균]이 들어가면 곪을 수 있어요.","거스러미는 [손톱깎이]로 살짝 잘라요.","손이 건조하지 않게 [로션]을 발라요."],
+ ox:[["거스러미는 손으로 쭉 뜯어내면 된다.",0],["건조한 겨울에 거스러미가 잘 생긴다.",1],["상처가 빨갛게 붓고 아프면 어른에게 알린다.",1]],
+ th:["거스러미를 뜯고 싶을 때 어떻게 하면 좋을까요?","거스러미를 뜯으면 왜 위험할까요?","피부가 우리 몸을 지키는 일을 정리하고, 피부 상처가 생겼을 때의 관리 방법을 써 보세요."],
+ ap:["로션을 바르고 손을 돌보는 모습을 그려 보세요.","손 피부 관리 약속 3가지를 정해 보세요.","겨울철 손 건강 관리 안내문을 만들어 보세요."],
+ tip:"겨울철 건조한 시기에 손 씻기 후 보습 지도와 함께하면 좋습니다."},
+{v:"xRbterR-Dgs",s:"curio",ep:"EBS놀이터",t:"스마트폰 볼 때 눈 안 깜빡이면?",topic:"눈 건강",c:"health",d:"",w:"방학 실내 겨울",kw:"눈 깜빡임 스마트폰 안구건조 눈물 화면",
+ goal:"화면을 볼 때 눈을 깜빡이고 쉬게 하는 습관을 실천할 수 있다.",
+ f:["눈을 [깜빡이면] 눈물이 눈을 촉촉하게 해 줘요.","화면에 집중하면 눈을 덜 [깜빡여요].","눈을 덜 깜빡이면 눈이 [건조해져요].","화면을 오래 본 뒤에는 [먼 곳]을 바라보며 쉬어요.","눈이 가려워도 손으로 [비비지] 않아요."],
+ ox:[["스마트폰을 볼 때는 눈을 덜 깜빡이게 된다.",1],["누워서 스마트폰을 오래 보면 눈에 좋다.",0],["눈물은 눈을 보호하는 역할을 한다.",1]],
+ th:["스마트폰을 오래 본 뒤 내 눈은 어땠나요?","눈을 깜빡이는 것이 왜 중요할까요?","화면 사용 시간이 늘어난 생활에서 눈 건강을 지키는 방법을 조사하고 정리해 보세요."],
+ ap:["먼 곳을 보며 눈을 쉬는 내 모습을 그려 보세요.","눈 건강 약속 3가지를 정해 보세요.","'눈 쉬는 시간' 체조 순서를 만들어 친구들에게 알려 주세요."],
+ tip:"수업 중 눈 체조(상하좌우 보기, 멀리 보기)를 짧게 해 보세요."},
+{v:"iE8xk-0lHto",s:"curio",ep:"EBS놀이터",t:"밤에 스마트폰을 끄고 자야 하는 이유",topic:"수면과 성장",c:"health",d:"",w:"방학 겨울",kw:"잠 수면 스마트폰 성장호르몬 멜라토닌 키",
+ goal:"잠들기 전 스마트폰 사용이 잠과 성장에 주는 영향을 알고 바른 수면 습관을 실천할 수 있다.",
+ f:["밤에는 잠이 오게 하는 [멜라토닌]이 나와요.","스마트폰 화면의 [빛]은 잠을 방해해요.","키가 크는 데 도움을 주는 [성장 호르몬]은 잘 때 많이 나와요.","잠들기 전에는 스마트폰을 [멀리] 두어요.","매일 같은 [시간]에 자고 일어나요."],
+ ox:[["자기 전에 스마트폰을 보면 잠이 더 잘 온다.",0],["잠을 잘 자야 키가 크는 데 도움이 된다.",1],["어린이는 어른보다 잠을 적게 자도 된다.",0]],
+ th:["잠을 잘 못 잔 다음 날 내 몸과 기분은 어땠나요?","잠들기 1시간 전에 하면 좋은 일을 써 보세요.","일주일 동안 수면 시간을 기록하고 낮 생활(집중, 기분)과의 관계를 분석해 보세요."],
+ ap:["푹 자고 일어난 아침의 내 모습을 그려 보세요.","잠자기 약속 3가지를 정해 보세요.","나에게 맞는 '건강한 수면 계획표'를 만들어 보세요."],
+ tip:"수면 일기를 일주일 과제로 내고 다음 차시에 결과를 나누어 보세요."},
+{v:"czJb4X0aXLc",s:"curio",ep:"시즌4",t:"하늘에서 내리는 눈은 왜 더러워요?",topic:"눈과 미세먼지",c:"env",d:"",w:"겨울 방학 야외",kw:"눈 미세먼지 먼지 겨울 눈먹기 대기오염",
+ goal:"눈에 먼지가 섞여 있는 까닭을 알고 눈을 먹지 않는 습관을 기를 수 있다.",
+ f:["눈은 하늘에서 내려오면서 공기 중의 [먼지]를 붙잡아요.","그래서 하얀 눈에도 [더러운 것]이 섞여 있어요.","눈은 깨끗해 보여도 [먹지] 않아요.","눈놀이를 한 뒤에는 [손]을 깨끗이 씻어요.","[미세먼지]가 많은 날에는 바깥 활동을 줄여요."],
+ ox:[["하얀 눈은 깨끗해서 먹어도 된다.",0],["눈이 녹은 물을 보면 먼지를 볼 수 있다.",1],["미세먼지가 많은 날에는 마스크가 도움이 된다.",1]],
+ th:["눈을 먹으면 안 되는 까닭은 무엇일까요?","눈이 더러워지는 과정을 순서대로 써 보세요.","공기 오염이 눈과 비에 주는 영향을 조사하고 공기를 깨끗하게 하는 방법을 제안해 보세요."],
+ ap:["눈놀이 후 손을 씻는 모습을 그려 보세요.","겨울 눈놀이 약속 3가지를 정해 보세요.","눈을 녹여 거름종이로 걸러 보는 실험을 계획해 보세요."],
+ tip:"실제 눈을 컵에 받아 녹인 뒤 거름종이로 걸러 보면 아이들이 직접 확인할 수 있습니다."},
+{v:"Pdz6tXDR218",s:"curio",ep:"EBS놀이터",t:"콧구멍이 한쪽씩 번갈아 막히는 진짜 이유",topic:"코와 호흡",c:"body",d:"",w:"겨울",kw:"코 콧구멍 호흡 비주기 코막힘 감기",
+ goal:"코가 하는 일을 알고 콧구멍이 번갈아 쉬는 까닭을 말할 수 있다.",
+ f:["코는 숨 쉬는 공기를 [따뜻하고] 촉촉하게 만들어요.","코털과 콧물은 [먼지]를 걸러 줘요.","콧구멍은 몇 시간마다 한쪽씩 번갈아 [쉬어요].","그래서 한쪽 코가 [막힌] 것처럼 느껴질 때가 있어요.","코를 풀 때는 한쪽씩 [살살] 풀어요."],
+ ox:[["두 콧구멍은 늘 똑같이 공기가 드나든다.",0],["콧물은 몸을 지키는 일을 한다.",1],["코를 세게 풀면 귀가 아플 수 있다.",1]],
+ th:["한쪽 코가 막혔던 경험을 떠올려 보세요. 언제였나요?","코가 공기를 걸러 주는 방법을 써 보세요.","입으로 숨 쉬는 것보다 코로 숨 쉬는 것이 좋은 까닭을 호흡 기관과 연결해 설명해 보세요."],
+ ap:["코가 공기를 걸러 주는 모습을 상상해서 그려 보세요.","코 건강 약속 3가지를 정해 보세요.","한쪽씩 막고 숨 쉬어 보며 차이를 관찰하는 활동을 계획해 보세요."],
+ tip:"6학년 호흡 기관 차시의 흥미 유발 자료로 쓰기 좋습니다."},
+{v:"NqCEgUmNpvI",s:"curio",ep:"호떡이 이야기",t:"하임리히법으로 위기 탈출!",topic:"기도 막힘 응급처치",c:"firstaid",d:"11:37",w:"명절 방학",kw:"하임리히법 응급처치 기도막힘 사탕 119 질식",
+ goal:"음식이 목에 걸렸을 때의 위험을 알고 도움을 요청하는 방법을 말할 수 있다.",
+ f:["사탕이나 떡이 목에 걸리면 [숨]을 쉬기 어려워요.","목에 무언가 걸리면 먼저 [기침]을 하게 해요.","숨을 못 쉬면 바로 [119]에 신고하고 어른을 불러요.","하임리히법은 뒤에서 안고 배를 [위쪽]으로 밀어 올리는 방법이에요.","음식은 [작게] 잘라 천천히 먹어요."],
+ ox:[["사탕을 입에 물고 뛰어다니면 위험하다.",1],["목에 무언가 걸린 친구의 등을 아무렇게나 세게 때린다.",0],["숨을 못 쉬는 친구를 보면 바로 어른에게 알린다.",1]],
+ th:["음식이 목에 걸리지 않으려면 어떻게 먹어야 할까요?","친구가 목을 잡고 괴로워하면 어떻게 할까요?","하임리히법의 순서와 각 동작의 까닭을 정리해 보세요."],
+ ap:["음식을 천천히 꼭꼭 씹어 먹는 모습을 그려 보세요.","안전하게 먹기 약속 3가지를 정해 보세요.","하임리히법 순서를 4단계 카드로 만들어 보세요."],
+ tip:"고학년은 보건교사와 함께 인형으로 실습하세요. 저학년은 '어른 부르기·119 신고'에 초점을 두세요."},
+/* ── 호기심딱지 추가 회차 ── */
+{v:"m4ADi0VLEK0",s:"curio",ep:"시즌4",t:"엘리베이터에서 뛰면 안 돼요!",topic:"승강기 안전",c:"life",d:"13:04",w:"실내 새학기",kw:"엘리베이터 승강기 뛰기 멈춤 비상벨",
+ goal:"엘리베이터 안에서 뛰면 위험한 까닭을 알고 바르게 이용할 수 있다.",
+ f:["엘리베이터 안에서 뛰면 [흔들려서] 멈출 수 있어요.","엘리베이터에는 사고를 막는 [안전장치]가 있어요.","엘리베이터 문에 [기대지] 않아요.","문이 닫힐 때 [손]이나 발을 넣지 않아요.","엘리베이터가 멈추면 [비상벨]을 누르고 기다려요."],
+ ox:[["엘리베이터 안에서 친구와 점프 놀이를 한다.",0],["엘리베이터에 갇히면 비상벨로 도움을 요청한다.",1],["닫히는 문을 손으로 막아도 안전하다.",0]],
+ th:["엘리베이터 안에서 지켜야 할 일은 무엇일까요?","엘리베이터 안에서 뛰면 왜 멈출 수 있을까요?","엘리베이터의 안전장치가 하는 일을 조사하고, 이용하는 사람이 지킬 일과 연결해 정리해 보세요."],
+ ap:["엘리베이터를 바르게 타는 내 모습을 그려 보세요.","엘리베이터 안전 약속 3가지를 정해 보세요.","아파트 엘리베이터에 붙일 안전 안내문을 만들어 보세요."],
+ tip:"은하안전단 47화(승강기·에스컬레이터 안전)와 함께 보면 좋습니다."},
+{v:"62H_FJt3Jp4",s:"curio",ep:"시즌4",t:"위험해! 음식 알레르기",topic:"음식 알레르기",c:"health",d:"13:36",w:"새학기 체험학습",kw:"알레르기 음식 두드러기 땅콩 급식 면역",
+ goal:"음식 알레르기가 무엇인지 알고 알레르기가 있는 친구를 배려할 수 있다.",
+ f:["알레르기는 우리 몸이 어떤 음식을 [적]으로 착각해서 생겨요.","알레르기가 생기면 피부에 [두드러기]가 나거나 가려울 수 있어요.","심하면 [숨쉬기]가 어려워질 수 있어요.","나에게 알레르기가 있는 음식은 [선생님]께 미리 알려요.","급식 식단표의 [알레르기 표시]를 확인해요."],
+ ox:[["친구가 알레르기 음식이라고 하면 조금은 먹어 보게 한다.",0],["알레르기 증상이 심하면 바로 어른에게 알린다.",1],["음식 알레르기는 사람마다 다를 수 있다.",1]],
+ th:["친구가 어떤 음식을 못 먹는다고 하면 어떻게 해야 할까요?","알레르기가 생기면 몸에 어떤 일이 일어나는지 써 보세요.","급식 식단표의 알레르기 표시를 조사하고, 알레르기가 있는 친구를 위한 학급 약속을 제안해 보세요."],
+ ap:["친구와 서로 배려하며 밥 먹는 모습을 그려 보세요.","음식 알레르기 배려 약속 3가지를 정해 보세요.","우리 반 '알레르기 안전 카드' 양식을 만들어 보세요."],
+ tip:"학급에 알레르기가 있는 학생이 있으면 보호자 동의를 얻어 함께 이야기하세요."},
+{v:"VHoVhH0FR3Q",s:"curio",ep:"시즌4",t:"예방접종 후 왜 쉬어야 해요?",topic:"예방접종",c:"health",d:"14:01",w:"겨울 새학기",kw:"예방접종 주사 면역 백신 열",
+ goal:"예방접종의 원리를 알고 접종 뒤 몸을 돌보는 방법을 말할 수 있다.",
+ f:["예방접종은 우리 몸이 병균과 싸우는 [연습]을 하게 해 줘요.","접종을 하면 몸속에 병균을 막는 [항체]가 생겨요.","접종 뒤에는 몸이 [열]이 나거나 주사 맞은 곳이 아플 수 있어요.","접종한 날에는 심한 [운동]을 하지 않고 쉬어요.","주사 맞은 곳을 손으로 [문지르지] 않아요."],
+ ox:[["예방접종을 한 날에는 무리하지 않고 쉰다.",1],["주사 맞은 곳을 세게 문지르면 빨리 낫는다.",0],["예방접종은 병을 미리 막는 데 도움이 된다.",1]],
+ th:["주사를 맞을 때 내 마음은 어땠나요?","예방접종을 하면 왜 병에 덜 걸릴까요?","예방접종이 나뿐 아니라 다른 사람까지 지켜 주는 까닭을 설명해 보세요."],
+ ap:["예방접종을 씩씩하게 맞는 내 모습을 그려 보세요.","예방접종 날 약속 3가지를 정해 보세요.","예방접종의 원리를 그림과 글로 설명하는 카드를 만들어 보세요."],
+ tip:"독감 예방접종 시기(가을)에 맞춰 보여 주면 좋습니다."},
+{v:"lSMgyhYQx_s",s:"curio",ep:"시즌4",t:"뽀글뽀글 비누특공대",topic:"비누와 손 씻기",c:"health",d:"12:35",w:"겨울 새학기",kw:"비누 손씻기 거품 세균 기름때",
+ goal:"비누가 세균과 때를 없애는 원리를 알고 올바르게 손을 씻을 수 있다.",
+ f:["물로만 씻으면 [기름때]와 세균이 잘 지워지지 않아요.","[비누] 거품은 때와 세균을 감싸서 떼어 내요.","손은 [30초] 이상 문질러 씻어요.","손가락 사이와 [손톱 밑]까지 꼼꼼히 씻어요.","씻은 뒤에는 깨끗한 [수건]으로 닦아요."],
+ ox:[["물로만 헹궈도 비누로 씻은 것과 똑같다.",0],["비누 거품을 충분히 내어 씻으면 좋다.",1],["화장실을 다녀오면 비누로 손을 씻는다.",1]],
+ th:["비누로 손을 씻어야 하는 까닭은 무엇일까요?","손 씻기를 꼭 해야 하는 때를 모두 써 보세요.","물로만 씻을 때와 비누로 씻을 때의 차이를 실험으로 확인하는 방법을 계획해 보세요."],
+ ap:["비누 거품으로 손을 씻는 내 모습을 그려 보세요.","손 씻기 약속 3가지를 정해 보세요.","세면대에 붙일 '올바른 손 씻기 6단계' 안내문을 만들어 보세요."],
+ tip:"후추 가루를 뿌린 물에 비누 묻힌 손가락을 넣는 실험을 함께 하면 좋습니다."},
+{v:"JsiZ2Q1TqSk",s:"curio",ep:"시즌4",t:"밤이면 밤마다 요충",topic:"기생충 예방",c:"health",d:"13:35",w:"",kw:"요충 기생충 가려움 손씻기 손톱",
+ goal:"요충이 옮는 과정을 알고 손 씻기와 청결로 예방할 수 있다.",
+ f:["요충은 사람 몸에 사는 작은 [기생충]이에요.","요충은 밤에 엉덩이 주변에 [알]을 낳아 가렵게 해요.","가려운 곳을 긁은 [손]으로 알이 옮겨 가요.","[손톱]을 짧게 깎고 손을 자주 씻어요.","속옷과 이불을 깨끗이 [빨아요]."],
+ ox:[["가려운 곳을 긁은 손으로 음식을 먹어도 된다.",0],["손톱 밑에 기생충 알이 숨을 수 있다.",1],["요충은 가족에게 옮을 수 있다.",1]],
+ th:["밤에 엉덩이가 가려우면 어떻게 해야 할까요?","요충 알이 다른 사람에게 옮는 길을 써 보세요.","요충의 한살이와 옮는 과정을 정리하고, 끊을 수 있는 방법을 제안해 보세요."],
+ ap:["깨끗하게 손을 씻는 내 모습을 그려 보세요.","기생충 예방 약속 3가지를 정해 보세요.","가족을 위한 '기생충 예방 수칙' 안내문을 만들어 보세요."],
+ tip:"부끄러운 주제로 느끼지 않도록 '누구나 걸릴 수 있다'는 점을 먼저 말해 주세요."},
+{v:"T0Fn6NN9k14",s:"curio",ep:"시즌4",t:"귀를 지키는 귀지",topic:"귀 건강",c:"body",d:"12:04",w:"",kw:"귀 귀지 면봉 고막 소리",
+ goal:"귀지가 귀를 지키는 역할을 알고 귀를 바르게 관리할 수 있다.",
+ f:["귀지는 귀 안으로 들어온 [먼지]를 붙잡아요.","귀지는 [세균]이 귀 안으로 들어가는 것을 막아요.","귀지는 대부분 저절로 [밖으로] 나와요.","귀 안을 [면봉]으로 깊이 파지 않아요.","귀가 아프거나 잘 안 들리면 [병원]에 가요."],
+ ox:[["귀지는 더러우니까 매일 깊이 파내야 한다.",0],["귀지는 귀를 보호하는 역할을 한다.",1],["뾰족한 물건으로 귀를 파면 고막이 다칠 수 있다.",1]],
+ th:["귀지는 어떤 일을 할까요?","귀를 깊이 파면 왜 위험할까요?","귀의 구조(바깥귀·가운데귀·속귀)를 조사하고 귀를 지키는 생활 습관을 정리해 보세요."],
+ ap:["귀가 소리를 듣는 모습을 상상해서 그려 보세요.","귀 건강 약속 3가지를 정해 보세요.","'귀 건강 지키기' 안내 카드를 만들어 보세요."],
+ tip:"'큰소리 습격사건' 회차와 묶어 귀 건강 차시로 운영할 수 있습니다."},
+{v:"d6V_NawAwyU",s:"curio",ep:"Why 시리즈",t:"뮤탄스가 내 이에 똥을 쌌어요!",topic:"충치 예방",c:"health",d:"14:59",w:"",kw:"충치 뮤탄스 이 양치 설탕 치과",
+ goal:"충치균이 이를 상하게 하는 과정을 알고 바른 양치 습관을 실천할 수 있다.",
+ f:["입안에는 충치를 만드는 [뮤탄스]균이 살아요.","뮤탄스는 [설탕]을 먹고 산을 만들어요.","산은 단단한 [이]를 녹여 충치를 만들어요.","밥과 간식을 먹은 뒤에는 [양치질]을 해요.","단 음식을 먹은 뒤에는 [물]로 입을 헹궈요."],
+ ox:[["사탕을 먹고 바로 자도 괜찮다.",0],["충치균은 단 음식을 좋아한다.",1],["이가 아프지 않아도 치과 검진을 받는다.",1]],
+ th:["충치균이 좋아하는 음식은 무엇일까요?","충치가 생기는 과정을 순서대로 써 보세요.","충치를 막는 방법을 '먹는 습관'과 '닦는 습관'으로 나누어 정리해 보세요."],
+ ap:["충치균을 물리치는 칫솔 용사를 그려 보세요.","이 건강 약속 3가지를 정해 보세요.","일주일 양치 기록표를 만들고 스스로 점검해 보세요."],
+ tip:"착색제(치면 착색제)로 덜 닦인 곳을 확인하는 활동과 연결하세요."},
+{v:"e3KOBkRPxxE",s:"curio",ep:"호빵이 이야기",t:"참지 마! 똥!",topic:"배변 습관",c:"body",d:"13:57",w:"",kw:"똥 변비 화장실 참기 큰창자",
+ goal:"똥을 참으면 생기는 문제를 알고 바른 배변 습관을 기를 수 있다.",
+ f:["똥이 마려울 때는 [참지] 않고 화장실에 가요.","똥을 참으면 큰창자가 똥의 [물]을 빨아들여요.","그러면 똥이 [딱딱해져서] 나오기 힘들어요.","딱딱한 똥이 잘 안 나오는 것을 [변비]라고 해요.","[채소]와 물을 충분히 먹으면 똥이 잘 나와요."],
+ ox:[["놀이가 재미있으면 똥을 오래 참아도 된다.",0],["물을 충분히 마시면 변비 예방에 도움이 된다.",1],["매일 비슷한 시간에 화장실에 가는 습관이 좋다.",1]],
+ th:["똥이 마려운데 놀고 싶을 때는 어떻게 할까요?","똥을 참으면 왜 딱딱해질까요?","큰창자가 하는 일과 변비가 생기는 과정을 연결해 설명해 보세요."],
+ ap:["시원하게 화장실에 다녀온 내 모습을 그려 보세요.","건강한 똥 약속 3가지를 정해 보세요.","변비 예방을 위한 하루 식단과 생활 계획을 세워 보세요."],
+ tip:"학교 화장실 사용을 부끄러워하는 학생이 있으니 자연스러운 일이라는 점을 강조하세요."},
+{v:"CDeAZaJFe0c",s:"curio",ep:"시즌4",t:"소화 삼총사",topic:"소화 기관",c:"body",d:"14:33",w:"",kw:"소화 입 위 작은창자 침 위액",
+ goal:"음식이 소화 기관을 지나며 소화되는 과정을 설명할 수 있다.",
+ f:["입에서는 이가 음식을 부수고 [침]이 음식을 부드럽게 해요.","음식은 [식도]를 지나 위로 내려가요.","위에서는 [위액]이 음식을 잘게 녹여요.","[작은창자]에서 영양소가 몸으로 흡수돼요.","남은 찌꺼기는 [큰창자]를 지나 똥이 돼요."],
+ ox:[["음식은 입-식도-위-작은창자-큰창자 순서로 지나간다.",1],["영양소는 대부분 큰창자에서 흡수된다.",0],["꼭꼭 씹어 먹으면 소화를 돕는다.",1]],
+ th:["밥을 꼭꼭 씹어 먹어야 하는 까닭은 무엇일까요?","음식이 지나가는 길을 순서대로 써 보세요.","소화 기관 하나가 일을 잘 못하면 어떤 일이 생길지 기관들의 관계를 들어 설명해 보세요."],
+ ap:["음식이 몸속을 여행하는 길을 그려 보세요.","소화를 돕는 식사 약속 3가지를 정해 보세요.","소화 기관 모형도를 그리고 기관별 설명 카드를 만들어 보세요."],
+ tip:"6학년 과학 소화 기관 차시에 바로 쓸 수 있습니다."},
+{v:"5wn-oQv-d-Q",s:"curio",ep:"시즌4",t:"밥 먹고 뛰면 배가 아파요",topic:"식후 운동",c:"body",d:"12:48",w:"새학기",kw:"소화 운동 옆구리 피 위 식후",
+ goal:"밥 먹고 바로 뛰면 배가 아픈 까닭을 알고 식후 생활 습관을 지킬 수 있다.",
+ f:["밥을 먹으면 [위]가 음식을 소화하느라 바빠요.","소화할 때는 [피]가 위와 장으로 많이 모여요.","이때 뛰면 [근육]에도 피가 필요해서 배가 아플 수 있어요.","밥을 먹은 뒤에는 잠시 [쉬어요].","운동하기 전에는 음식을 [조금만] 먹어요."],
+ ox:[["점심을 먹자마자 전력으로 달리는 것이 좋다.",0],["밥 먹은 뒤 가볍게 쉬면 소화에 도움이 된다.",1],["뛰다가 옆구리가 아프면 멈추고 쉰다.",1]],
+ th:["밥 먹고 뛰었을 때 배가 아팠던 적이 있나요?","식사 뒤 바로 뛰면 왜 배가 아플까요?","소화 기관과 운동 기관이 피를 함께 필요로 할 때 생기는 일을 순환 기관과 연결해 설명해 보세요."],
+ ap:["밥 먹은 뒤 쉬고 있는 내 모습을 그려 보세요.","점심시간 약속 3가지를 정해 보세요.","급식 뒤 쉬는 시간을 알차게 보내는 '식후 놀이 목록'을 만들어 보세요."],
+ tip:"점심시간 직후 운동장 놀이 지도와 연결하세요."},
+{v:"jsF0m_hyiLI",s:"curio",ep:"호빵이 이야기",t:"뇌는 공사 중",topic:"뇌와 신경세포",c:"body",d:"14:07",w:"",kw:"뇌 신경세포 성장 학습 잠",
+ goal:"뇌가 신경세포로 이루어져 있고 경험과 배움으로 자란다는 것을 말할 수 있다.",
+ f:["뇌는 [신경 세포]들이 모여 사는 집이에요.","신경 세포는 서로 [연결]되어 신호를 주고받아요.","새로운 것을 배우면 신경 세포의 연결이 [튼튼해져요].","뇌가 자라려면 [잠]을 충분히 자야 해요.","자전거를 탈 때는 [헬멧]으로 뇌를 보호해요."],
+ ox:[["뇌는 어린이 때 이미 다 자라서 변하지 않는다.",0],["꾸준히 연습하면 뇌의 연결이 튼튼해진다.",1],["머리를 다치지 않게 보호해야 한다.",1]],
+ th:["왜 제목이 '뇌는 공사 중'일까요?","뇌를 튼튼하게 하는 생활 습관을 써 보세요.","감각 기관에서 뇌로, 뇌에서 운동 기관으로 신호가 전달되는 과정을 예를 들어 설명해 보세요."],
+ ap:["공사 중인 내 뇌를 상상해서 그려 보세요.","뇌 건강 약속 3가지를 정해 보세요.","새로운 것 하나를 2주 동안 연습하는 '뇌 키우기 계획'을 세워 보세요."],
+ tip:"6학년 과학 자극과 반응(신경계) 차시 도입으로 좋습니다."},
+{v:"2W8Xv8cWcAM",s:"curio",ep:"호떡이 이야기",t:"아침밥을 안 먹으면 위험해",topic:"아침 식사",c:"health",d:"13:37",w:"새학기",kw:"아침밥 포도당 인슐린 집중 에너지",
+ goal:"아침 식사가 몸과 뇌에 필요한 까닭을 알고 아침을 챙겨 먹을 수 있다.",
+ f:["밥을 먹으면 몸속에서 [포도당]이라는 에너지가 만들어져요.","뇌는 포도당을 [에너지]로 써요.","아침을 굶으면 [집중]하기 어려울 수 있어요.","몸속에서는 [호르몬]이 피 속 포도당 양을 알맞게 맞춰요.","아침은 [간단하게]라도 꼭 먹어요."],
+ ox:[["아침을 굶어도 오전 수업에 아무 영향이 없다.",0],["뇌는 에너지가 필요하다.",1],["아침 대신 과자를 많이 먹는 것이 좋다.",0]],
+ th:["오늘 아침에 무엇을 먹었나요? 기분은 어땠나요?","아침밥을 먹으면 좋은 점을 써 보세요.","아침 식사와 공부 집중의 관계를 조사하고 우리 반 아침 식사 실천 방법을 제안해 보세요."],
+ ap:["건강한 아침 밥상을 그려 보세요.","아침밥 약속 3가지를 정해 보세요.","바쁜 아침에도 먹을 수 있는 '간단 아침 메뉴' 일주일 계획을 세워 보세요."],
+ tip:"가정 형편에 따라 아침을 못 먹는 학생이 있을 수 있으니 비난하지 않게 지도하세요."},
+{v:"hECp5fZgvqM",s:"curio",ep:"호떡이 이야기",t:"큰소리 습격사건",topic:"소음과 귀 건강",c:"health",d:"11:50",w:"방학 실내",kw:"귀 헤드폰 이어폰 소음 청력 게임",
+ goal:"큰 소리가 귀를 다치게 한다는 것을 알고 이어폰과 헤드폰을 바르게 쓸 수 있다.",
+ f:["귀 속에는 소리를 느끼는 작은 [털세포]가 있어요.","너무 큰 소리를 오래 들으면 털세포가 [다쳐요].","다친 털세포는 다시 [회복되지] 않을 수 있어요.","이어폰과 헤드폰은 소리를 [작게] 해서 들어요.","오래 들었다면 귀를 [쉬게] 해요."],
+ ox:[["헤드폰 소리는 크게 할수록 좋다.",0],["큰 소리를 오래 들으면 귀가 다칠 수 있다.",1],["귀에서 삐 소리가 나면 소리를 줄이고 쉰다.",1]],
+ th:["이어폰으로 들을 때 소리를 얼마나 크게 하나요?","큰 소리가 귀에 나쁜 까닭은 무엇일까요?","생활 속 소음을 조사하고 귀를 지키는 이어폰 사용 규칙을 제안해 보세요."],
+ ap:["귀를 쉬게 하는 내 모습을 그려 보세요.","귀 건강 약속 3가지를 정해 보세요.","'이어폰 바르게 쓰기' 안내 카드를 만들어 보세요."],
+ tip:"'귀를 지키는 귀지' 회차와 묶어 지도하세요."},
+{v:"vON0xOuvWdY",s:"curio",ep:"호떡이 이야기",t:"상처엔 촉촉 밴드",topic:"상처 응급처치",c:"firstaid",d:"13:31",w:"야외 체험학습",kw:"상처 소독 밴드 딱지 흉터 응급처치",
+ goal:"상처가 났을 때 깨끗이 씻고 보호하는 방법을 알고 실천할 수 있다.",
+ f:["상처가 나면 먼저 깨끗한 [물]로 씻어요.","상처에 세균이 들어가지 않게 [소독]해요.","촉촉한 [밴드]를 붙이면 상처가 덜 마르고 잘 나아요.","상처의 [딱지]는 억지로 떼지 않아요.","상처가 크거나 피가 멈추지 않으면 [어른]에게 알려요."],
+ ox:[["상처는 흙이 묻어도 그대로 두면 된다.",0],["딱지를 억지로 떼면 흉터가 남을 수 있다.",1],["상처를 깨끗이 씻으면 세균 감염을 줄일 수 있다.",1]],
+ th:["넘어져 무릎이 까졌을 때 어떻게 해야 할까요?","상처를 깨끗하게 해야 하는 까닭은 무엇일까요?","상처가 낫는 과정을 조사하고 흉터를 줄이는 관리 방법을 정리해 보세요."],
+ ap:["상처를 씻고 밴드를 붙이는 모습을 그려 보세요.","상처 돌보기 약속 3가지를 정해 보세요.","상처 응급처치 순서를 4단계 카드로 만들어 보세요."],
+ tip:"보건실 이용 방법 안내와 함께하면 좋습니다."},
+{v:"nYVmzP4lJFY",s:"curio",ep:"호빵이 이야기",t:"꽃가루 전쟁",topic:"꽃가루 알레르기",c:"health",d:"13:41",w:"봄 야외",kw:"꽃가루 알레르기 재채기 콧물 봄 마스크",
+ goal:"봄철 꽃가루 알레르기의 증상과 예방 방법을 말할 수 있다.",
+ f:["봄에는 바람을 타고 [꽃가루]가 많이 날려요.","몸이 꽃가루를 적으로 착각하면 [재채기]와 콧물이 나요.","눈이 [가렵고] 빨개질 수 있어요.","꽃가루가 많은 날에는 [마스크]를 써요.","밖에서 들어오면 손과 [얼굴]을 씻어요."],
+ ox:[["꽃가루 알레르기는 봄에 심해질 수 있다.",1],["눈이 가려우면 손으로 세게 비빈다.",0],["외출 뒤 씻으면 꽃가루를 덜어 낼 수 있다.",1]],
+ th:["봄에 재채기가 자주 나는 까닭은 무엇일까요?","꽃가루가 많은 날 할 수 있는 일을 써 보세요.","알레르기가 생기는 원리를 면역과 연결하여 설명해 보세요."],
+ ap:["꽃가루를 막는 내 모습을 그려 보세요.","봄철 건강 약속 3가지를 정해 보세요.","'꽃가루 많은 날 행동 요령' 안내문을 만들어 보세요."],
+ tip:"'위험해! 음식 알레르기' 회차와 함께 알레르기 차시로 묶을 수 있습니다."},
+{v:"2Ps2l4vWl_E",s:"curio",ep:"호빵이 이야기",t:"긴급 출동! 뼈 구조대",topic:"골절 응급처치",c:"firstaid",d:"11:36",w:"야외 체험학습",kw:"뼈 골절 부목 고정 응급처치 깁스",
+ goal:"뼈가 부러졌을 때의 응급처치와 뼈가 다시 붙는 과정을 말할 수 있다.",
+ f:["뼈가 부러지면 다친 곳을 [움직이지] 않아요.","다친 곳은 [부목]으로 고정해요.","혼자 고치려 하지 말고 [어른]과 119에 알려요.","부러진 뼈는 시간이 지나면 다시 [붙어요].","뼈가 잘 붙으려면 [칼슘]과 영양을 골고루 먹어요."],
+ ox:[["부러진 것 같은 팔은 이리저리 움직여 확인한다.",0],["다친 곳을 고정하면 더 다치는 것을 막을 수 있다.",1],["부러진 뼈는 영원히 붙지 않는다.",0]],
+ th:["친구가 넘어져 팔을 움직이지 못하면 어떻게 할까요?","다친 곳을 움직이지 않아야 하는 까닭은 무엇일까요?","뼈가 다시 붙는 과정을 조사하고, 깁스가 하는 일을 설명해 보세요."],
+ ap:["다친 친구를 도와 어른을 부르는 모습을 그려 보세요.","운동할 때 뼈를 지키는 약속 3가지를 정해 보세요.","골절 응급처치 순서를 카드로 만들어 보세요."],
+ tip:"체육 시간 안전 지도와 연결하세요. 실제 부목 실습은 보건교사와 함께하세요."},
+{v:"BRL18vx-T-4",s:"curio",ep:"시즌4",t:"소화기야! 불을 부탁해",topic:"소화기 사용",c:"disaster",d:"12:19",w:"겨울 새학기",kw:"소화기 화재 불 안전핀 대피",
+ goal:"소화기의 위치와 사용 순서를 알고 불이 났을 때 대피를 먼저 할 수 있다.",
+ f:["불이 나면 먼저 \"[불이야]!\" 하고 알려요.","소화기는 불을 [끄는] 도구예요.","소화기는 먼저 [안전핀]을 뽑아요.","호스를 [불]이 있는 쪽으로 향하게 해요.","불이 커지면 끄려 하지 말고 [대피]해요."],
+ ox:[["어린이는 불이 나면 대피와 신고가 먼저다.",1],["소화기는 안전핀을 뽑지 않아도 된다.",0],["우리 교실 근처 소화기 위치를 알아 둔다.",1]],
+ th:["우리 교실 가까이 있는 소화기는 어디에 있나요?","불이 났을 때 소화기보다 먼저 해야 할 일은 무엇일까요?","소화기 사용 순서를 정리하고, 소화기로 끌 수 있는 불과 대피해야 하는 불을 구분해 보세요."],
+ ap:["소화기 위치를 찾아 그려 보세요.","불이 났을 때 약속 3가지를 정해 보세요.","우리 학교 층별 소화기 위치 지도를 만들어 보세요."],
+ tip:"학교 소화기 위치 찾기 활동을 함께 하세요. 실제 분사 실습은 소방 훈련 때 안전하게 하세요."},
+{v:"KOn3_ZTFa8g",s:"curio",ep:"시즌4",t:"윙윙 벌에 쏘였어요",topic:"벌 쏘임 응급처치",c:"firstaid",d:"12:49",w:"여름 가을 야외 체험학습",kw:"벌 쏘임 벌침 산 소풍 응급처치",
+ goal:"벌을 만났을 때와 벌에 쏘였을 때의 행동 요령을 말할 수 있다.",
+ f:["벌을 만나면 손을 [휘두르지] 말고 천천히 피해요.","벌은 [향기]가 진한 냄새나 밝은 색에 다가올 수 있어요.","벌에 쏘이면 벌침을 카드 같은 것으로 [밀어서] 빼요.","쏘인 곳은 [차갑게] 해 주어요.","숨쉬기 힘들거나 많이 부으면 바로 [119]에 알려요."],
+ ox:[["벌을 보면 손으로 쫓아낸다.",0],["벌침은 손가락으로 꽉 짜서 뺀다.",0],["벌에 쏘이면 어른에게 바로 알린다.",1]],
+ th:["벌이 가까이 오면 어떻게 해야 할까요?","벌에 쏘였을 때 할 일을 순서대로 써 보세요.","가을 산행에서 벌 쏘임 사고가 많은 까닭을 조사하고 예방 수칙을 정리해 보세요."],
+ ap:["벌을 만나 침착하게 피하는 모습을 그려 보세요.","야외 활동 벌 안전 약속 3가지를 정해 보세요.","체험학습용 '벌 쏘임 대처 카드'를 만들어 보세요."],
+ tip:"현장체험학습 전 사전 안전 교육으로 활용하세요."},
+{v:"iowWxg420q8",s:"curio",ep:"시즌4",t:"비상! 강추위 주의보",topic:"추위와 체온",c:"health",d:"13:43",w:"겨울 방학 야외",kw:"추위 한파 체온 동상 콧물 겨울",
+ goal:"추운 날 몸이 체온을 지키는 방법을 알고 따뜻하게 생활할 수 있다.",
+ f:["추우면 몸은 [체온]을 지키려고 떨어요.","추운 바람을 맞으면 [콧물]이 나기도 해요.","얇은 옷을 [여러 겹] 입으면 따뜻해요.","귀, 손, 발은 [동상]에 걸리기 쉬워요.","[모자]와 장갑으로 몸을 따뜻하게 해요."],
+ ox:[["추운 날 몸이 떨리는 것은 체온을 올리려는 것이다.",1],["동상에 걸린 곳은 뜨거운 물에 바로 담근다.",0],["추운 날에는 모자와 장갑을 챙긴다.",1]],
+ th:["추운 날 내 몸은 어떻게 달라지나요?","추운 날 몸이 떨리는 까닭은 무엇일까요?","한파가 사람 몸에 주는 영향을 조사하고, 우리 가족 한파 대비 방법을 정리해 보세요."],
+ ap:["따뜻하게 입고 등교하는 내 모습을 그려 보세요.","겨울 체온 지키기 약속 3가지를 정해 보세요.","'한파 주의보 행동 요령' 카드를 만들어 보세요."],
+ tip:"은하안전단 33화(한파 안전)와 함께 겨울 안전 차시로 묶으세요."},
+{v:"jbVFCrahMQI",s:"curio",ep:"시즌4",t:"연습훈련, 독감 예방주사",topic:"독감 예방",c:"health",d:"12:48",w:"겨울 가을",kw:"독감 예방주사 면역 백신 바이러스",
+ goal:"독감 예방주사가 몸속 면역 세포를 훈련시킨다는 것을 알고 독감을 예방할 수 있다.",
+ f:["독감은 [독감 바이러스] 때문에 생겨요.","예방주사는 면역 세포가 바이러스와 싸우는 [훈련]을 하게 해요.","독감 바이러스는 해마다 조금씩 [바뀌어요].","그래서 독감 예방주사는 [해마다] 맞아요.","손 씻기와 [기침 예절]도 독감을 막아 줘요."],
+ ox:[["독감 예방주사는 한 번 맞으면 평생 효과가 있다.",0],["예방주사는 몸이 미리 싸우는 연습을 하게 한다.",1],["독감에 걸리면 마스크를 쓰고 쉰다.",1]],
+ th:["왜 제목에 '연습훈련'이라는 말이 들어 있을까요?","독감 예방주사를 해마다 맞는 까닭은 무엇일까요?","독감과 감기의 차이를 조사하고, 겨울철 우리 반 독감 예방 계획을 세워 보세요."],
+ ap:["면역 세포가 훈련하는 모습을 상상해서 그려 보세요.","독감 예방 약속 3가지를 정해 보세요.","독감 예방 홍보 포스터를 만들어 보세요."],
+ tip:"'예방접종 후 왜 쉬어야 해요?' 회차와 이어서 보면 좋습니다."},
+{v:"9_TDDgtOrrU",s:"curio",ep:"호떡이 이야기",t:"물놀이 오래하면 체온이 뚝",topic:"물놀이와 체온",c:"life",d:"12:54",w:"여름 방학 야외",kw:"물놀이 체온 입술 저체온 수영장",
+ goal:"물놀이를 오래 하면 체온이 떨어지는 까닭을 알고 알맞게 쉬며 놀 수 있다.",
+ f:["물은 공기보다 몸의 [열]을 더 빨리 빼앗아요.","물놀이를 오래 하면 [체온]이 떨어져요.","체온이 떨어지면 [입술]이 파래지고 몸이 떨려요.","몸이 떨리면 물에서 나와 [수건]으로 몸을 감싸요.","물놀이 중간중간 [쉬는 시간]을 가져요."],
+ ox:[["입술이 파래져도 계속 물놀이를 한다.",0],["물놀이할 때는 중간에 쉬어야 한다.",1],["물은 공기보다 몸을 빨리 차갑게 한다.",1]],
+ th:["물놀이하다 몸이 떨렸던 적이 있나요?","물놀이를 오래 하면 왜 입술이 파래질까요?","체온이 떨어질 때 우리 몸에서 일어나는 변화를 조사하고 물놀이 안전 수칙과 연결해 보세요."],
+ ap:["물놀이 후 수건으로 몸을 감싼 모습을 그려 보세요.","물놀이 체온 지키기 약속 3가지를 정해 보세요.","'물놀이 시간표(놀이와 휴식)'를 만들어 보세요."],
+ tip:"아이쿠 시즌2 1화(물놀이 안전)와 묶어 여름방학 안전 차시로 쓰세요."},
+{v:"BpzCaO-cl70",s:"curio",ep:"호떡이 이야기",t:"비상! 열사병을 조심해!",topic:"폭염과 열사병",c:"health",d:"13:11",w:"여름 방학 야외",kw:"열사병 폭염 더위 물 그늘 온열질환",
+ goal:"열사병의 증상과 예방법을 알고 더운 날 몸을 지킬 수 있다.",
+ f:["아주 더운 날 밖에 오래 있으면 [열사병]에 걸릴 수 있어요.","열사병에 걸리면 [어지럽고] 머리가 아파요.","더운 날에는 [물]을 자주 마셔요.","햇볕이 강한 [한낮]에는 밖에서 오래 놀지 않아요.","몸이 이상하면 [그늘]에서 쉬고 어른에게 알려요."],
+ ox:[["목이 마르지 않으면 물을 마시지 않아도 된다.",0],["폭염 주의보가 내리면 바깥 활동을 줄인다.",1],["어지러우면 시원한 곳에서 쉰다.",1]],
+ th:["더운 날 밖에서 놀 때 무엇을 챙겨야 할까요?","열사병이 생기는 까닭은 무엇일까요?","폭염이 사람 몸에 주는 영향을 조사하고, 우리 학교 폭염 대비 방법을 제안해 보세요."],
+ ap:["모자를 쓰고 물을 마시는 내 모습을 그려 보세요.","더위 안전 약속 3가지를 정해 보세요.","'폭염 행동 요령' 안내문을 만들어 보세요."],
+ tip:"여름 체육 수업 전 온열질환 예방 지도로 활용하세요."},
+{v:"GEvamn7TBfg",s:"curio",ep:"호떡이 이야기",t:"엄마 모기의 사냥법",topic:"모기와 가려움",c:"health",d:"13:09",w:"여름 방학 야외",kw:"모기 가려움 물림 긁기 웅덩이",
+ goal:"모기에 물리면 가려운 까닭을 알고 모기를 피하는 방법을 실천할 수 있다.",
+ f:["사람의 피를 빠는 모기는 [암컷] 모기예요.","모기는 알을 낳기 위해 [피]가 필요해요.","모기가 넣은 [침] 때문에 물린 곳이 가려워요.","가려워도 [긁지] 말고 차갑게 해 주어요.","모기가 알을 낳지 못하게 고인 [물]을 없애요."],
+ ox:[["모기에 물린 곳은 피가 나도록 긁는다.",0],["고인 물을 없애면 모기를 줄일 수 있다.",1],["모든 모기가 사람 피를 빤다.",0]],
+ th:["모기에 물렸을 때 어떻게 해야 할까요?","모기에 물리면 왜 가려울까요?","모기가 옮기는 병을 조사하고, 우리 동네 모기를 줄이는 방법을 제안해 보세요."],
+ ap:["모기를 피하는 내 방법을 그려 보세요.","모기 예방 약속 3가지를 정해 보세요.","여름철 '모기 없는 우리 집' 점검표를 만들어 보세요."],
+ tip:"과학 곤충 단원과 연결하면 흥미를 높일 수 있습니다."},
+{v:"f-AZWKlFamU",s:"curio",ep:"호떡이 이야기",t:"세균 감옥",topic:"세균과 바이러스",c:"body",d:"12:24",w:"겨울",kw:"세균 바이러스 항생제 면역 손씻기",
+ goal:"세균과 바이러스의 차이를 알고 감염병을 예방할 수 있다.",
+ f:["세균과 바이러스는 눈에 보이지 않을 만큼 [작아요].","바이러스는 세균보다 훨씬 더 [작아요].","바이러스는 다른 생물의 [세포] 안에서만 늘어나요.","항생제는 [세균]을 물리치는 약이에요.","손 씻기는 세균과 [바이러스]를 모두 막는 데 도움이 돼요."],
+ ox:[["항생제는 감기 바이러스를 물리친다.",0],["세균 중에는 몸에 이로운 것도 있다.",1],["손 씻기는 감염병 예방에 도움이 된다.",1]],
+ th:["눈에 보이지 않는 세균이 있다는 것을 어떻게 알 수 있을까요?","세균과 바이러스는 어떻게 다를까요?","세균과 바이러스의 차이를 표로 정리하고, 항생제를 함부로 먹으면 안 되는 까닭을 설명해 보세요."],
+ ap:["세균과 바이러스를 상상해서 그려 보세요.","감염병 예방 약속 3가지를 정해 보세요.","세균과 바이러스 비교 카드를 만들어 보세요."],
+ tip:"5~6학년 과학 '다양한 생물과 우리 생활'과 연결할 수 있습니다."},
+{v:"kqzy9WJ1Hm0",s:"curio",ep:"호떡이 이야기",t:"눈병 났네! 눈병 났어!",topic:"눈병 예방",c:"health",d:"9:11",w:"여름 방학",kw:"눈병 결막염 수영장 손 수건 전염",
+ goal:"눈병이 옮는 과정을 알고 눈병을 예방할 수 있다.",
+ f:["눈병에 걸리면 눈이 [빨개지고] 가려워요.","눈병은 [손]으로 눈을 비비면서 옮을 수 있어요.","수건은 [따로] 써요.","수영장에 다녀오면 [깨끗한 물]로 씻어요.","눈병에 걸리면 [병원]에 가고 친구와 접촉을 줄여요."],
+ ox:[["눈병에 걸린 친구와 수건을 같이 쓴다.",0],["손을 자주 씻으면 눈병 예방에 도움이 된다.",1],["눈병은 다른 사람에게 옮을 수 있다.",1]],
+ th:["눈이 가려울 때 어떻게 해야 할까요?","눈병이 다른 사람에게 옮는 길을 써 보세요.","여름철에 눈병이 유행하는 까닭을 조사하고 예방 수칙을 정리해 보세요."],
+ ap:["손을 씻고 눈을 보호하는 모습을 그려 보세요.","눈병 예방 약속 3가지를 정해 보세요.","수영장 이용 후 눈 건강 안내문을 만들어 보세요."],
+ tip:"유행성 눈병은 등교 중지 대상이 될 수 있으니 학교 지침을 함께 안내하세요."},
+{v:"DZtXvJCNjLU",s:"curio",ep:"시즌4",t:"표피장군도 못 막는 화상",topic:"피부와 화상",c:"firstaid",d:"12:19",w:"겨울 실내 명절",kw:"화상 피부 표피 찬물 물집",
+ goal:"피부의 구조와 화상의 위험을 알고 화상 응급처치를 할 수 있다.",
+ f:["피부의 가장 바깥층을 [표피]라고 해요.","피부는 몸을 [보호]하는 방패예요.","화상을 입으면 [흐르는 찬물]로 열을 식혀요.","화상으로 생긴 [물집]은 터뜨리지 않아요.","화상이 넓거나 깊으면 바로 [병원]에 가요."],
+ ox:[["화상에는 된장이나 치약을 바른다.",0],["화상을 입으면 찬물로 충분히 식힌다.",1],["물집을 터뜨리면 세균이 들어갈 수 있다.",1]],
+ th:["뜨거운 것에 데었을 때 가장 먼저 할 일은 무엇일까요?","화상 물집을 터뜨리면 왜 위험할까요?","피부의 층과 하는 일을 조사하고 화상 정도에 따라 대처법을 정리해 보세요."],
+ ap:["찬물로 화상을 식히는 모습을 그려 보세요.","화상 예방 약속 3가지를 정해 보세요.","화상 응급처치 순서 카드를 만들어 보세요."],
+ tip:"아이쿠 1기 18화(주방 안전)와 함께 보면 예방과 처치를 함께 다룰 수 있습니다."},
+{v:"DFys0I1D4iw",s:"curio",ep:"시즌4",t:"피부 지킴이 자외선 차단제",topic:"자외선 차단",c:"health",d:"",w:"여름 봄 야외 체험학습",kw:"자외선 햇빛 선크림 모자 피부",
+ goal:"자외선이 피부에 주는 영향을 알고 자외선 차단제를 바르게 사용할 수 있다.",
+ f:["햇빛에는 눈에 보이지 않는 [자외선]이 있어요.","자외선을 오래 쬐면 피부가 [타고] 상할 수 있어요.","밖에 나가기 전에 [자외선 차단제]를 발라요.","땀을 흘리거나 물놀이를 하면 [다시] 발라요.","[모자]와 그늘도 피부를 지켜 줘요."],
+ ox:[["흐린 날에는 자외선이 전혀 없다.",0],["모자를 쓰면 햇빛을 막는 데 도움이 된다.",1],["물놀이 후에는 차단제를 다시 바른다.",1]],
+ th:["햇볕에 오래 있었을 때 피부가 어떻게 되었나요?","자외선 차단제를 발라야 하는 까닭은 무엇일까요?","자외선 지수를 조사하고 지수에 따라 바깥 활동 계획을 세워 보세요."],
+ ap:["햇빛을 막는 내 모습을 그려 보세요.","피부 지키기 약속 3가지를 정해 보세요.","체험학습용 '햇빛 대비 준비물' 목록을 만들어 보세요."],
+ tip:"체험학습이나 운동회 전에 보여 주면 실천으로 이어집니다."},
+{v:"lleUHBSwaiQ",s:"curio",ep:"호떡이 이야기",t:"안으면 행복해",topic:"마음과 행복 호르몬",c:"mind",d:"13:30",w:"새학기",kw:"포옹 행복 호르몬 마음 위로 감정",
+ goal:"따뜻한 위로가 마음과 몸에 주는 영향을 알고 친구를 배려하며 위로할 수 있다.",
+ f:["속상할 때 누군가 안아 주면 [마음]이 편안해져요.","안아 주면 몸에서 [행복 호르몬]이 나와요.","친구를 안기 전에는 먼저 [물어봐요].","안기 싫은 친구에게는 [말]로 위로할 수 있어요.","내 기분을 [표현]하는 것도 중요해요."],
+ ox:[["친구가 싫다고 해도 안아 준다.",0],["따뜻한 말도 친구를 위로할 수 있다.",1],["속상한 마음을 이야기하면 도움이 된다.",1]],
+ th:["누군가 나를 안아 줬을 때 기분이 어땠나요?","친구가 속상해 보일 때 할 수 있는 일을 써 보세요.","마음과 몸이 서로 영향을 주는 예를 찾아 호르몬과 연결해 설명해 보세요."],
+ ap:["친구를 위로하는 모습을 그려 보세요.","친구 위로 약속 3가지를 정해 보세요.","우리 반 '마음 응원 말 모음집'을 만들어 보세요."],
+ tip:"신체 접촉은 반드시 동의가 필요하다는 점을 함께 지도하세요."},
+/* ── 아이쿠·은하안전단 추가 회차 ── */
+{v:"-LzXPEq-kr8",s:"aiku",ep:"1기 6화",t:"네 얼굴의 카르망",topic:"유괴 예방",c:"personal",d:"",w:"방학 체험학습 야외",kw:"유괴 낯선사람 거절 보호자 허락",
+ goal:"아는 사람이든 모르는 사람이든 보호자 허락 없이 따라가지 않을 수 있다.",
+ f:["보호자의 [허락] 없이 다른 사람을 따라가지 않아요.","사람은 겉모습만으로 [좋은 사람]인지 알 수 없어요.","누가 도와 달라고 하면 \"[어른]에게 부탁하세요\"라고 말해요.","위험하면 큰 소리로 \"[싫어요]!\" 하고 외쳐요.","무서운 일이 있으면 바로 [보호자]에게 알려요."],
+ ox:[["얼굴을 아는 사람이면 허락 없이 따라가도 된다.",0],["어른은 도움이 필요하면 다른 어른에게 부탁한다.",1],["무서운 일은 비밀로 하지 않고 보호자에게 알린다.",1]],
+ th:["왜 제목이 '네 얼굴의 카르망'일까요?","겉모습만 보고 사람을 믿으면 왜 위험할까요?","유괴범이 쓰는 속임수를 정리하고 각각 어떻게 거절할지 정리해 보세요."],
+ ap:["보호자에게 허락을 받는 내 모습을 그려 보세요.","나를 지키는 약속 3가지를 정해 보세요.","'따라가지 않아요' 상황별 대처 카드를 만들어 보세요."],
+ tip:"역할극은 교사가 상대역을 맡고, 거절하고 알리기에 초점을 두세요."},
+{v:"xQPJuWdiMv0",s:"aiku",ep:"1기 7화",t:"아이쿠가 놀이터에 간 까닭은?",topic:"놀이터 안전",c:"life",d:"6:58",w:"봄 가을 새학기 야외",kw:"놀이터 미끄럼틀 그네 시소 순서",
+ goal:"놀이기구를 바르게 이용하고 친구와 안전하게 놀 수 있다.",
+ f:["놀이기구는 [순서]를 지켜 타요.","미끄럼틀은 [앉아서] 내려와요.","그네 [앞뒤]로 지나가지 않아요.","시소는 친구와 [마주 앉아] 천천히 타요.","놀이터에서 다치면 바로 [어른]에게 알려요."],
+ ox:[["미끄럼틀 위에서 친구를 밀어도 된다.",0],["시소에서 갑자기 내리면 친구가 다칠 수 있다.",1],["순서를 지키면 사고를 줄일 수 있다.",1]],
+ th:["놀이터에서 지켜야 할 약속은 무엇일까요?","시소에서 갑자기 내리면 왜 위험할까요?","놀이기구별 위험 요소를 표로 정리하고 안전 수칙을 제안해 보세요."],
+ ap:["친구와 순서를 지켜 노는 모습을 그려 보세요.","놀이터 안전 약속 3가지를 정해 보세요.","학교 놀이터 안전 안내판 문구를 만들어 보세요."],
+ tip:"은하안전단 2화(놀이터 안전)와 비교하며 보면 좋습니다."},
+{v:"YN0mD29_p7A",s:"aiku",ep:"1기 12화",t:"걸리버 아이쿠",topic:"올바른 손 씻기",c:"health",d:"6:55",w:"겨울 새학기",kw:"손씻기 세균 비누 위생",
+ goal:"손에 세균이 있다는 것을 알고 올바른 방법으로 손을 씻을 수 있다.",
+ f:["손에는 눈에 보이지 않는 [세균]이 많아요.","손은 [비누]로 거품을 내어 씻어요.","손바닥, 손등, [손가락 사이]를 꼼꼼히 씻어요.","[손톱 밑]도 문질러 씻어요.","밥 먹기 [전]과 화장실 다녀온 뒤에는 꼭 손을 씻어요."],
+ ox:[["손이 깨끗해 보이면 씻지 않아도 된다.",0],["손을 씻으면 감염병을 막는 데 도움이 된다.",1],["손을 씻은 뒤 깨끗한 수건으로 닦는다.",1]],
+ th:["왜 제목이 '걸리버 아이쿠'일까요? 작아진 아이쿠가 본 것을 떠올려 보세요.","손을 꼭 씻어야 하는 때를 써 보세요.","손 씻기 6단계가 각각 어느 부분을 씻는지 정리하고 그 까닭을 설명해 보세요."],
+ ap:["손을 깨끗이 씻는 내 모습을 그려 보세요.","손 씻기 약속 3가지를 정해 보세요.","손 씻기 6단계 안내 포스터를 만들어 보세요."],
+ tip:"호기심딱지 '뽀글뽀글 비누특공대'와 함께 보면 원리까지 다룰 수 있습니다."},
+{v:"pg7LxgGCwq4",s:"aiku",ep:"1기 13화",t:"독사과 작전",topic:"질식 예방",c:"firstaid",d:"6:54",w:"명절 방학",kw:"질식 떡 사탕 목걸림 작은물건",
+ goal:"음식이나 작은 물건이 목에 걸리지 않도록 조심하고 위급할 때 도움을 요청할 수 있다.",
+ f:["음식은 [작게] 잘라 꼭꼭 씹어 먹어요.","먹으면서 [뛰거나] 장난치지 않아요.","[누워서] 음식을 먹지 않아요.","구슬 같은 작은 물건을 [입]에 넣지 않아요.","목에 무언가 걸린 친구를 보면 바로 [어른]과 119에 알려요."],
+ ox:[["사탕을 물고 뛰어다녀도 괜찮다.",0],["떡은 작게 잘라 천천히 먹는다.",1],["작은 장난감은 동생 손이 닿지 않는 곳에 둔다.",1]],
+ th:["음식이 목에 걸리지 않으려면 어떻게 먹어야 할까요?","동생이 작은 물건을 입에 넣으면 어떻게 할까요?","질식 사고가 많이 일어나는 음식과 상황을 조사하고 예방법을 정리해 보세요."],
+ ap:["천천히 꼭꼭 씹어 먹는 모습을 그려 보세요.","안전하게 먹기 약속 3가지를 정해 보세요.","명절 음식 질식 예방 안내문을 만들어 보세요."],
+ tip:"호기심딱지 '하임리히법으로 위기 탈출!'과 이어서 보면 예방과 대처를 함께 다룰 수 있습니다."},
+{v:"VMTetkVEKDE",s:"aiku",ep:"1기 14화",t:"아이쿠와 마법 양탄자",topic:"에스컬레이터 안전",c:"life",d:"6:47",w:"실내 체험학습 명절",kw:"에스컬레이터 손잡이 끼임 신발끈 마트",
+ goal:"에스컬레이터를 탈 때 지켜야 할 안전 수칙을 실천할 수 있다.",
+ f:["에스컬레이터에서는 [손잡이]를 잡아요.","노란 [안전선] 안쪽에 서요.","신발 끈이나 긴 옷이 [틈]에 끼지 않게 해요.","에스컬레이터에서 [걷거나] 뛰지 않아요.","내릴 때는 [발밑]을 보고 바로 비켜요."],
+ ox:[["에스컬레이터 손잡이 위에 앉아 내려가도 된다.",0],["유모차는 에스컬레이터 대신 엘리베이터를 이용한다.",1],["내린 뒤 바로 멈춰 서 있으면 뒷사람과 부딪힐 수 있다.",1]],
+ th:["에스컬레이터를 탈 때 무엇을 잡아야 할까요?","노란 안전선 안쪽에 서야 하는 까닭은 무엇일까요?","에스컬레이터 사고 사례를 조사하고 원인별 예방법을 정리해 보세요."],
+ ap:["에스컬레이터를 바르게 타는 모습을 그려 보세요.","에스컬레이터 약속 3가지를 정해 보세요.","마트 에스컬레이터에 붙일 안전 안내문을 만들어 보세요."],
+ tip:"은하안전단 47화(승강기·에스컬레이터 안전)와 함께 보면 좋습니다."},
+{v:"j0Wf1dcgawU",s:"aiku",ep:"1기 20화",t:"이번엔 진짜 출동 아이쿠맨!",topic:"자동차 신호 안전",c:"traffic",d:"",w:"봄 새학기",kw:"자동차 신호등 정지거리 우회전 교통",
+ goal:"자동차 신호와 차의 움직임을 알고 안전하게 길을 건널 수 있다.",
+ f:["자동차 신호등이 [빨간불]이면 차가 멈춰요.","달리던 차는 바로 [멈추지] 못해요.","신호가 바뀌자마자 [뛰어들지] 않아요.","초록불에도 [우회전]하는 차가 있는지 살펴요.","운전자가 나를 [보았는지] 확인하고 건너요."],
+ ox:[["차는 브레이크를 밟으면 그 자리에서 바로 멈춘다.",0],["신호가 바뀌어도 차가 멈췄는지 확인한다.",1],["우회전하는 차를 조심해야 한다.",1]],
+ th:["차가 바로 멈추지 못하는 까닭은 무엇일까요?","신호가 바뀌었을 때 바로 건너면 왜 위험할까요?","차의 빠르기와 멈추는 거리의 관계를 조사하고 어린이 보호구역 속도 제한의 까닭을 설명해 보세요."],
+ ap:["차가 멈춘 것을 확인하고 건너는 모습을 그려 보세요.","자동차 신호 안전 약속 3가지를 정해 보세요.","어린이 보호구역 안전 캠페인 문구를 만들어 보세요."],
+ tip:"올린 채널마다 회차 번호가 다를 수 있습니다. 영상 제목을 기준으로 찾으세요."},
+{v:"qN9LDS-lWHA",s:"aiku",ep:"1기 22화",t:"얼면 안 돼! 아이쿠",topic:"눈 오는 날 안전",c:"life",d:"",w:"겨울 방학 야외",kw:"눈 빙판 미끄럼 눈싸움 겨울",
+ goal:"눈 오는 날 미끄러지거나 다치지 않도록 안전하게 행동할 수 있다.",
+ f:["눈 온 뒤 길이 얼면 [미끄러워요].","주머니에 [손]을 넣고 걷지 않아요.","빙판길에서는 [천천히] 걸어요.","눈싸움할 때는 [얼굴]을 향해 던지지 않아요.","눈 속에 [돌]을 넣어 뭉치지 않아요."],
+ ox:[["눈싸움할 때 단단한 얼음덩이를 던져도 된다.",0],["미끄러운 길에서는 보폭을 좁게 걷는다.",1],["젖은 장갑은 마른 것으로 바꿔 낀다.",1]],
+ th:["눈 오는 날 길을 걸을 때 조심할 점은 무엇일까요?","눈싸움을 안전하게 하려면 어떤 규칙이 필요할까요?","겨울철 미끄럼 사고를 줄이기 위해 개인과 마을이 할 수 있는 일을 정리해 보세요."],
+ ap:["눈 오는 날 안전하게 노는 모습을 그려 보세요.","눈 오는 날 약속 3가지를 정해 보세요.","우리 반 '안전한 눈싸움 규칙'을 만들어 보세요."],
+ tip:"첫눈 오는 날 바로 보여 주면 효과가 좋습니다."},
+{v:"o3dyRh6yBKE",s:"aiku",ep:"1기 24화",t:"피겨왕자 아이쿠",topic:"피겨스케이트 안전",c:"life",d:"",w:"겨울 방학",kw:"스케이트 빙상장 헬멧 장갑 얼음",
+ goal:"스케이트장에서 지켜야 할 안전 수칙을 실천할 수 있다.",
+ f:["스케이트를 탈 때는 [헬멧]과 보호대를 해요.","스케이트 날에 다치지 않게 [장갑]을 껴요.","모두 [같은 방향]으로 돌며 타요.","넘어지면 빨리 [일어나서] 자리를 비켜요.","꽁꽁 언 호수나 강에서는 [타지] 않아요."],
+ ox:[["빙상장에서는 거꾸로 돌며 타도 된다.",0],["장갑을 끼면 넘어질 때 손을 보호할 수 있다.",1],["언 강은 얼음이 두꺼워 보이면 타도 된다.",0]],
+ th:["스케이트를 탈 때 무엇을 챙겨야 할까요?","모두 같은 방향으로 타야 하는 까닭은 무엇일까요?","얼음 위 스포츠의 위험 요소를 조사하고 안전 수칙을 정리해 보세요."],
+ ap:["보호 장비를 갖추고 스케이트 타는 모습을 그려 보세요.","스케이트장 약속 3가지를 정해 보세요.","겨울 스포츠 안전 점검표를 만들어 보세요."],
+ tip:"은하안전단 16화(겨울 스포츠 안전)와 함께 겨울 체육 안전 차시로 묶으세요."},
+{v:"oSAEcorlXCU",s:"aiku",ep:"1기 25화",t:"보물찾기 대소동",topic:"약물 안전",c:"drug",d:"6:53",w:"방학 실내",kw:"약 약물 사탕 오남용 세제",
+ goal:"약과 생활 화학 제품을 함부로 먹거나 만지지 않을 수 있다.",
+ f:["약은 [사탕]처럼 보여도 함부로 먹지 않아요.","약은 [보호자]가 주는 것만 먹어요.","세제나 [화장품]은 먹으면 위험해요.","모르는 [병]이나 통은 열어 보지 않아요.","잘못 먹었으면 바로 [어른]에게 알려요."],
+ ox:[["예쁜 색 알약은 사탕이니까 먹어도 된다.",0],["약은 정해진 양만 먹는다.",1],["세제 통에 든 물은 마셔도 된다.",0]],
+ th:["집에서 함부로 먹거나 만지면 안 되는 것을 써 보세요.","약을 사탕처럼 먹으면 왜 위험할까요?","가정의 중독 사고 사례를 조사하고 약과 세제 보관 규칙을 제안해 보세요."],
+ ap:["약을 보호자와 함께 먹는 모습을 그려 보세요.","약물 안전 약속 3가지를 정해 보세요.","우리 집 '약·세제 보관 규칙'을 만들어 보세요."],
+ tip:"빈 약통과 세제 통 그림 카드로 '먹어도 되는 것/안 되는 것' 분류 활동을 하세요."},
+{v:"rxRquF1J7Yc",s:"aiku",ep:"2기 3화",t:"누가 집을 흔들어!",topic:"지진 안전",c:"disaster",d:"6:55",w:"새학기 실내",kw:"지진 대피 흔들림 책상 가구",
+ goal:"집에서 지진이 났을 때 몸을 보호하고 대피할 수 있다.",
+ f:["집이 흔들리면 [탁자 아래]로 들어가 몸을 보호해요.","떨어지는 물건에서 [머리]를 보호해요.","흔들림이 멈추면 [문]을 열어 나갈 길을 만들어요.","대피할 때는 [계단]을 이용해요.","가구는 넘어지지 않게 [고정]해 두어요."],
+ ox:[["흔들릴 때 창문 가까이 서 있는다.",0],["흔들림이 멈춘 뒤 넓은 곳으로 대피한다.",1],["지진이 나면 엘리베이터로 빨리 내려간다.",0]],
+ th:["집에서 지진이 나면 어디로 숨어야 할까요?","흔들림이 멈춘 뒤 문을 열어 두는 까닭은 무엇일까요?","우리 집에서 지진 때 위험한 곳을 찾아 대비 방법을 정리해 보세요."],
+ ap:["탁자 아래에서 몸을 보호하는 모습을 그려 보세요.","우리 집 지진 약속 3가지를 정해 보세요.","우리 집 지진 대피 지도를 그려 보세요."],
+ tip:"은하안전단 36화(지진 안전)와 함께 학교와 집에서의 대처를 비교해 보세요."},
+{v:"eMJspM4WZZg",s:"aiku",ep:"시즌2 7화",t:"아이쿠, 원시시대에 가다",topic:"화재 예방과 안전한 행동",c:"disaster",d:"",w:"겨울 실내",kw:"화재 불장난 성냥 라이터 대피",
+ goal:"불장난의 위험을 알고 불이 났을 때 안전하게 행동할 수 있다.",
+ f:["성냥이나 [라이터]로 장난치지 않아요.","불은 아주 [빨리] 번져요.","불이 나면 \"[불이야]!\" 하고 알려요.","연기를 피해 몸을 [낮추고] 대피해요.","밖으로 나온 뒤 [119]에 신고해요."],
+ ox:[["작은 불은 장난으로 피워도 괜찮다.",0],["불이 나면 숨지 말고 밖으로 나간다.",1],["연기는 위로 올라가니 몸을 낮춘다.",1]],
+ th:["불장난을 하면 왜 위험할까요?","불이 났을 때 해야 할 일을 순서대로 써 보세요.","불이 사람에게 준 이로움과 위험을 비교하고 불을 안전하게 쓰는 방법을 정리해 보세요."],
+ ap:["몸을 낮추고 대피하는 모습을 그려 보세요.","불 안전 약속 3가지를 정해 보세요.","우리 집 화재 대피 계획을 세워 보세요."],
+ tip:"원시시대 배경이라 불의 쓰임과 위험을 함께 이야기하기 좋습니다."},
+{v:"FukhIrhnodI",s:"aiku",ep:"시즌2 9화",t:"아이쿠, 외계왕자 슛!",topic:"운동장 안전사고 예방",c:"life",d:"",w:"봄 가을 새학기 야외",kw:"운동장 공놀이 축구 준비운동 충돌",
+ goal:"운동장에서 놀거나 운동할 때 다치지 않도록 안전 수칙을 지킬 수 있다.",
+ f:["운동하기 전에는 [준비운동]을 해요.","공놀이는 정해진 [장소]에서 해요.","공을 [사람]이 있는 쪽으로 세게 차지 않아요.","운동장에서는 [앞]을 보고 달려요.","다치면 바로 [보건실]에 가요."],
+ ox:[["준비운동 없이 바로 전력 질주해도 된다.",0],["공놀이하는 곳 가까이 지나갈 때 조심한다.",1],["다쳐도 참고 계속 노는 것이 좋다.",0]],
+ th:["운동장에서 다치지 않으려면 어떻게 해야 할까요?","준비운동을 하는 까닭은 무엇일까요?","운동장 사고가 자주 나는 장소와 시간을 조사하고 예방 방법을 제안해 보세요."],
+ ap:["준비운동을 하는 내 모습을 그려 보세요.","운동장 안전 약속 3가지를 정해 보세요.","운동장 구역별 놀이 규칙을 만들어 보세요."],
+ tip:"체육 수업 첫 시간 안전 교육으로 활용하세요."},
+{v:"O4sJvIfKY8c",s:"aiku",ep:"시즌2 25화",t:"아이쿠, 남극에 가다",topic:"화상 사고 예방",c:"life",d:"5:36",w:"겨울 실내",kw:"화상 핫팩 전기장판 저온화상 뜨거운물",
+ goal:"뜨거운 물건과 난방용품으로 생기는 화상을 예방하고 바르게 처치할 수 있다.",
+ f:["뜨거운 물과 [음식]은 조심해서 다뤄요.","핫팩이나 전기장판을 오래 대고 있으면 [저온 화상]을 입을 수 있어요.","핫팩은 [피부]에 직접 붙이지 않아요.","화상을 입으면 [흐르는 찬물]로 식혀요.","화상 [물집]은 터뜨리지 않아요."],
+ ox:[["핫팩은 맨살에 붙이는 것이 가장 따뜻하다.",0],["화상은 찬물로 충분히 식힌다.",1],["따뜻한 정도라도 오래 닿으면 화상을 입을 수 있다.",1]],
+ th:["추운 날 몸을 따뜻하게 하는 물건 중 조심해야 할 것은 무엇일까요?","저온 화상은 어떻게 생길까요?","겨울철 화상 사고 원인을 조사하고 예방 수칙을 정리해 보세요."],
+ ap:["핫팩을 바르게 쓰는 모습을 그려 보세요.","화상 예방 약속 3가지를 정해 보세요.","화상 응급처치 순서 카드를 만들어 보세요."],
+ tip:"호기심딱지 '표피장군도 못 막는 화상'과 함께 보면 원리까지 다룰 수 있습니다."},
+
+{v:"auvh_Jwv-qY",s:"galaxy",ep:"3화",t:"걸렸어! 비밀테스트!",topic:"유괴 예방",c:"personal",d:"11:11",w:"방학 체험학습",kw:"유괴 낯선사람 유인 거절 비밀",
+ goal:"낯선 사람의 유인을 알아차리고 거절하며 도움을 요청할 수 있다.",
+ f:["낯선 사람이 [선물]이나 간식으로 유인할 수 있어요.","따라오라고 하면 \"[싫어요]\" 하고 분명히 말해요.","\"[비밀]로 하자\"는 말은 의심해요.","위험하면 [사람이 많은 곳]으로 피해요.","있었던 일은 꼭 [보호자]에게 알려요."],
+ ox:[["비밀로 하자고 한 일은 보호자에게도 말하면 안 된다.",0],["낯선 사람이 주는 간식은 받지 않는다.",1],["위험할 때 큰 소리로 도움을 요청한다.",1]],
+ th:["낯선 사람이 선물을 준다고 하면 어떻게 할까요?","'비밀로 하자'는 말을 왜 의심해야 할까요?","유인 수법을 유형별로 정리하고 각각의 대처법을 제안해 보세요."],
+ ap:["\"싫어요!\" 하고 거절하는 모습을 그려 보세요.","나를 지키는 약속 3가지를 정해 보세요.","'좋은 비밀과 나쁜 비밀' 구별 카드를 만들어 보세요."],
+ tip:"원본은 '크리스마스 특집 3화'라는 제목으로 올라와 있습니다."},
+{v:"iC7WDV54w8c",s:"galaxy",ep:"4화",t:"더러워! 쿠왕의 손바닥!",topic:"손 씻기",c:"health",d:"11:11",w:"겨울 새학기",kw:"손씻기 세균 위생 비누",
+ goal:"손 씻기의 중요성을 알고 올바르게 손을 씻을 수 있다.",
+ f:["손바닥에는 눈에 안 보이는 [세균]이 살아요.","더러운 손으로 [눈, 코, 입]을 만지면 병에 걸릴 수 있어요.","손은 [비누]로 30초 이상 씻어요.","[손가락 사이]와 손톱 밑까지 씻어요.","밖에서 놀고 들어오면 [바로] 손을 씻어요."],
+ ox:[["손을 씻지 않고 간식을 먹어도 괜찮다.",0],["손 씻기는 감기 예방에 도움이 된다.",1],["물로만 잠깐 헹궈도 충분하다.",0]],
+ th:["손을 씻지 않으면 어떤 일이 생길까요?","하루 중 손을 씻어야 하는 때를 써 보세요.","손 씻기 전후의 세균 수를 비교하는 실험을 계획해 보세요."],
+ ap:["비누로 손을 씻는 모습을 그려 보세요.","손 씻기 약속 3가지를 정해 보세요.","손 씻기 홍보 포스터를 만들어 보세요."],
+ tip:"원본은 '크리스마스 특집 4화'라는 제목으로 올라와 있습니다."},
+{v:"8uBnfyou30U",s:"galaxy",ep:"5화",t:"불이야! 히어로 출동!",topic:"화재 안전",c:"disaster",d:"11:11",w:"겨울 새학기 실내",kw:"화재 불 대피 119 연기 젖은수건",
+ goal:"불이 났을 때 알리고 연기를 피해 안전하게 대피할 수 있다.",
+ f:["불이 나면 \"[불이야]!\" 하고 크게 외쳐요.","[젖은 수건]으로 코와 입을 막아요.","몸을 [낮추고] 대피해요.","대피할 때는 [엘리베이터]를 타지 않아요.","안전한 곳에서 [119]에 신고해요."],
+ ox:[["불이 나면 옷장이나 침대 밑에 숨는다.",0],["연기를 피해 낮은 자세로 대피한다.",1],["불이 나면 계단으로 대피한다.",1]],
+ th:["불이 났을 때 숨으면 왜 위험할까요?","119에 신고할 때 말해야 할 내용을 써 보세요.","화재 대피 훈련에서 잘한 점과 고칠 점을 돌아보고 개선 방법을 제안해 보세요."],
+ ap:["몸을 낮추고 대피하는 모습을 그려 보세요.","화재 안전 약속 3가지를 정해 보세요.","우리 집 화재 대피 지도를 그려 보세요."],
+ tip:"원본은 '크리스마스 특집 5화'라는 제목으로 올라와 있습니다. 소방 훈련 전에 보여 주세요."},
+{v:"_3_AqcvAtzY",s:"galaxy",ep:"7화",t:"복수다! 장난감의 반란!",topic:"장난감 안전",c:"life",d:"11:11",w:"실내 방학",kw:"장난감 작은부품 정리 KC 동생",
+ goal:"장난감을 안전하게 가지고 놀고 정리할 수 있다.",
+ f:["작은 장난감 부품은 [입]에 넣지 않아요.","작은 장난감은 [동생] 손이 닿지 않는 곳에 둬요.","장난감에 있는 [사용 연령]을 확인해요.","놀고 난 뒤에는 장난감을 [정리]해요.","부서진 장난감은 [어른]에게 보여 줘요."],
+ ox:[["바닥에 둔 장난감을 밟으면 넘어질 수 있다.",1],["부서져 날카로운 장난감도 계속 갖고 논다.",0],["장난감으로 친구를 때려도 장난이면 괜찮다.",0]],
+ th:["왜 제목이 '장난감의 반란'일까요?","장난감을 정리하지 않으면 어떤 일이 생길까요?","어린이 제품 안전 표시(KC 마크, 사용 연령)를 조사하고 그 뜻을 설명해 보세요."],
+ ap:["장난감을 정리하는 모습을 그려 보세요.","장난감 안전 약속 3가지를 정해 보세요.","우리 집 장난감 안전 점검표를 만들어 보세요."],
+ tip:"원본은 '크리스마스 특집 7화'라는 제목으로 올라와 있습니다."},
+{v:"rm0JW72TbWY",s:"galaxy",ep:"8화",t:"조심해! 미술도구!",topic:"미술실 안전",c:"life",d:"11:11",w:"새학기 실내",kw:"가위 칼 풀 물감 미술 도구",
+ goal:"미술 도구를 안전하게 사용하고 정리할 수 있다.",
+ f:["가위를 건넬 때는 [손잡이] 쪽을 친구에게 줘요.","가위나 칼을 들고 [돌아다니지] 않아요.","칼은 몸 [바깥쪽]으로 사용해요.","물감이나 풀을 [입]에 넣지 않아요.","다 쓴 도구는 제자리에 [정리]해요."],
+ ox:[["가위 날 쪽을 친구에게 내밀어 건넨다.",0],["미술 활동 뒤에는 손을 씻는다.",1],["글루건 끝은 뜨거우니 만지지 않는다.",1]],
+ th:["가위를 친구에게 건네는 바른 방법은 무엇일까요?","미술 시간에 다칠 수 있는 상황을 써 보세요.","미술 도구별 위험과 안전 사용법을 표로 정리해 보세요."],
+ ap:["가위를 바르게 건네는 모습을 그려 보세요.","미술 시간 약속 3가지를 정해 보세요.","미술실 안전 수칙 게시물을 만들어 보세요."],
+ tip:"원본은 '크리스마스 특집 8화'라는 제목입니다. 미술 수업 첫 시간에 보여 주세요."},
+{v:"ijqUhyQjSbc",s:"galaxy",ep:"10화",t:"환불해! 지금 당장!",topic:"문 끼임 안전",c:"life",d:"11:11",w:"실내 새학기",kw:"문 끼임 손가락 자동문 회전문",
+ goal:"문에 손가락이 끼이지 않도록 조심하며 문을 여닫을 수 있다.",
+ f:["문을 닫을 때는 [손가락]이 있는지 확인해요.","문 [틈]에 손을 넣지 않아요.","문을 [세게] 닫지 않아요.","[자동문]과 회전문은 천천히 지나가요.","문 뒤에 [사람]이 있는지 살피고 열어요."],
+ ox:[["문틈에 손을 넣고 장난쳐도 된다.",0],["바람 때문에 문이 세게 닫힐 수 있다.",1],["회전문에서는 뛰어 들어간다.",0]],
+ th:["문을 닫을 때 확인해야 할 것은 무엇일까요?","문에 손이 끼이면 왜 크게 다칠까요?","학교에서 문 끼임 사고가 날 수 있는 곳을 찾아 예방 방법을 제안해 보세요."],
+ ap:["문을 천천히 닫는 모습을 그려 보세요.","문 안전 약속 3가지를 정해 보세요.","교실 문에 붙일 '손 조심' 안내문을 만들어 보세요."],
+ tip:"원본은 '크리스마스 특집 10화'라는 제목으로 올라와 있습니다."},
+{v:"x8QenIeUbmQ",s:"galaxy",ep:"15화",t:"모여라! 빨리 와! 은하안전단!",topic:"전기 안전",c:"life",d:"11:11",w:"겨울 실내",kw:"전기 감전 콘센트 플러그 문어발",
+ goal:"감전과 전기 화재를 막는 전기 안전 수칙을 실천할 수 있다.",
+ f:["[젖은 손]으로 플러그를 만지지 않아요.","콘센트 구멍에 [젓가락]이나 물건을 넣지 않아요.","플러그를 뺄 때는 [몸체]를 잡아요.","한 콘센트에 여러 개를 꽂는 [문어발] 사용은 위험해요.","전선이 [벗겨진] 곳은 만지지 않아요."],
+ ox:[["콘센트에 금속 물건을 넣어 봐도 된다.",0],["전선을 잡아당겨 플러그를 뽑는다.",0],["쓰지 않는 전기 기구는 플러그를 뽑는다.",1]],
+ th:["전기를 쓸 때 조심해야 할 것은 무엇일까요?","젖은 손으로 전기를 만지면 왜 위험할까요?","전기 화재의 원인을 조사하고 가정에서의 예방 방법을 정리해 보세요."],
+ ap:["전기를 안전하게 쓰는 모습을 그려 보세요.","전기 안전 약속 3가지를 정해 보세요.","우리 집 전기 안전 점검표를 만들어 보세요."],
+ tip:"원본은 '크리스마스 특집 15화'라는 제목입니다. 실과 전기 단원과 연결하세요."},
+{v:"Wd9rsTkoF2g",s:"galaxy",ep:"16화",t:"즐겨요! 겨울 체육대회!",topic:"겨울 스포츠 안전",c:"life",d:"11:11",w:"겨울 방학 야외",kw:"썰매 스키 스케이트 겨울스포츠 보호장비",
+ goal:"겨울 스포츠를 할 때 필요한 안전 수칙을 지킬 수 있다.",
+ f:["겨울 운동 전에는 몸이 굳지 않게 [준비운동]을 해요.","썰매나 스키를 탈 때는 [헬멧]을 써요.","앞사람과 [거리]를 두고 타요.","정해진 [코스]에서만 타요.","몸이 너무 추우면 [쉬면서] 몸을 녹여요."],
+ ox:[["썰매는 앞사람 바로 뒤에 붙어서 탄다.",0],["추운 날에는 준비운동을 더 충분히 한다.",1],["겨울 스포츠에도 보호 장비가 필요하다.",1]],
+ th:["겨울에 운동할 때 무엇을 조심해야 할까요?","겨울에 준비운동을 더 해야 하는 까닭은 무엇일까요?","겨울 스포츠별 위험 요소와 보호 장비를 표로 정리해 보세요."],
+ ap:["보호 장비를 갖추고 썰매 타는 모습을 그려 보세요.","겨울 스포츠 약속 3가지를 정해 보세요.","겨울방학 스포츠 안전 안내문을 만들어 보세요."],
+ tip:"원본은 '크리스마스 특집 16화'라는 제목으로 올라와 있습니다."},
+{v:"SM1UHLiU5BI",s:"galaxy",ep:"18화",t:"보아라! 쿠왕의 패션쇼!",topic:"의류 안전",c:"life",d:"11:11",w:"봄 가을 야외",kw:"옷 끈 신발 긴치마 밝은옷",
+ goal:"활동에 맞는 안전한 옷차림을 고를 수 있다.",
+ f:["끈이 달린 옷은 놀이기구에 [걸릴] 수 있어요.","너무 긴 바지나 치마는 [넘어지기] 쉬워요.","신발은 발에 [맞는] 크기를 신어요.","밤길에는 [밝은 색] 옷을 입어요.","[날씨]에 맞는 옷을 입어요."],
+ ox:[["끈 달린 모자를 쓰고 미끄럼틀을 타면 위험할 수 있다.",1],["큰 신발을 신고 뛰어도 괜찮다.",0],["어두운 밤에는 밝은 옷이 눈에 잘 띈다.",1]],
+ th:["놀이터에 갈 때 어떤 옷이 좋을까요?","끈 달린 옷이 위험한 까닭은 무엇일까요?","활동별(운동, 등산, 밤길, 물놀이) 안전한 옷차림을 표로 정리해 보세요."],
+ ap:["안전한 옷차림을 한 내 모습을 그려 보세요.","옷차림 안전 약속 3가지를 정해 보세요.","체험학습 옷차림 안내문을 만들어 보세요."],
+ tip:"원본은 '크리스마스 특집 18화'라는 제목으로 올라와 있습니다."},
+{v:"ERtaScdPUnU",s:"galaxy",ep:"28화",t:"달려라! 레이싱 대회!",topic:"킥보드 안전",c:"traffic",d:"11:11",w:"봄 가을 야외",kw:"킥보드 헬멧 보호대 내리막 차도",
+ goal:"킥보드를 탈 때 보호 장비를 갖추고 안전하게 탈 수 있다.",
+ f:["킥보드를 탈 때는 [헬멧]을 써요.","무릎과 팔꿈치에 [보호대]를 해요.","킥보드는 [한 사람]만 타요.","[차도]에서는 타지 않아요.","내리막길에서는 [속도]를 줄여요."],
+ ox:[["두 사람이 킥보드 하나에 같이 탄다.",0],["빗길에서는 킥보드가 미끄러질 수 있다.",1],["누가 빠른지 차도에서 시합한다.",0]],
+ th:["킥보드를 탈 때 챙겨야 할 보호 장비는 무엇일까요?","킥보드로 시합하면 왜 위험할까요?","킥보드와 전동 킥보드 사고 사례를 조사하고 어린이가 지켜야 할 규칙을 제안해 보세요."],
+ ap:["헬멧과 보호대를 갖춘 모습을 그려 보세요.","킥보드 안전 약속 3가지를 정해 보세요.","탑승 전 점검 체크리스트를 만들어 보세요."],
+ tip:"헬멧 턱끈 맞추는 법을 실물로 보여 주세요."},
+{v:"yqf_fijzo-Q",s:"galaxy",ep:"32화",t:"거기서! 괴도 황금가면!",topic:"자동차 신호",c:"traffic",d:"11:11",w:"봄 새학기",kw:"자동차 신호등 정지 우회전 길건너기",
+ goal:"자동차 신호의 뜻을 알고 차의 움직임을 살피며 길을 건널 수 있다.",
+ f:["자동차 신호등은 [차]가 지켜야 하는 신호예요.","노란불은 차가 [멈출 준비]를 하라는 뜻이에요.","차는 빨리 달릴수록 멈추는 데 [오래] 걸려요.","보행 신호가 켜져도 [차가 멈췄는지] 확인해요.","쫓기듯 급할 때도 길에 [뛰어들지] 않아요."],
+ ox:[["노란불일 때 차는 더 빨리 달려도 된다.",0],["보행 신호가 켜져도 차를 살핀다.",1],["빨리 달리는 차는 바로 멈출 수 있다.",0]],
+ th:["자동차 신호등과 사람 신호등은 어떻게 다를까요?","차가 바로 멈추지 못하는 까닭은 무엇일까요?","신호등 색마다 운전자와 보행자가 해야 할 일을 표로 정리해 보세요."],
+ ap:["차가 멈춘 것을 보고 건너는 모습을 그려 보세요.","신호 지키기 약속 3가지를 정해 보세요.","신호등 안전 퀴즈 5문제를 만들어 보세요."],
+ tip:"아이쿠 1기 20화(자동차 신호 안전)와 함께 보면 좋습니다."},
+{v:"NWBXGU43FNg",s:"galaxy",ep:"38화",t:"춤춰요! 댄스 교실!",topic:"성폭력 예방(내 몸 지키기)",c:"personal",d:"11:11",w:"새학기",kw:"내몸 신체경계 싫어요 성폭력예방 도움요청",
+ goal:"내 몸은 소중하다는 것을 알고 싫은 접촉을 거절하며 도움을 요청할 수 있다.",
+ f:["내 몸의 주인은 [나]예요.","싫은 접촉에는 \"[싫어요]!\" 하고 말해요.","속옷으로 가리는 곳은 [소중한] 곳이에요.","나쁜 일이 생기면 [믿을 수 있는 어른]에게 알려요.","나쁜 일은 [내 잘못]이 아니에요."],
+ ox:[["친한 사람이 하는 접촉도 싫으면 거절할 수 있다.",1],["나쁜 일을 당하면 내 잘못이니 숨겨야 한다.",0],["다른 사람의 몸도 소중히 여긴다.",1]],
+ th:["싫은 느낌이 드는 접촉이 있으면 어떻게 할까요?","믿을 수 있는 어른은 누구인지 써 보세요.","나와 다른 사람의 몸을 존중하는 행동을 정리하고, 동의가 왜 중요한지 설명해 보세요."],
+ ap:["나를 도와줄 수 있는 사람들을 그려 보세요.","내 몸 지키기 약속 3가지를 정해 보세요.","'좋은 접촉과 싫은 접촉' 구별 카드를 만들어 보세요."],
+ tip:"민감한 주제이므로 수업 전에 영상을 꼭 확인하세요. 학생 반응을 살피고, 필요하면 상담교사·보건교사와 연계하세요. 신고는 112로 할 수 있습니다."},
+{v:"JUl9mp-XQbw",s:"galaxy",ep:"43화",t:"날아라! 쿠왕의 전용기!",topic:"비행기 안전",c:"traffic",d:"11:11",w:"방학 체험학습",kw:"비행기 안전벨트 승무원 산소마스크 구명조끼",
+ goal:"비행기를 탈 때 지켜야 할 안전 수칙을 말할 수 있다.",
+ f:["비행기에 앉으면 [안전벨트]를 매요.","[승무원]의 안전 안내를 잘 들어요.","비행기 안에서는 [뛰지] 않아요.","산소마스크가 내려오면 [어른]이 먼저 쓰고 아이를 도와줘요.","비상시에는 가까운 [비상구] 위치를 확인해요."],
+ ox:[["비행기가 흔들려도 안전벨트를 풀고 돌아다닌다.",0],["승무원의 안전 안내 방송을 잘 듣는다.",1],["비상구 위치를 미리 알아 둔다.",1]],
+ th:["비행기를 탈 때 지켜야 할 약속은 무엇일까요?","안전벨트 표시등이 켜지면 왜 자리에 앉아야 할까요?","비행기 안전 안내 카드를 조사하고 비상 상황별 행동을 정리해 보세요."],
+ ap:["안전벨트를 매고 비행기를 탄 모습을 그려 보세요.","비행기 안전 약속 3가지를 정해 보세요.","가족 여행용 '비행기 안전 안내 카드'를 만들어 보세요."],
+ tip:"방학 전 가족 여행 안전 교육으로 활용하세요."},
+{v:"_8oZg9TpLDQ",s:"galaxy",ep:"44화",t:"어떡해! 숨이 안 쉬어져!",topic:"응급처치",c:"firstaid",d:"11:11",w:"새학기 명절",kw:"응급처치 숨 119 기도막힘 쓰러짐",
+ goal:"숨쉬기 힘든 사람을 보았을 때 침착하게 도움을 요청할 수 있다.",
+ f:["숨쉬기 힘들어하는 사람을 보면 [침착하게] 행동해요.","먼저 주변 [어른]에게 큰 소리로 알려요.","[119]에 전화해 상황을 말해요.","119에 [주소]와 상황을 정확히 말해요.","음식이 목에 걸렸다면 [기침]을 하게 해요."],
+ ox:[["숨쉬기 힘든 친구를 보면 혼자 해결하려고 한다.",0],["119에 전화하면 끊으라고 할 때까지 끊지 않는다.",1],["응급 상황에서는 주소를 알려 주는 것이 중요하다.",1]],
+ th:["친구가 갑자기 숨쉬기 힘들어하면 어떻게 할까요?","119에 신고할 때 말해야 할 것을 써 보세요.","응급 상황에서 '알리기-신고하기-도움 주기' 순서가 중요한 까닭을 설명해 보세요."],
+ ap:["어른을 부르고 119에 신고하는 모습을 그려 보세요.","응급 상황 약속 3가지를 정해 보세요.","119 신고 연습 대본을 만들어 보세요."],
+ tip:"보건교사와 함께 하임리히법과 심폐소생술 기초 교육으로 이어 가세요."},
+{v:"Xi3D47nF67g",s:"galaxy",ep:"45화",t:"무서워! 늑대의 공격!",topic:"가정폭력 예방",c:"personal",d:"11:11",w:"새학기",kw:"가정폭력 도움요청 112 믿을수있는어른 마음",
+ goal:"폭력은 잘못된 것임을 알고 무서운 일이 있을 때 도움을 요청할 수 있다.",
+ f:["누구도 나를 [때리거나] 겁주면 안 돼요.","나를 아프게 하거나 겁주는 일은 [잘못된] 일이에요.","힘들 때는 [믿을 수 있는 어른]에게 이야기해요.","위험할 때는 [112]에 신고할 수 있어요.","친구가 힘들어하면 [선생님]께 알려요."],
+ ox:[["집에서 일어난 무서운 일은 아무에게도 말하면 안 된다.",0],["도움을 요청하는 것은 용기 있는 일이다.",1],["폭력은 어떤 까닭이 있어도 잘못이다.",1]],
+ th:["무섭거나 힘든 일이 있을 때 이야기할 수 있는 사람은 누구인가요?","도움을 요청하는 것이 왜 용기 있는 일일까요?","도움을 받을 수 있는 곳(선생님, 상담실, 112 등)을 정리하고 각각 어떻게 연락하는지 써 보세요."],
+ ap:["나를 도와줄 수 있는 사람들을 그려 보세요.","힘들 때 할 일 3가지를 정해 보세요.","'도움 요청 카드'에 믿을 수 있는 어른과 연락처를 정리해 보세요."],
+ tip:"매우 민감한 주제입니다. 수업 전에 영상을 꼭 확인하고, 학생 반응을 살피세요. 걱정되는 학생이 있으면 상담교사와 연계하고 학교 아동학대 신고 절차를 따르세요."},
+{v:"pUnpaHBs6a4",s:"galaxy",ep:"50화",t:"찾아라! 미운 아기 오리",topic:"아동학대 예방",c:"personal",d:"11:11",w:"새학기",kw:"아동학대 존중 도움요청 112 마음",
+ goal:"모든 어린이는 존중받아야 한다는 것을 알고 도움이 필요할 때 알릴 수 있다.",
+ f:["모든 어린이는 [존중]받아야 해요.","때리거나 [욕하는] 것은 학대일 수 있어요.","밥을 굶기거나 [돌보지] 않는 것도 학대예요.","힘든 일이 있으면 [믿을 수 있는 어른]에게 말해요.","학대가 의심되면 [112]에 알릴 수 있어요."],
+ ox:[["어린이는 어른에게 함부로 대해져도 참아야 한다.",0],["친구가 걱정되면 선생님께 알린다.",1],["모든 어린이는 소중하다.",1]],
+ th:["왜 제목에 '미운 아기 오리'가 나올까요?","친구가 힘들어 보이면 내가 할 수 있는 일은 무엇일까요?","어린이가 존중받아야 하는 권리를 조사하고 우리 반이 지킬 약속을 정리해 보세요."],
+ ap:["모두가 존중받는 우리 반 모습을 그려 보세요.","서로 존중하는 약속 3가지를 정해 보세요.","'어린이 권리' 홍보 카드를 만들어 보세요."],
+ tip:"매우 민감한 주제입니다. 수업 전에 영상을 꼭 확인하세요. 걱정되는 학생이 있으면 상담교사와 연계하고 학교 신고 절차를 따르세요."},
+{v:"2Igi9Uq88b8",s:"galaxy",ep:"52화",t:"주르륵! 얼음이 녹아요!",topic:"환경 보호",c:"env",d:"11:11",w:"여름 봄",kw:"환경 지구온난화 빙하 에너지 일회용",
+ goal:"지구 온난화의 영향을 알고 환경을 지키는 일을 실천할 수 있다.",
+ f:["지구가 더워지는 것을 [지구 온난화]라고 해요.","지구가 더워지면 남극과 북극의 [얼음]이 녹아요.","얼음이 녹으면 [바닷물]의 높이가 올라가요.","쓰지 않는 [전기]를 꺼서 에너지를 아껴요.","[일회용품]을 줄여요."],
+ ox:[["지구 온난화는 북극곰과 사람 모두에게 영향을 준다.",1],["전기를 아끼는 것은 환경과 관계없다.",0],["가까운 곳은 걷거나 자전거를 타면 좋다.",1]],
+ th:["얼음이 녹으면 동물들은 어떻게 될까요?","내가 할 수 있는 환경 보호 활동을 써 보세요.","지구 온난화의 원인과 영향을 조사하고 학교에서 할 수 있는 실천 계획을 세워 보세요."],
+ ap:["깨끗한 지구를 지키는 모습을 그려 보세요.","환경 지킴이 약속 3가지를 정해 보세요.","우리 반 에너지 절약 캠페인 포스터를 만들어 보세요."],
+ tip:"아이쿠 시즌2 20화(환경 오염 예방)와 함께 환경 차시로 묶을 수 있습니다."}
+];
+
+/* 1~2학년 '알맞은 말에 ○' 오답 보기: 회차별 앞 세 문장에 맞춰 직접 고른 낱말 */
+const CH={
+"aFJ9wRFqCoU":["집","한 방향","멈춘 차"],
+"lXH7xL90wkA":["찻길","빨간불","하늘"],
+"fpa2EC6ttoA":["다른 곳","급하게","모르는 아저씨"],
+"uIv3TuquJd0":["앉으면","들어갈 수","물"],
+"OpfL7JwnhPg":["창문","친구","대답"],
+"cJdWQ4kWSbs":["숟가락","차가워서","앉거나"],
+"H-wFXo8gmsE":["좋아하는 색","게임 이름","사진"],
+"IH8UU0K-tbY":["발","내가 원하는 시간","새벽 시간"],
+"TtSCS_O6RFs":["낮잠","수영 모자","던져요"],
+"TKA4TUNSDTw":["사과","채소","따뜻할"],
+"a2wA9NS8cZ0":["포근해요","씻지","발"],
+"9ex7Ah5YYkQ":["화장실","계단","한꺼번에"],
+"ckYOUT7TSh8":["가까이","누운 자세","원하는 시간"],
+"D9I-ys75uDM":["날씨","모두 한데","키"],
+"Omf1gpZc85A":["따뜻해요","장갑","빨리"],
+"wnR3l_xDkt0":["뛰어요","빨간불","위쪽"],
+"mzUdcwgx_u0":["엎드려서","옆","힘센 친구"],
+"BL4-ie5Y8BU":["꿀","과자","발"],
+"vhDARYK7CvU":["가방","장난","주먹"],
+"c15BxH3IOkk":["텐트","물","햇빛"],
+"MNheYh_6uAY":["방에","놀이터","무거운"],
+"QA8JBvMTSjQ":["선글라스","한 겹","감기약"],
+"LYFOuH6RHCI":["발","날로","버리지"],
+"cR1OyQl1k20":["놀이","동생","따라 해요"],
+"rIxkqyviUSo":["창문 옆","발","엘리베이터"],
+"zmmr2ANtQZo":["가까이","내가 원하는 시간","말하지"],
+"FbR-vhkE3sk":["가방","앞좌석","운전석"],
+"n_CeRl7FU_g":["낮잠","목도리","줄어들"],
+"duHeGxoecHU":["조심히","친구","만지지"],
+"Y6XdXOBpIY8":["귀찮아요","주먹","모르는 사람"],
+"xR9PiheTZuY":["차도","길 한가운데","하늘"],
+"-riHfs5AlTQ":["난간 위","서 있지","손잡이"],
+"jIk6x-sm8rE":["햇빛","물","손바닥"],
+"WjH4f1qHxcA":["소리","공기","잠 호르몬"],
+"EVoRY-_s5YQ":["색깔","배","위"],
+"ZBv9vGonk4Q":["공기","콧물","머리카락"],
+"0_yTeJJ464w":["물","위","뼈"],
+"rTBjPGfatyQ":["줄어들어요","비타민","가위"],
+"ewO8H6PR6Aw":["설탕","밥","키"],
+"lPzvhZmrb5s":["단맛","눈","콜라"],
+"AqjEQeE3VLs":["돌","나쁜 균","사탕"],
+"WJVpwU_LCvA":["느리게","배부르고","빨리"],
+"rwv8_ZZO1Ro":["단단하게","뼈","주머니"],
+"qnT8AOUEwe8":["햇빛","자","친구"],
+"0zVwX_9t8ac":["코","발","귀"],
+"ZS7U0Sy7bPk":["햇빛","점","씻지"],
+"9RT17VKi_Yc":["머리카락","웃음","영양분"],
+"xRbterR-Dgs":["비비면","감아요","촉촉해져요"],
+"iE8xk-0lHto":["아드레날린","소리","배고픔 호르몬"],
+"czJb4X0aXLc":["설탕","달콤한 것","만지지"],
+"Pdz6tXDR218":["차갑고","물","막혀요"],
+"NqCEgUmNpvI":["말","노래","친구에게"],
+"m4ADi0VLEK0":["시원해서","장난감","타지"],
+"62H_FJt3Jp4":["친구","땀","잠자기"],
+"VHoVhH0FR3Q":["낮잠","충치","배고픔"],
+"lSMgyhYQx_s":["모래","물","3초"],
+"JsiZ2Q1TqSk":["곤충","똥","발"],
+"T0Fn6NN9k14":["소리","물","안으로"],
+"d6V_NawAwyU":["유산균","채소","혀"],
+"e3KOBkRPxxE":["참고","공기","말랑해져서"],
+"CDeAZaJFe0c":["콧물","기도","침"],
+"5wn-oQv-d-Q":["뇌","공기","뼈"],
+"jsF0m_hyiLI":["뼈 세포","분리","약해져요"],
+"2W8Xv8cWcAM":["소금","물","잠"],
+"hECp5fZgvqM":["뼈","커져요","돌아오지"],
+"vON0xOuvWdY":["흙탕물","뜯어","휴지"],
+"nYVmzP4lJFY":["눈송이","웃음","시원하고"],
+"2Ps2l4vWl_E":["주무르지","휴지","친구"],
+"BRL18vx-T-4":["도와줘","켜는","손잡이"],
+"KOn3_ZTFa8g":["멈추지","소리","손가락으로 짜서"],
+"iowWxg420q8":["키","땀","한 겹"],
+"jbVFCrahMQI":["세균","놀이","그대로예요"],
+"9_TDDgtOrrU":["물","키","손톱"],
+"BpzCaO-cl70":["감기","배부르고","주스"],
+"GEvamn7TBfg":["수컷","꿀","날개"],
+"f-AZWKlFamU":["커요","커요","흙"],
+"kqzy9WJ1Hm0":["노래지고","발","같이"],
+"DZtXvJCNjLU":["뼈","더럽게","뜨거운 물"],
+"DFys0I1D4iw":["소리","하얘지고","로션"],
+"lleUHBSwaiQ":["배","배고픔 호르몬","몰래 안아요"],
+"-LzXPEq-kr8":["모르게","나쁜 사람","친구"],
+"xQPJuWdiMv0":["힘","서서","옆"],
+"YN0mD29_p7A":["비타민","물만","손바닥만"],
+"pg7LxgGCwq4":["크게","앉아서","앉아서"],
+"VMTetkVEKDE":["난간","모서리","손잡이"],
+"j0Wf1dcgawU":["초록불","달리지","멈추지"],
+"qN9LDS-lWHA":["따뜻해요","장갑","빨리"],
+"o3dyRh6yBKE":["모자","반지","반대 방향"],
+"oSAEcorlXCU":["약","친구","물"],
+"rxRquF1J7Yc":["창문 앞","발","커튼"],
+"eMJspM4WZZg":["연필","천천히","도와줘"],
+"FukhIrhnodI":["낮잠","찻길","골대"],
+"O4sJvIfKY8c":["얼음","동상","옷"],
+"auvh_Jwv-qY":["숙제","좋아요","약속"],
+"iC7WDV54w8c":["비타민","손톱","물"],
+"8uBnfyou30U":["도와줘","마른 휴지","높이고"],
+"_3_AqcvAtzY":["주머니","친구","가격"],
+"rm0JW72TbWY":["날","앉아 있지","안쪽"],
+"ijqUhyQjSbc":["신발","손잡이","살살"],
+"x8QenIeUbmQ":["마른 손","플러그","전선"],
+"Wd9rsTkoF2g":["낮잠","모자","손"],
+"SM1UHLiU5BI":["빛날","뛰기","큰"],
+"ERtaScdPUnU":["모자","장갑","두 사람"],
+"yqf_fijzo-Q":["사람","더 빨리 달릴 준비","짧게"],
+"NWBXGU43FNg":["어른","좋아요","부끄러운"],
+"JUl9mp-XQbw":["목도리","친구","앉지"],
+"_8oZg9TpLDQ":["급하게","친구","114"],
+"Xi3D47nF67g":["도와주거나","괜찮은","모르는 사람"],
+"pUnpaHBs6a4":["숙제","칭찬하는","재우지"],
+"2Igi9Uq88b8":["지구 자전","나무","모래"]
+};
+
+
+const SERIES = {
+  aiku:  {name:"우당탕탕 아이쿠",   cls:"s-aiku",  ch:"은하안전단·아이쿠TV", scene:"영상에서 아이쿠가 위험했던 장면은 무엇이었나요? 아이쿠는 어떻게 했어야 할까요?"},
+  galaxy:{name:"우당탕탕 은하안전단", cls:"s-galaxy",ch:"은하안전단·아이쿠TV", scene:"영상에서 은하안전단이 해결한 위험한 상황은 무엇이었나요? 어떻게 해결했나요?"},
+  curio: {name:"최고다! 호기심딱지",  cls:"s-curio", ch:"EBS 키즈",           scene:"영상에서 가장 신기했던 우리 몸 이야기는 무엇이었나요?"}
+};
+const BANDS = {
+  "12":{label:"1~2학년",facts:3,ox:2,bank:true, lines:3},
+  "34":{label:"3~4학년",facts:4,ox:3,bank:true, lines:4},
+  "56":{label:"5~6학년",facts:5,ox:3,bank:false,lines:5}
+};
+const STD = {
+  traffic:{area:"교통안전",
+    "12":[["통합교과 · 바른 생활 / 슬기로운 생활","학교와 마을을 오가는 길에서 지켜야 할 교통안전 규칙을 알고 생활 속에서 실천한다."]],
+    "34":[["체육 · 안전 관련 내용","생활 속 교통 위험 상황을 알아차리고 안전하게 행동하는 방법을 익혀 실천한다."],["사회 · 우리 고장","고장의 장소를 살펴보고 안전하게 이동하는 길을 탐색한다."]],
+    "56":[["체육 · 안전 관련 내용","교통수단을 이용할 때의 위험 요인을 분석하고 안전 수칙을 스스로 지키는 태도를 기른다."],["실과 · 생활과 안전","생활 속 위험을 예방하는 방법을 탐색하고 일상에서 실천한다."]]},
+  life:{area:"생활안전",
+    "12":[["통합교과 · 바른 생활 / 슬기로운 생활","집, 학교, 놀이 공간에서 위험한 상황을 알고 안전 수칙을 지키는 습관을 기른다."]],
+    "34":[["체육 · 안전 관련 내용","신체 활동과 생활 속에서 일어나는 안전사고의 원인을 알고 예방하는 방법을 실천한다."]],
+    "56":[["체육 · 안전 관련 내용","안전사고 상황을 인식하고 상황에 맞게 대처하는 방법을 익혀 적용한다."],["실과 · 생활과 안전","생활용품과 시설을 안전하게 사용하는 방법을 알고 실천한다."]]},
+  personal:{area:"신변보호",
+    "12":[["통합교과 · 바른 생활","나를 소중히 여기고, 위험한 상황에서 도움을 요청하는 방법을 안다."]],
+    "34":[["도덕 · 자신과의 관계","자신을 소중히 여기며 위험 상황에서 스스로를 지키는 방법을 탐색한다."],["체육 · 안전 관련 내용","신변 위험 상황을 인식하고 대처 방법을 익힌다."]],
+    "56":[["도덕 · 타인과의 관계","나와 다른 사람의 안전과 권리를 존중하며 위험에 지혜롭게 대처한다."],["실과 · 디지털 생활","개인 정보를 보호하고 위험 상황에서 도움을 요청하는 방법을 실천한다."]]},
+  violence:{area:"폭력예방",
+    "12":[["통합교과 · 바른 생활","친구와 사이좋게 지내며 고운 말과 바른 행동을 실천한다."]],
+    "34":[["도덕 · 타인과의 관계","친구의 마음을 헤아리고 서로 존중하는 대화 방법을 실천한다."]],
+    "56":[["도덕 · 타인과의 관계","폭력의 문제점을 알고 갈등을 평화롭게 해결하는 방법을 탐구하고 실천한다."],["국어 · 듣기·말하기","상대를 배려하며 자신의 생각과 감정을 표현한다."]]},
+  drug:{area:"중독 예방",
+    "12":[["통합교과 · 바른 생활","약이나 미디어를 어른과 함께 바르게 사용하는 습관을 기른다."]],
+    "34":[["체육 · 건강 관련 내용","건강을 해치는 물질과 습관을 알고 바르게 선택한다."]],
+    "56":[["체육 · 건강 관련 내용","약물 오남용과 중독의 위험을 이해하고 건강한 생활 방식을 스스로 선택한다."],["실과 · 디지털 생활","디지털 기기와 미디어를 사용하는 시간과 방법을 스스로 조절한다."]]},
+  disaster:{area:"재난안전",
+    "12":[["통합교과 · 슬기로운 생활","불이 나거나 땅이 흔들리는 등 위급한 상황에서 몸을 보호하는 방법을 안다."]],
+    "34":[["체육 · 안전 관련 내용","재난 상황의 대피 방법을 익히고 훈련에 참여한다."],["과학 · 관련 단원","날씨와 땅의 변화 같은 자연 현상이 생활에 주는 영향을 탐구한다."]],
+    "56":[["체육 · 안전 관련 내용","재난 상황에서의 대피 경로와 행동 요령을 스스로 계획하고 실천한다."],["사회 · 자연환경과 생활","자연재해가 생활에 미치는 영향과 대비 방법을 탐구한다."]]},
+  health:{area:"보건·위생",
+    "12":[["통합교과 · 바른 생활","몸을 깨끗이 하고 바르게 먹고 자는 건강한 생활 습관을 기른다."]],
+    "34":[["체육 · 건강 관련 내용","위생, 식습관, 수면 등 건강한 생활 습관을 알고 꾸준히 실천한다."]],
+    "56":[["체육 · 건강 관련 내용","건강에 영향을 주는 요인을 분석하고 자신에게 맞는 건강 관리 계획을 세워 실천한다."],["실과 · 건강한 식생활","균형 잡힌 식사와 위생적인 식생활을 실천한다."]]},
+  body:{area:"인체 탐구",
+    "12":[["통합교과 · 슬기로운 생활 / 바른 생활","내 몸의 여러 부분을 살펴보고 소중히 돌보는 방법을 안다."]],
+    "34":[["체육 · 건강 관련 내용","몸의 성장과 건강을 위한 생활 습관을 알고 실천한다."],["과학 · 탐구 기능","관찰한 것을 바탕으로 궁금한 점을 질문하고 설명한다."]],
+    "56":[["과학 · 우리 몸의 구조와 기능","뼈와 근육, 소화·순환·호흡·배설 기관의 생김새와 하는 일을 알고, 기관들이 서로 관련되어 있음을 설명한다."],["체육 · 건강 관련 내용","몸의 기능을 지키기 위한 건강 습관을 세우고 실천한다."]]},
+  env:{area:"환경과 건강",
+    "12":[["통합교과 · 슬기로운 생활 / 바른 생활","우리 주변 환경을 깨끗하게 가꾸는 일을 실천한다."]],
+    "34":[["과학 · 생활과 환경","생활 속 물질과 환경이 우리 건강에 주는 영향을 탐구한다."],["사회 · 우리 고장","고장의 환경 문제를 알아보고 해결 방법을 찾는다."]],
+    "56":[["과학 · 생물과 환경","환경 오염이 생물과 사람에게 주는 영향을 알고 환경 보전 방법을 실천한다."],["실과 · 지속가능한 생활","자원을 아끼고 환경을 생각하는 생활을 실천한다."]]},
+  mind:{area:"마음 건강",
+    "12":[["통합교과 · 바른 생활","나와 친구를 소중히 여기고 내 마음을 표현한다."]],
+    "34":[["도덕 · 자신과의 관계","자신의 감정을 알고 바르게 표현하며 스스로를 소중히 여긴다."]],
+    "56":[["도덕 · 자신과의 관계","생명의 소중함을 알고 어려울 때 도움을 구하며 자신과 타인을 존중한다."],["체육 · 건강 관련 내용","마음 건강을 지키는 방법을 알고 실천한다."]]},
+  firstaid:{area:"응급처치",
+    "12":[["통합교과 · 바른 생활","위급한 상황에서 어른에게 알리고 119에 도움을 요청하는 방법을 안다."]],
+    "34":[["체육 · 안전 관련 내용","위급 상황을 알아차리고 기본적인 대처 방법을 익힌다."]],
+    "56":[["체육 · 안전 관련 내용","응급 상황에 맞는 응급처치 방법을 익혀 침착하게 적용한다."]]}
+};
+const SAFE7 = {traffic:"교통안전",life:"생활안전",personal:"폭력예방 및 신변보호",violence:"폭력예방 및 신변보호",drug:"약물 및 사이버 중독 예방",disaster:"재난안전",health:"생활안전(보건·위생)",body:"생활안전(보건) 연계",env:"생활안전(환경 보건) 연계",mind:"폭력예방 및 신변보호(생명존중)",firstaid:"응급처치"};
+
+const THEMES=["겨울","여름","봄","가을","방학","새학기","명절","체험학습","장마","실내","야외"];
+const ALIAS={"개학":"새학기","신학기":"새학기","입학":"새학기","현장학습":"체험학습","소풍":"체험학습","수학여행":"체험학습","설날":"명절","설":"명절","추석":"명절","휴가":"방학","장마철":"장마"};
+const GENERIC=["안전교육","안전","교육","수업","활동지","예방","지도","생활"];
+
+const state={q:"",series:"all",v:T[0].v,band:"12",teacher:false};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const byV=v=>T.find(x=>x.v===v);
+const watch=t=>"https://www.youtube.com/watch?v="+t.v;
+const thumb=t=>"thumbs/"+t.v+".jpg";
+
+function parseQuery(q){
+  const vocab=THEMES.concat(Object.keys(ALIAS)).sort((a,b)=>b.length-a.length);
+  const themes=[],words=[];
+  q.split(/\s+/).filter(Boolean).forEach(tok=>{
+    let rest=tok;
+    vocab.forEach(v=>{if(rest.includes(v)){themes.push(ALIAS[v]||v);rest=rest.split(v).join(" ")}});
+    rest.split(" ").filter(Boolean).forEach(r=>{
+      let w=r;GENERIC.forEach(g=>{if(w!==g&&w.endsWith(g)&&w.length>g.length)w=w.slice(0,-g.length)});
+      if(w&&!GENERIC.includes(w)) words.push(w); else if(w==="안전"&&!themes.length) words.push("안전");
+    });
+  });
+  return {themes:[...new Set(themes)],words};
+}
+const SAFETY_C=["traffic","life","personal","violence","drug","disaster","firstaid"];
+function matches(t,q){
+  if(!q) return true;
+  const {themes,words}=parseQuery(q);
+  const hay=(t.t+t.topic+t.kw+t.ep+SERIES[t.s].name+t.goal+STD[t.c].area+t.w).replace(/\s/g,"").toLowerCase();
+  return themes.every(th=>t.w.split(" ").includes(th)) &&
+    words.every(w=>w==="안전"?SAFETY_C.includes(t.c)||t.s!=="curio":hay.includes(w.toLowerCase()));
+}
+
+function renderChips(){
+  const el=document.getElementById("seriesChips");
+  const opts=[["all","전체",""]].concat(Object.entries(SERIES).map(([k,v])=>[k,v.name,v.cls]));
+  el.innerHTML=opts.map(([k,n,c])=>`<button class="chip ${c}" data-s="${k}" aria-pressed="${state.series===k}">${c?'<span class="dot"></span>':""}${n} <small>${k==="all"?T.length:T.filter(t=>t.s===k).length}</small></button>`).join("");
+  el.querySelectorAll("button").forEach(b=>b.onclick=()=>{state.series=b.dataset.s;renderChips();renderList()});
+  const sug=["겨울안전","여름방학","새학기","명절","체험학습","횡단보도","식중독","심장","스마트폰"];
+  document.getElementById("suggest").innerHTML="추천 키워드"+sug.map(s=>`<button data-k="${s}">${s}</button>`).join("");
+  document.querySelectorAll("#suggest button").forEach(b=>b.onclick=()=>{document.getElementById("q").value=b.dataset.k;state.q=b.dataset.k;renderList()});
+  document.getElementById("stats").innerHTML=Object.entries(SERIES).map(([k,v])=>`<span class="stat ${v.cls}"><b>${T.filter(t=>t.s===k).length}</b>${v.name}</span>`).join("");
+}
+
+
+function renderList(){
+  const list=T.filter(t=>(state.series==="all"||t.s===state.series)&&matches(t,state.q));
+  const el=document.getElementById("list");
+  if(!list.length){el.innerHTML=`<p class="count">검색 결과 0편</p><div class="empty">'${esc(state.q)}'에 맞는 영상이 없어요.<br>다른 낱말(예: 겨울, 화재, 뼈)로 찾아보세요.</div>`;return}
+  el.innerHTML=`<p class="count">영상 ${list.length}편 · 썸네일은 영상 열기, 학년 버튼은 활동지 열기</p>`+list.map(t=>{
+    const S=SERIES[t.s];
+    return `<article class="item ${S.cls} ${t.v===state.v?"sel":""}">
+      <a class="thumb" href="${watch(t)}" target="_blank" rel="noopener" aria-label="${esc(t.t)} 영상 유튜브에서 보기">
+        <img src="${thumb(t)}" alt="" loading="lazy" width="320" height="180">${t.d?`<span class="dur">${t.d}</span>`:""}<span class="play">▶ 유튜브에서 보기</span></a>
+      <div class="info">
+        <h3>${esc(t.t)}</h3>
+        <div class="meta"><b>${S.name}</b> · ${esc(t.ep)}</div>
+        <div class="meta"><span class="topic">${esc(t.topic)}</span>${t.w?esc(t.w.split(" ").slice(0,3).join("·")):""}</div>
+        <div class="grades">${Object.entries(BANDS).map(([b,v])=>`<button class="grade" data-v="${t.v}" data-b="${b}" aria-pressed="${t.v===state.v&&b===state.band}">${v.label}</button>`).join("")}</div>
+      </div>
+    </article>`}).join("");
+  el.querySelectorAll(".grade").forEach(b=>b.onclick=()=>{
+    state.v=b.dataset.v;state.band=b.dataset.b;renderList();renderSheet();
+    try{history.replaceState(null,"","#v"+state.band+"-"+toHash(state.v))}catch(e){}
+    if(window.matchMedia("(max-width:980px)").matches) document.getElementById("side").scrollIntoView({behavior:"smooth",block:"start"});
+    else document.getElementById("side").scrollTop=0;
+  });
+}
+/* 해시는 영문·숫자·하이픈만: 영상 ID의 _ 는 x5f 로 바꿈 */
+const toHash=v=>v.replace(/_/g,"x5f");
+const fromHashId=h=>h.replace(/x5f/g,"_");
+
+function blankify(s,show){return esc(s).replace(/\[(.+?)\]/g,(m,a)=>`<span class="blank" style="min-width:${Math.max(4,a.length*1.3+1.5)}em">${show?`<span class="ans">${a}</span>`:"&nbsp;"}</span>`)}
+const answers=f=>f.map(x=>(x.match(/\[(.+?)\]/)||[])[1]).filter(Boolean);
+const filled=s=>s.replace(/\[(.+?)\]/g,"$1");
+const plainBlank=s=>s.replace(/\[(.+?)\]/g,"(          )");
+function hash(s){let h=7;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return h}
+/* 1~2학년 고르기 보기: 반대말 사전 → 같은 회차의 다른 낱말 → 같은 분류 회차의 낱말 */
+const OPP={"초록불":"빨간불","빨간불":"초록불","천천히":"빨리","빨리":"천천히","빨라져요":"느려져요","느려져요":"빨라져요","앉아서":"서서","뛰지":"걷지","걷지":"뛰지","멈춰요":"달려요","멈추지":"달리지","작게":"크게","크게":"작게","낮추고":"높이고","따뜻한":"시원한","차갑게":"뜨겁게","좌우":"앞만","왼쪽":"위쪽","싫어요":"좋아요","좋아요":"싫어요","전":"후","줄여요":"늘려요","멀리":"가까이","가까이":"멀리","흐르는 찬물":"뜨거운 물","찬물":"뜨거운 물","젖은 손":"마른 손","긁지":"문지르지","손잡이":"날","안쪽":"바깥쪽","바깥쪽":"안쪽","같은 방향":"반대 방향","한 사람":"두 사람","인도":"차도","계단":"엘리베이터","엘리베이터":"계단","나와요":"들어가요","쉬어요":"뛰어요","쉬고":"뛰고","침착하게":"급하게","따로":"같이","적게":"많이","조금만":"많이","조금씩":"한꺼번에","여러 겹":"한 겹","밝은 색":"어두운 색","어른":"친구","보호자":"친구","119":"114","112":"114","해마다":"한 번만","빠르게":"느리게","작아요":"커요","커요":"작아요","얇은":"두꺼운","건조":"축축"};
+function choice12(t,ans,i){
+  if(typeof CH!=="undefined"&&CH[t.v]&&CH[t.v][i]&&CH[t.v][i]!==ans) return CH[t.v][i];
+  if(OPP[ans]) return OPP[ans];
+  const own=answers(t.f).filter(a=>a!==ans);
+  const sameLen=own.filter(a=>Math.abs(a.length-ans.length)<=2);
+  const pool=sameLen.length?sameLen:own;
+  return pool[hash(t.v+i)%pool.length];
+}
+/* 3~4학년 낱말 상자의 함정 낱말: 같은 분류 다른 회차의 낱말 */
+function bankExtra(t){
+  const mine=answers(t.f);
+  const pool=[];T.forEach(x=>{if(x.c===t.c&&x.v!==t.v)answers(x.f).forEach(a=>{if(!mine.includes(a)&&!pool.includes(a))pool.push(a)})});
+  return pool.length?pool[hash(t.v)%pool.length]:"";
+}
+const linesH=k=>`<div class="lines">${"<i></i>".repeat(k)}</div>`;
+const linesT=k=>("  ________________________________________\n").repeat(k);
+
+/* 학년별로 서로 다른 문항 구성 */
+function buildSections(t,band,show){
+  const S=SERIES[t.s],sec=[];
+  const add=(title,sub,html,text)=>sec.push({title,sub,html,text});
+  const oxRows=items=>`<table class="ox"><tbody>${items.map((o,i)=>`<tr><td>${i+1}. ${esc(o[0])}</td><td class="mark">${show?`<span class="ans">${o[1]?"○":"×"}</span>`:`<span class="box"><i>○</i><i>×</i></span>`}</td></tr>`).join("")}</tbody></table>`;
+  const oxText=items=>items.map((o,i)=>`  ${i+1}) ${o[0]}  ( ○ / × )`).join("\n");
+
+  if(band==="12"){
+    const facts=t.f.slice(0,3);
+    const items=facts.map((f,i)=>{const a=answers([f])[0],d=choice12(t,a,i);const opts=hash(t.v+i)%2?[a,d]:[d,a];return{f,a,opts}});
+    add("알맞은 말에 ○ 해요","영상을 보며 둘 중 하나를 골라요",
+      `<ol class="fill">${items.map(({f,a,opts})=>`<li>${esc(f).replace(/\[(.+?)\]/,`<span class="choose">( ${opts.map(o=>`<span class="${show&&o===a?"pick":""}">${esc(o)}</span>`).join(" / ")} )</span>`)}</li>`).join("")}</ol>`,
+      items.map(({f,opts},i)=>`  ${i+1}) ${f.replace(/\[(.+?)\]/,`( ${opts.join(" / ")} )`)}`).join("\n"));
+    const ox=t.ox.slice(0,2);
+    add("맞으면 ○, 틀리면 × 해요","",oxRows(ox),oxText(ox));
+    add("영상 장면 그리기","가장 기억에 남는 장면을 그리고 한 줄로 써요",`<div class="drawbox small"></div>${linesH(1)}`,"  (그림 칸)\n"+linesT(1));
+    add("생각을 말해요","짝과 이야기한 뒤 한 줄로 써요",`<p class="prompt">${esc(t.th[0])}</p>${linesH(2)}`,`  ${t.th[0]}\n`+linesT(2));
+    add("내 생활에 적용해요","",`<p class="prompt">${esc(t.ap[0])}</p><div class="drawbox"></div>`,`  ${t.ap[0]}\n  (그림 칸)`);
+  }
+  else if(band==="34"){
+    const facts=t.f.slice(1,5);
+    const bank=answers(facts).concat([bankExtra(t)].filter(Boolean)).sort((a,b)=>a.localeCompare(b,"ko"));
+    add("영상을 보며 빈칸을 채워요","낱말 상자에는 쓰지 않는 낱말이 하나 숨어 있어요",
+      `<div class="bank"><b>낱말 상자</b>${bank.map(w=>`<span>${esc(w)}</span>`).join("")}</div><ol class="fill">${facts.map(f=>`<li>${blankify(f,show)}</li>`).join("")}</ol>`,
+      `  낱말 상자: ${bank.join(", ")}\n`+facts.map((f,i)=>`  ${i+1}) ${plainBlank(f)}`).join("\n"));
+    const ox=t.ox.slice(0,3);
+    add("○× 하고, 틀린 문장 고쳐 쓰기","× 문장 하나를 골라 바르게 고쳐 써요",
+      oxRows(ox)+`<p class="prompt" style="margin-top:10px">고쳐 쓴 문장</p>${linesH(2)}`,oxText(ox)+"\n  고쳐 쓴 문장:\n"+linesT(2));
+    add("영상 장면 떠올리기","",`<p class="prompt">${esc(S.scene)}</p>${linesH(3)}`,`  ${S.scene}\n`+linesT(3));
+    add("스스로 생각해요","",`<p class="prompt">${esc(t.th[1])}</p>${linesH(4)}`,`  ${t.th[1]}\n`+linesT(4));
+    add("나의 약속 세 가지","",`<p class="prompt">${esc(t.ap[1])}</p><div class="promise">${["하나","둘","셋"].map(x=>`<b>${x}.</b><i></i>`).join("")}</div>`,`  ${t.ap[1]}\n  하나. ____________\n  둘. ____________\n  셋. ____________`);
+  }
+  else{
+    add("핵심 내용 쓰기","낱말 상자 없이 영상에서 들은 말을 써요",
+      `<ol class="fill">${t.f.map(f=>`<li>${blankify(f,show)}</li>`).join("")}</ol>`,
+      t.f.map((f,i)=>`  ${i+1}) ${plainBlank(f)}`).join("\n"));
+    const wrong=t.ox.filter(o=>!o[1]).slice(0,2);
+    if(wrong.length) add("친구에게 조언하기","틀린 생각을 찾아 영상 내용을 근거로 바로잡아요",
+      wrong.map(o=>`<div class="case"><p class="prompt">친구가 <q>${esc(o[0])}</q>라고 말했어요. 무엇이 잘못되었고, 어떻게 조언할까요?</p>${show?`<p class="hintline">교사 참고: 이 생각은 틀렸습니다(×). 핵심 내용 ${t.f.length}문장을 근거로 고쳐 말하게 하세요.</p>`:""}${linesH(3)}</div>`).join(""),
+      wrong.map(o=>`  친구가 "${o[0]}"라고 말했어요. 무엇이 잘못되었고, 어떻게 조언할까요?\n`+linesT(3)).join("\n"));
+    add("요약하고 고르기","핵심 내용을 내 말로 정리해요",
+      `<p class="prompt">① 영상 전체 내용을 두 문장으로 요약해 보세요.</p>${linesH(2)}<p class="prompt" style="margin-top:10px">② 1번의 다섯 문장 중 가장 중요하다고 생각하는 문장의 번호와 그 까닭을 써 보세요.</p><div class="promise"><b>번호</b><i></i><b>까닭</b><i></i></div>${linesH(1)}`,
+      "  ① 영상 전체 내용을 두 문장으로 요약해 보세요.\n"+linesT(2)+"  ② 1번의 다섯 문장 중 가장 중요한 문장의 번호와 까닭: 번호 (    )\n"+linesT(2));
+    add("탐구하기","",`<p class="prompt">${esc(t.th[2])}</p>${linesH(5)}`,`  ${t.th[2]}\n`+linesT(5));
+    add("프로젝트","",`<p class="prompt">${esc(t.ap[2])}</p>${linesH(6)}`,`  ${t.ap[2]}\n`+linesT(6));
+    add("새로 안 점, 더 알고 싶은 점","",`<div class="promise"><b>새로 안 점</b><i></i><b>궁금한 점</b><i></i></div>`,"  새로 안 점: ____________\n  궁금한 점: ____________");
+  }
+  return sec;
+}
+function teacherAnswers(t,band){
+  if(band==="12"){const f=t.f.slice(0,3);return {fill:answers(f),ox:t.ox.slice(0,2)}}
+  if(band==="34")return {fill:answers(t.f.slice(1,5)),ox:t.ox.slice(0,3)};
+  return {fill:answers(t.f),ox:t.ox.filter(o=>!o[1]).slice(0,2)};
+}
+const BAND_NOTE={"12":"두 낱말 중 고르기, 그림 그리기, 말하기 중심","34":"빈칸(헷갈리는 낱말 포함), 틀린 문장 고쳐 쓰기, 약속 정하기","56":"낱말 상자 없는 핵심 내용 쓰기, 친구에게 조언하기, 까닭 밝히기, 탐구와 프로젝트"};
+
+/* 활동지 블록: [머리띠, 목표줄, 문항…, 스스로 평가] — 화면과 PDF가 같은 블록을 씀 */
+function sheetBlocks(t,band,show){
+  const B=BANDS[band],S=SERIES[t.s];
+  const head=`<div class="band"><div><div class="kick"><span>${S.name}</span><span>${esc(t.ep)}</span><span class="gr">${B.label}</span></div><h2>${esc(t.t)}</h2></div>
+    <div class="namebox"><span>학년 반</span><span></span><span>번호</span><span></span><span>이름</span><span></span></div></div>`;
+  const goal=`<div class="goalrow"><img src="${thumb(t)}" alt="${esc(t.t)} 썸네일"><div class="gl"><p><b>주제</b>${esc(t.topic)}</p><p><b>목표</b>${esc(t.goal)}</p><small>영상: <a href="${watch(t)}" target="_blank" rel="noopener">${watch(t)}</a> · ${S.ch}${t.d?" · "+t.d:""}</small></div></div>`;
+  const secs=buildSections(t,band,show).map((s,i)=>`<section class="q"><h4><span class="n">${i+1}</span>${esc(s.title)}${s.sub?`<small>${esc(s.sub)}</small>`:""}</h4>${s.html}</section>`);
+  const self=`<div class="self"><b>스스로 평가</b><span>영상을 집중해서 보았나요? <em>☆☆☆</em></span><span>${band==="56"?"근거를 들어 설명했나요?":"약속을 지킬 수 있나요?"} <em>☆☆☆</em></span></div>`;
+  return {head,body:[goal,...secs,self]};
+}
+function teacherHTML(t,band){
+  const ta=teacherAnswers(t,band);
+  return `<aside class="teacher" aria-label="교사용 자료">
+    <h3>교사용 · 관련 성취기준</h3>
+    <div class="std">${STD[t.c][band].map(([s,p])=>`<div><div class="subj">${esc(s)}</div><p>${esc(p)}</p></div>`).join("")}
+      <div><div class="subj">학교안전교육 7대 영역</div><p>${SAFE7[t.c]}</p></div></div>
+    <dl>
+      <dt>학습 목표</dt><dd>${esc(t.goal)}</dd>
+      <dt>문항 구성</dt><dd>${BAND_NOTE[band]}</dd>
+      <dt>${band==="12"?"고르기 정답":"빈칸 정답"}</dt><dd>${ta.fill.map((a,i)=>`${i+1}) ${esc(a)}`).join(" · ")}</dd>
+      <dt>${band==="56"?"조언하기":"○× 정답"}</dt><dd>${band==="56"?ta.ox.map(o=>`"${esc(o[0])}"는 틀린 생각(×)`).join(" · ")||"없음":ta.ox.map((o,i)=>`${i+1}) ${o[1]?"○":"×"}`).join(" · ")}</dd>
+      <dt>지도 팁</dt><dd>${esc(t.tip)}</dd>
+    </dl>
+    <p class="note">활동지는 공식 채널의 회차 제목과 주제를 바탕으로 만들었습니다. 대사와 장면까지 맞춘 것은 아니므로 수업 전에 영상을 한 번 보고 낱말을 고쳐 쓰세요. 성취기준은 2022 개정 교육과정의 교과·영역과 요지이며, 코드와 원문은 국가교육과정정보센터(NCIC)에서 확인하세요.</p>
+  </aside>`;
+}
+
+let DL=null,dlChecked=false;
+function renderSheet(){
+  const t=byV(state.v),B=BANDS[state.band],S=SERIES[t.s],show=state.teacher;
+  const {head,body}=sheetBlocks(t,state.band,show);
+  const inClaude=!!(window.claude&&window.claude.use);
+  const pdfUI=inClaude&&dlChecked&&!DL
+    ?`<span class="toast" style="display:block">PDF 저장은 claude.ai에서 이 페이지를 열면 쓸 수 있어요. 지금은 '글 복사'를 써 주세요.</span>`
+    :`<button class="btn primary" id="pdf1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>PDF 저장</button>
+      <button class="btn" id="pdf3">세 학년 모두 PDF</button>${inClaude?"":`<button class="btn" id="prn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v7H8z"/></svg>인쇄</button>`}`;
+  document.getElementById("side").innerHTML=`
+  <div class="toolbar">
+    ${pdfUI}
+    <button class="btn" id="copy">글 복사</button>
+    <span class="tb-spacer"></span>
+    <div class="seg" role="group" aria-label="보기"><button id="vStu" aria-pressed="${!show}">학생용</button><button id="vTea" aria-pressed="${show}">교사용(정답)</button></div>
+    <a class="btn" href="${watch(t)}" target="_blank" rel="noopener">▶ 영상</a>
+    <span class="toast" id="toast" role="status"></span>
+  </div>
+  <article class="sheet ${S.cls}">${head}<div class="inner">${body.join("")}</div></article>
+  ${show?teacherHTML(t,state.band):""}`;
+  document.getElementById("vStu").onclick=()=>{state.teacher=false;renderSheet()};
+  document.getElementById("vTea").onclick=()=>{state.teacher=true;renderSheet()};
+  document.getElementById("copy").onclick=()=>copyText(t,B,buildSections(t,state.band,show),teacherAnswers(t,state.band));
+  const p1=document.getElementById("pdf1"),p3=document.getElementById("pdf3");
+  if(p1) p1.onclick=()=>savePDF(t,[state.band]);
+  if(p3) p3.onclick=()=>savePDF(t,["12","34","56"]);
+  const pr=document.getElementById("prn");if(pr) pr.onclick=()=>window.print();
+}
+function toast(msg,kind){const el=document.getElementById("toast");if(!el)return;el.textContent=msg;el.className="toast "+(kind||"");}
+
+/* ---------- PDF ---------- */
+const LIBS=["https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js","https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"];
+function loadScript(src){return new Promise((ok,no)=>{if(document.querySelector(`script[src="${src}"]`)&&(window.html2canvas&&src.includes("html2canvas")||window.jspdf&&src.includes("jspdf")))return ok();const s=document.createElement("script");s.src=src;s.onload=ok;s.onerror=()=>no(new Error("load"));document.head.appendChild(s)})}
+async function loadLibs(){for(const s of LIBS)await loadScript(s)}
+
+function buildPages(root,t,band,show){
+  const {head,body}=sheetBlocks(t,band,show);
+  const S=SERIES[t.s],B=BANDS[band];
+  const pages=[];const FOOT=70;
+  const newPage=(first)=>{
+    const pg=document.createElement("div");pg.className="pdf-page";
+    pg.innerHTML=`<article class="sheet ${S.cls}">${first?head:""}<div class="${first?"inner":"cont"}"></div></article><div class="pdf-foot"><span>${esc(S.name)} ${esc(t.ep)} · ${esc(t.t)} · ${B.label}</span><span class="pn"></span></div>`;
+    root.appendChild(pg);pages.push(pg);return pg;
+  };
+  const fits=pg=>{const sh=pg.querySelector(".sheet");return sh.scrollHeight<=1123-FOOT};
+  let pg=newPage(true);
+  const place=(html)=>{
+    const box=pg.querySelector(".inner,.cont");
+    const tmp=document.createElement("div");tmp.innerHTML=html;const el=tmp.firstElementChild;
+    box.appendChild(el);
+    if(!fits(pg)&&box.children.length>1){el.remove();pg=newPage(false);pg.querySelector(".cont").appendChild(el)}
+  };
+  body.forEach(place);
+  if(show){pg=newPage(false);pg.querySelector(".cont").innerHTML=teacherHTML(t,band)}
+  return pages;
+}
+
+async function savePDF(t,bands){
+  const S=SERIES[t.s];
+  const btns=[document.getElementById("pdf1"),document.getElementById("pdf3")].filter(Boolean);
+  btns.forEach(b=>b.disabled=true);
+  const ov=document.createElement("div");ov.className="busy";ov.innerHTML=`<div><b>PDF를 만들고 있어요</b><br><span id="bmsg">준비 중…</span><progress id="bprog" max="1" value="0"></progress></div>`;document.body.appendChild(ov);
+  const root=document.createElement("div");root.className="pdf-root";document.body.appendChild(root);
+  try{
+    await loadLibs();
+    try{await document.fonts.ready}catch(e){}
+    const {jsPDF}=window.jspdf;const pdf=new jsPDF({unit:"mm",format:"a4"});
+    const all=[];bands.forEach(b=>{all.push(...buildPages(root,t,b,state.teacher))});
+    await Promise.all([...root.querySelectorAll("img")].map(im=>im.complete?0:new Promise(r=>{im.onload=im.onerror=r})));
+    all.forEach((pg,i)=>pg.querySelector(".pn").textContent=`${i+1} / ${all.length}`);
+    for(let i=0;i<all.length;i++){
+      document.getElementById("bmsg").textContent=`${i+1} / ${all.length}쪽 그리는 중`;
+      document.getElementById("bprog").value=(i)/all.length;
+      const cv=await window.html2canvas(all[i],{scale:2,backgroundColor:"#ffffff",useCORS:true,logging:false,windowWidth:794});
+      if(i)pdf.addPage();
+      pdf.addImage(cv.toDataURL("image/jpeg",0.9),"JPEG",0,0,210,297);
+    }
+    document.getElementById("bprog").value=1;
+    const blob=pdf.output("blob");
+    const who=state.teacher?" (교사용)":"";
+    const gl=bands.length>1?"1~6학년":BANDS[bands[0]].label;
+    const name=`${S.name} ${t.ep} ${t.t} ${gl}${who}.pdf`.replace(/[\\/:*?"<>|!]/g,"").replace(/\s+/g," ");
+    ov.remove();
+    if(!DL){
+      /* claude.ai 밖(일반 웹사이트): 브라우저가 바로 내려받고, 새 탭에서도 열어 인쇄할 수 있게 함 */
+      const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
+      toast(`내려받았어요: ${name}`,"ok");setTimeout(()=>URL.revokeObjectURL(url),60000);return}
+    try{await DL.save({filename:name,data:blob});toast(`저장했어요: ${name}`,"ok")}
+    catch(e){
+      const c=e&&e.code;
+      toast(c==="declined"?"저장을 취소했어요.":c==="rate_limited"?"이미 저장 창이 열려 있어요. 잠시 뒤 다시 눌러 주세요.":"이 화면에서는 PDF를 저장할 수 없어요. claude.ai에서 열어 주세요.","err");
+    }
+  }catch(e){
+    toast("PDF를 만들지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요.","err");
+  }finally{ov.remove();root.remove();btns.forEach(b=>b.disabled=false)}
+}
+(async()=>{try{DL=window.claude&&window.claude.use?await window.claude.use("downloads"):null}catch(e){DL=null}dlChecked=true;renderSheet()})();
+
+function copyText(t,B,secs,ta){
+  const S=SERIES[t.s];
+  let s=`[${S.name} ${t.ep}] ${t.t} (${B.label})\n주제: ${t.topic}\n학습 목표: ${t.goal}\n영상: ${watch(t)}\n학년 반 ____  번호 ____  이름 ________\n\n`;
+  s+=secs.map((x,i)=>`${i+1}. ${x.title}${x.sub?` (${x.sub})`:""}\n${x.text}`).join("\n\n")+"\n";
+  if(state.teacher) s+=`\n---- 교사용 ----\n`+STD[t.c][state.band].map(([a,b])=>`· ${a}: ${b}`).join("\n")+`\n· 학교안전교육 7대 영역: ${SAFE7[t.c]}\n정답: ${ta.fill.join(", ")}\n`+(state.band==="56"?"":`○× 정답: ${ta.ox.map(o=>o[1]?"○":"×").join(", ")}\n`)+`지도 팁: ${t.tip}\n`;
+  const toast=document.getElementById("toast");
+  const done=()=>{toast.textContent="복사했어요. 한글·워드에 붙여 넣으세요.";setTimeout(()=>toast.textContent="",3000)};
+  const fallback=()=>{const x=document.createElement("textarea");x.value=s;document.body.appendChild(x);x.select();try{document.execCommand("copy");done()}catch(e){toast.textContent="복사가 막혔어요. 글을 직접 선택해 복사하세요."}x.remove()};
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(s).then(done,fallback); else fallback();
+}
+
+function fromHash(){
+  const m=(location.hash||"").match(/^#v(12|34|56)-([A-Za-z0-9-]+)$/);
+  if(m&&byV(fromHashId(m[2]))){state.band=m[1];state.v=fromHashId(m[2])}
+}
+fromHash();
+document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value.trim();renderList()});
+window.addEventListener("hashchange",()=>{fromHash();renderList();renderSheet()});
+document.getElementById("total").textContent=T.length;
+renderChips();renderList();renderSheet();
+</script>
+</body></html>
